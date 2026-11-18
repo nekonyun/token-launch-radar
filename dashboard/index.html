@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — The Midnight Ledger</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <p class="kicker">DefiLlama snapshot &middot; 14 November 2026 &middot; 758 protocols &middot; $50M floor</p>
+  <h1>Token Launch Radar</h1>
+  <p class="sub">Which protocols without a token are worth farming, and what a launch might be worth. A ledger, not a tip sheet: every number below is fitted from the snapshot itself.</p>
+  <dl class="ledger-line" id="ledgerLine"></dl>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button class="tab active" data-view="board" type="button">The Board</button>
+  <button class="tab" data-view="live" type="button">Live Tokens</button>
+  <button class="tab" data-view="method" type="button">Method &amp; Proof</button>
+</nav>
+
+<section id="view-board" class="view">
+  <div class="toolbar">
+    <label class="search">Search <input id="q" type="search" placeholder="protocol, category, chain&hellip;" autocomplete="off"></label>
+    <div class="chips" id="verdictChips" role="group" aria-label="Verdict filter">
+      <button class="chip active" data-verdict="" type="button">All</button>
+      <button class="chip" data-verdict="FARM" type="button">Farm</button>
+      <button class="chip" data-verdict="THIN" type="button">Thin</button>
+      <button class="chip" data-verdict="SKIP" type="button">Skip</button>
+    </div>
+    <label class="select">Category
+      <select id="cat"><option value="">All categories</option></select>
+    </label>
+    <label class="select">Sort
+      <select id="sort">
+        <option value="rank">Rank</option>
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="drop">Drop per $1,000</option>
+        <option value="net">Net per $1,000</option>
+        <option value="change">7-day change</option>
+      </select>
+    </label>
+  </div>
+  <p class="count" id="count"></p>
+  <div class="table-wrap">
+    <table id="board">
+      <thead>
+        <tr>
+          <th class="num">Rank</th>
+          <th>Protocol</th>
+          <th>Category</th>
+          <th>Chains</th>
+          <th class="num">TVL</th>
+          <th class="num">7d</th>
+          <th class="num">Implied value</th>
+          <th class="num">Drop / $1k</th>
+          <th class="num">Net / $1k</th>
+          <th>Verdict</th>
+          <th class="num">Rank range</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="footnote">Rank range: where the row lands across 200 refits of the model, each dropping a rotating tenth of the traded tokens. A narrow range means the rank is stable, not a rounding accident.</p>
+</section>
+
+<section id="view-live" class="view" hidden>
+  <p class="lede">Protocols in the same snapshot that already trade. They are the comparables the curve is fitted on, shown here so the reader can check the fit against reality.</p>
+  <div class="table-wrap">
+    <table id="live">
+      <thead>
+        <tr>
+          <th>Protocol</th>
+          <th>Category</th>
+          <th>Chains</th>
+          <th class="num">TVL</th>
+          <th class="num">Market cap</th>
+          <th class="num">MCap / TVL</th>
+          <th class="num">7d</th>
+        </tr>
+      </thead>
+      <tbody id="liveRows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="view-method" class="view" hidden>
+  <h2>How the numbers are made</h2>
+  <div class="method-grid">
+    <div class="panel">
+      <h3>The formula</h3>
+      <p class="formula">log&#8321;&#8320;(implied value) = 2.0371 + 0.6541 &middot; log&#8321;&#8320;(TVL)<br>+ category offset &plusmn;0.25 &middot; growth &plusmn;0.15 &middot; tenure &plusmn;0.10</p>
+      <p>The curve is a Theil&ndash;Sen fit of log market cap against log TVL over the 112 traded protocols that survive the filter below. Category offsets are the mean residual per category, shrunk toward zero and capped at &plusmn;0.25 in log10. Growth is the fitted slope on the 7-day TVL change, clamped to &plusmn;0.15. Tenure is the fitted slope on days listed, capped at 1,095 days and clamped to &plusmn;0.10. Nothing is hard-coded by name: the fit is recomputed from the snapshot on every run.</p>
+      <h3>The filter</h3>
+      <p>Of 144 traded protocols, 16 are set aside for a zero or negative market cap, 7 for a market-cap-to-TVL ratio outside 0.005&ndash;20, and 9 for being exchanges. A token at 400&times; its TVL is not priced on TVL at all; a token at 0.001&times; is effectively dead. The filter is stated here so the reader can disagree with it.</p>
+      <h3>The farm verdict</h3>
+      <p>The airdrop pool is taken as 10% of the implied value, shared pro-rata across TVL, so a $1,000 ticket earns implied &times; 0.10 &times; 1,000 / TVL. Gas is priced per transaction by the protocol's main chain (Ethereum $12, Base/Arbitrum/Optimism/Blast $1, Solana/Polygon/Sui/Aptos $0.10, BNB/Avalanche/Fantom/Tron $0.50, anything else $2) and multiplied by the plan's transaction count: setup, one a week through the hold, and the claim. <strong>FARM</strong> if the net is $25 or more, <strong>THIN</strong> if it is $0 or more, <strong>SKIP</strong> if the drop does not cover the gas.</p>
+    </div>
+    <div class="panel">
+      <h3>Out-of-sample proof</h3>
+      <table class="proof" id="proofTable">
+        <thead><tr><th>Check</th><th class="num">This board</th><th class="num">Flat multiple</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p>Leave-one-out refits the model 112 times, holding one traded token out each time. Walk-forward fits only the older half of the dated traded tokens and tests the newer half. The flat multiple is the starter's rule, 0.25&times; TVL, fitted the same way. The curve beats it on both checks, and on the share of tokens predicted within 3&times;.</p>
+      <h3>What the board covers</h3>
+      <p id="coverage"></p>
+      <h3>The fit, drawn</h3>
+      <div id="chart"></div>
+      <p class="caption">Each dot is a traded protocol, market cap against TVL, both on log scales. The copper line is the fitted curve. The gold rings are the top ten pre-token rows, placed at their implied values.</p>
+    </div>
+  </div>
+</section>
+
+<dialog id="detail">
+  <button class="close" id="closeDetail" type="button" aria-label="Close">&times;</button>
+  <div id="detailBody"></div>
+</dialog>
+
+<footer>
+  <p>Built from the sealed DefiLlama snapshot of 14 November 2026. Model version <span id="modelVersion"></span>. No live data, no network calls: everything on this page comes from the snapshot file.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
