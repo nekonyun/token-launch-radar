@@ -1,0 +1,90 @@
+{
+ "coverage": {
+  "board_198": {
+   "fees_365d_gt0": 115,
+   "fees_adapter": 118,
+   "raises": 40
+  },
+  "comps_104": {
+   "fees_30d_gt0": 69,
+   "fees_365d_gt0": 74,
+   "fees_adapter": 75,
+   "github_orgs": 53,
+   "raises": 41,
+   "tvl_pit": 103
+  },
+  "watchlist_40": {
+   "fees_365d_gt0": 27,
+   "fees_adapter": 27,
+   "token_born_both_sources": 11,
+   "token_born_verdicts": {
+    "likely_token": 6,
+    "no_pool": 29,
+    "parent_token_trades": 2,
+    "possible_weak": 2,
+    "token_is_product": 1
+   }
+  }
+ },
+ "fetched_at_utc": "2026-11-18",
+ "launch_watch": [
+  {
+   "address": "0x5946e5132d2da3044e4f7fcc409c622acb8275442b1c771d66796c51b33a4960",
+   "fdv_usd": 12010091,
+   "name": "USIO / WETH",
+   "network": "base",
+   "pool_created_at": "2026-11-18T08:02:03Z",
+   "reserve_in_usd": "1801365.8137"
+  },
+  {
+   "address": "0x5b38b4ceac9cdaaf6da9710169b15401f634278483147d6558248993013ad705",
+   "fdv_usd": 7923094,
+   "name": "BTR / USDC 6.696%",
+   "network": "eth",
+   "pool_created_at": "2026-11-18T07:51:35Z",
+   "reserve_in_usd": "5999.8029"
+  },
+  {
+   "address": "0x097b5df1e0c7f6e2340231a3cb3cd00a92190b828a2fdb67431a76f9ee026205",
+   "fdv_usd": 5623673,
+   "name": "WASTED / ETH 1%",
+   "network": "eth",
+   "pool_created_at": "2026-11-18T07:35:47Z",
+   "reserve_in_usd": null
+  },
+  {
+   "address": "0x6d7a4535149c0a3dab7f6a568bc83e67e88baa1a1b9d670e0e9fde21b1c92289",
+   "fdv_usd": 162225,
+   "name": "DACITY / WETH",
+   "network": "base",
+   "pool_created_at": "2026-11-18T07:55:29Z",
+   "reserve_in_usd": "156766.1429"
+  },
+  {
+   "address": "0x4cace95f5b5427ca27313a4deb1c575fa4b85b446b8bfdc5a1f3ba47333d938a",
+   "fdv_usd": 117354,
+   "name": "LYX / USDC 9.5%",
+   "network": "eth",
+   "pool_created_at": "2026-11-18T07:08:59Z",
+   "reserve_in_usd": "0.0"
+  },
+  {
+   "address": "0x8fdaa393b662cdac43f9c7a958ec1eac71153f81fd7f72fa8ac5b438272fc6d6",
+   "fdv_usd": 103185,
+   "name": "LYX / USDT 15%",
+   "network": "eth",
+   "pool_created_at": "2026-11-18T07:05:47Z",
+   "reserve_in_usd": "0.0"
+  }
+ ],
+ "model_decision": "No enrichment signal was adopted; model stays radar-3. See README + method panel for the validation table.",
+ "point_in_time": "2026-11-14",
+ "slugs": 302,
+ "sources": {
+  "dev_activity": "Electric Capital open-dev-data taxonomy exported at 2026-11-14 (7,072,900 lines, 7,665 ecosystems; MIT code / CC BY 4.0 data, attribution: Open Dev Data by Electric Capital, CC BY 4.0). Exact repo match for only 6/104 comps, so no commit-count term was fitted; github orgs come from DefiLlama /protocol/{slug}.",
+  "fees_tvl_raises": "DefiLlama free API (api.llama.fi): GET /overview/fees (coverage), GET /summary/fees/{slug} (daily fees chart), GET /protocol/{slug} (daily TVL, raises, github). No key. Fees are daily FEES (totalDataChart); no daily revenue series is exposed, so annualized fees are used, not revenue.",
+  "launch_watch": "GeckoTerminal keyless /networks/{eth,base,solana}/new_pools (2026-11-18T08:30Z), filtered to pools created within 48h with FDV >= $100K.",
+  "token_born": "DexScreener official API /latest/dex/search (2026-11-18) for all 40 watchlist names; GeckoTerminal keyless /search/pools (2026-11-18) for the 11 name-match candidates."
+ },
+ "tvl_sanity": "Reconstructed TVL at 2026-11-14 vs snapshot tvl_usd for 104 comps: median abs diff 0.31%, mean 1.22%; worst stusdt 80.0% (pit $9,491,269 vs snapshot $47,373,718). Median <= 2% passes the design gate."
+}

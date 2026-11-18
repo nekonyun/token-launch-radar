@@ -22,7 +22,7 @@ html { background: var(--paper); }
 body {
   margin: 0 auto;
   max-width: 1180px;
-  padding: 28px 20px 40px;
+  padding: 28px 10px 40px;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--mono);
@@ -173,7 +173,7 @@ h1 .hl { color: var(--accent); }
   box-shadow: 4px 4px 0 var(--shadow);
   overflow-x: auto;
 }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th {
   text-align: left;
   font-size: 10px;
@@ -181,10 +181,10 @@ thead th {
   text-transform: uppercase;
   color: #fff;
   background: var(--accent-deep);
-  padding: 9px 10px;
+  padding: 9px 5px;
   white-space: nowrap;
 }
-tbody td { padding: 9px 10px; border-bottom: 1px solid var(--faint); vertical-align: top; }
+tbody td { padding: 8px 5px; border-bottom: 1px solid var(--faint); vertical-align: top; }
 tbody tr:nth-child(even) { background: #100c1e; }
 tbody tr:hover { background: #1c1332; }
 .num { text-align: right; font-variant-numeric: tabular-nums; }
@@ -206,6 +206,7 @@ td small, .lede small { color: var(--mut); font-size: 11px; }
 .verdict.SKIP { background: transparent; color: var(--mut); border-style: dashed; border-color: var(--mut); }
 .footnote, .caption { font-size: 12px; color: var(--mut); }
 .lede { font-size: 14px; max-width: 72ch; }
+.spark { vertical-align: middle; display: block; }
 
 /* Method panels. */
 .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -240,6 +241,7 @@ dialog {
   padding: 0;
   max-width: 640px;
   width: calc(100% - 40px);
+  max-height: 92vh;
 }
 dialog::backdrop { background: rgba(7, 6, 12, 0.8); }
 dialog .close {
@@ -258,7 +260,7 @@ dialog .close {
   cursor: pointer;
 }
 dialog .close:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-#detailBody { padding: 22px 24px; }
+#detailBody { padding: 22px 24px; max-height: calc(92vh - 4px); overflow-y: auto; }
 #detailBody::after {
   content: "\25BC";
   display: block;

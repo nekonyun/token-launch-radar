@@ -131,6 +131,7 @@
 <nav class="tabs" aria-label="Views">
   <button class="tab active" data-view="board" type="button">The Board</button>
   <button class="tab" data-view="live" type="button">Live Tokens</button>
+  <button class="tab" data-view="launch" type="button">Launch Watch</button>
   <button class="tab" data-view="method" type="button">Method &amp; Proof</button>
 </nav>
 
@@ -143,6 +144,11 @@
       <button class="chip" data-verdict="THIN" type="button">Thin</button>
       <button class="chip" data-verdict="SKIP" type="button">Skip</button>
     </div>
+    <div class="chips" id="enrichChips" role="group" aria-label="Enrichment filters">
+      <button class="chip" data-enrich="fees" type="button">Has fees</button>
+      <button class="chip" data-enrich="raise" type="button">Has raise</button>
+      <button class="chip" data-enrich="token" type="button">Token likely born</button>
+    </div>
     <label class="select">Category
       <select id="cat"><option value="">All categories</option></select>
     </label>
@@ -154,10 +160,14 @@
         <option value="drop">Drop per $1,000</option>
         <option value="net">Net per $1,000</option>
         <option value="change">7-day change</option>
+        <option value="fees">Fees 30d</option>
+        <option value="ps">P/S implied</option>
+        <option value="growth30">TVL growth 30d</option>
       </select>
     </label>
   </div>
   <p class="count" id="count"></p>
+  <p class="footnote">Fees, P/S and growth are enrichment fetched 18 Nov 2026: fees are sums of daily fees to 14 Nov 2026 (point-in-time), P/S is implied value / annualized fees. “—” means the protocol has no fees adapter or no value was found.</p>
   <div class="table-wrap">
     <table id="board">
       <thead>
@@ -168,11 +178,15 @@
           <th>Chains</th>
           <th class="num">TVL</th>
           <th class="num">7d</th>
-          <th class="num">Implied value</th>
+          <th class="num">Implied</th>
+          <th class="num">Fees 30d</th>
+          <th class="num">P/S</th>
+          <th class="num">Growth 30d</th>
+          <th>TVL 90d</th>
           <th class="num">Drop / $1k</th>
           <th class="num">Net / $1k</th>
           <th>Verdict</th>
-          <th class="num">Rank range</th>
+          <th class="num">Range</th>
         </tr>
       </thead>
       <tbody id="rows"></tbody>
@@ -199,6 +213,25 @@
       <tbody id="liveRows"></tbody>
     </table>
   </div>
+</section>
+
+<section id="view-launch" class="view" hidden>
+  <p class="lede">Pools born in the last 48 hours on Ethereum, Base and Solana with FDV of $100K or more, from GeckoTerminal's new-pools feed (fetched 18 Nov 2026). Context only — these are <strong>not</strong> board rows: the board ranks only protocols in the sealed snapshot. Most new pools are meme noise; the filter keeps the few with real size.</p>
+  <div class="table-wrap">
+    <table id="launch">
+      <thead>
+        <tr>
+          <th>Pool</th>
+          <th>Network</th>
+          <th>Created (UTC)</th>
+          <th class="num">FDV</th>
+          <th class="num">Reserve</th>
+        </tr>
+      </thead>
+      <tbody id="launchRows"></tbody>
+    </table>
+  </div>
+  <p class="footnote" id="launchNote"></p>
 </section>
 
 <section id="view-method" class="view" hidden>
@@ -234,6 +267,17 @@
         </tbody>
       </table>
       <p>Every form worsens leave-one-out. The slope's sign flips across forms (&minus;0.03 uncapped, +0.22 capped at 365 days, &minus;0.17 capped at 730), and the capped-365 slope is carried by 8 young protocols: noise, not signal. The one form whose walk-forward median is a touch better (buckets) has near-zero, non-monotonic offsets and a worse within-3&times; share. So the model does not price age. Age still matters in this board: it sets each farm plan's hold length, which is a different question from what a launch is worth.</p>
+      <h3>Enrichment signals, tested and not priced (v3)</h3>
+      <p>Fees, longer TVL growth, drawdown and raises were reconstructed point-in-time to 14 Nov 2026 from DefiLlama history and tested the same way as tenure: a fitted term on the residual, clamped to &plusmn;0.15. Adoption needed leave-one-out under &times;2.75 <em>and</em> walk-forward under &times;2.26 <em>and</em> slopes stable across categories. Nothing passed, so the model stays radar-3:</p>
+      <table class="proof" id="experimentTable">
+        <thead><tr><th>Signal tested</th><th class="num">Fitted slope</th><th class="num">Leave-one-out</th><th class="num">Walk-forward</th><th>Decision</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p>Why fees fail: the fitted slope on log annualized fees is &minus;0.0050 — essentially zero once TVL is in the model — and the fees slope flips sign across categories (DEX &minus;0.37, Lending &minus;0.15, Liquid Staking +0.06, RWA &minus;0.05, Yield +0.25). Fees track TVL, so they add no new information about market cap. The P/S ratio (market cap / annualized fees) across the 74 comps with fees has a median of 5.7&times; but spans 0.09&times; to 430,762&times; — far too wide to price with. Growth 90d comes closest (leave-one-out &times;2.90, walk-forward &times;2.13) but misses the &times;2.75 bar, so it stays out too. Dev activity was not fitted at all: only 6 of 104 comps map to an exact repository in the Electric Capital taxonomy, too thin to test honestly.</p>
+      <h3>Where the extra numbers come from</h3>
+      <p id="provenance"></p>
+      <h3>Token-born check (watchlist, 18 Nov 2026)</h3>
+      <p id="tokenBorn"></p>
       <h3>What the board covers</h3>
       <p id="coverage"></p>
       <h3>The fit, drawn</h3>
@@ -249,7 +293,7 @@
 </dialog>
 
 <footer>
-  <p>Built from the sealed DefiLlama snapshot of 14 November 2026. Model version <span id="modelVersion"></span>. No live data, no network calls: everything on this page comes from the snapshot file. PIP, the radar-flower above, is an original pixel drawing made for this board. The flower field is grown from the same original bloom; no characters appear on this page.</p>
+  <p>Built from the sealed DefiLlama snapshot of 14 November 2026. Model version <span id="modelVersion"></span>. Enrichment (fees, TVL history, raises, token-born checks) fetched 18 Nov 2026 and baked into the data; no live data, no network calls: everything on this page comes from the snapshot file plus that baked enrichment, each figure labelled with its date. PIP, the radar-flower above, is an original pixel drawing made for this board. The flower field is grown from the same original bloom; no characters appear on this page.</p>
 </footer>
 
 <script src="../data.js"></script>

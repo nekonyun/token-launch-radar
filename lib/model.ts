@@ -78,6 +78,86 @@ export interface FittedModel {
 /** The model's version label: the dashboard names it and the rules quote it. */
 export const MODEL_VERSION = 'radar-3';
 
+/** v3 enrichment: what the build-time fetches found, per slug (point-in-time 2026-11-14
+ *  for fees/TVL/raises; token-born checks fetched 2026-11-18). main.ts reads
+ *  lib/enrichment.json; the graded run does no network. */
+export interface TokenBornEvidence {
+  chain: string | null;
+  dex: string | null;
+  pair_address: string | null;
+  token_address: string | null;
+  token_symbol: string | null;
+  token_name: string | null;
+  liquidity_usd: number | null;
+  pair_created_at_ms: number | null;
+}
+export interface TokenBorn {
+  verdict: 'likely_token' | 'parent_token_trades' | 'token_is_product' | 'possible_weak' | 'no_pool';
+  note: string;
+  checked: string;
+  sources: string[];
+  evidence?: TokenBornEvidence;
+}
+export interface RaiseEntry {
+  date: string;
+  round: string | null;
+  amount_usd_m: number | null;
+  lead: string[];
+}
+export interface EnrichmentEntry {
+  slug: string;
+  tvl_pit?: number;
+  tvl_growth_30d_pct?: number;
+  tvl_growth_90d_pct?: number;
+  tvl_spark_90d?: number[];
+  tvl_max_1d_jump_pct?: number;
+  tvl_max_drawdown_90d_pct?: number;
+  raises?: RaiseEntry[];
+  raises_total_usd_m?: number;
+  raises_count?: number;
+  github_orgs?: string[];
+  fees_365d_usd?: number;
+  fees_30d_usd?: number;
+  fees_has_adapter?: boolean;
+  token_born?: TokenBorn;
+}
+export interface LaunchWatchPool {
+  network: string;
+  name: string;
+  address: string;
+  pool_created_at: string;
+  fdv_usd: number;
+  reserve_in_usd: string | null;
+}
+
+/** The v3 signal experiments, measured 18 Nov 2026 on point-in-time data (see
+ *  v3-model-experiments.py in the coordinator's workspace for the reproduction).
+ *  Adoption needed LOO < x2.75 AND walk-forward < x2.26 AND stable slopes per
+ *  category. Nothing passed, so the model stays radar-3 and v3 wins on the
+ *  dashboard instead — the same honest rejection the tenure table already shows. */
+export interface ExperimentRow {
+  signal: string;
+  slope: string;
+  loo: string;
+  wf: string;
+  decision: string;
+}
+export const EXPERIMENTS: ExperimentRow[] = [
+  { signal: 'No new term (this board)', slope: '—', loo: '×2.96 (51%)', wf: '×2.26 (62%)', decision: 'baseline' },
+  { signal: 'Fees, log10(annualized 365d)', slope: '−0.0050', loo: '×3.18 (48%)', wf: '×2.54 (59%)', decision: 'rejected' },
+  { signal: 'Fees 30d × 12, log10', slope: '+0.0173', loo: '×3.26 (48%)', wf: '×2.49 (59%)', decision: 'rejected' },
+  { signal: 'TVL growth 30d, log', slope: '−0.1611', loo: '×2.99 (50%)', wf: '×2.24 (62%)', decision: 'rejected' },
+  { signal: 'TVL growth 90d, log', slope: '−0.2181', loo: '×2.90 (52%)', wf: '×2.13 (59%)', decision: 'rejected' },
+  { signal: 'Max TVL drawdown 90d', slope: '+0.0501', loo: '×2.97 (51%)', wf: '×2.13 (59%)', decision: 'rejected' },
+  { signal: 'Raised before 14 Nov 2026 (dummy)', slope: '+0.1232', loo: '×3.20 (47%)', wf: '×2.34 (62%)', decision: 'rejected' },
+  { signal: 'Raised, log10(total $)', slope: '+0.1097', loo: '×3.27 (47%)', wf: '×2.26 (64%)', decision: 'rejected' },
+  { signal: 'Growth 30d REPLACES 7d growth', slope: '—', loo: '×3.23 (49%)', wf: '×2.35 (62%)', decision: 'rejected' },
+  { signal: 'Growth 90d REPLACES 7d growth', slope: '—', loo: '×3.04 (49%)', wf: '×2.04 (59%)', decision: 'rejected' },
+  { signal: 'Fees as the only predictor', slope: '+0.3843', loo: '×2.72 in-sample only (n=74)', wf: '—', decision: 'rejected' },
+  { signal: 'TVL + fees, two-predictor OLS', slope: 'logFees +0.0399', loo: '×2.94 (51%, n=74, no cat/growth)', wf: '—', decision: 'rejected' },
+  { signal: 'Dev activity (commits 90d)', slope: '—', loo: 'not fitted', wf: 'not fitted', decision: 'not tested: only 6/104 comps map to an exact repo' },
+];
+
 /** How many pre-token protocols the watchlist leaves out the early radar carries, by TVL. The
  *  snapshot holds 158 of them, so the board comes to 198 rows: the 40 on the watchlist and every
  *  genuine pre-token protocol outside it. */
@@ -163,6 +243,19 @@ export interface RadarRow {
   rank_low: number;
   rank_high: number;
   farm_steps: string[];
+  /** v3 enrichment (point-in-time 2026-11-14 unless noted); null when unmeasured. */
+  fees_30d_usd: number | null;
+  fees_365d_usd: number | null;
+  ps_implied: number | null;
+  tvl_growth_30d_pct: number | null;
+  tvl_growth_90d_pct: number | null;
+  tvl_spark_90d: number[] | null;
+  tvl_max_1d_jump_pct: number | null;
+  tvl_max_drawdown_90d_pct: number | null;
+  raises: RaiseEntry[] | null;
+  raises_total_usd_m: number | null;
+  github_orgs: string[] | null;
+  token_born: TokenBorn | null;
 }
 
 /** A live-token protocol: it already trades, so the board shows the market's own value, not a model's. */
@@ -214,6 +307,18 @@ export interface RadarData {
   live: LiveRow[];
   /** The traded protocols the curve is fitted on, for the chart: TVL and market cap pairs. */
   comps: Array<{ tvl_usd: number; mcap_usd: number }>;
+  /** v3: the enrichment the dashboard renders (fees, growth, raises, token-born). */
+  enrichment_meta: {
+    point_in_time: string;
+    fetched_at_utc: string;
+    fees_are_daily_fees_not_revenue: boolean;
+    comps_fees_365d_gt0: number;
+    comps_fees_adapter: number;
+    watchlist_token_born: Record<string, number>;
+  };
+  experiments: ExperimentRow[];
+  launch_watch: LaunchWatchPool[];
+  tvl_sanity: string;
 }
 
 /** Why the snapshot is not one this model can score. */
@@ -752,7 +857,8 @@ export function liveRows(snapshot: Snapshot): LiveRow[] {
 }
 
 /** A board row's compact form for data.js, with the farm plan carried whole. */
-export function radarRow(row: BoardRow): RadarRow {
+export function radarRow(row: BoardRow, enr?: EnrichmentEntry): RadarRow {
+  const fees365 = enr?.fees_365d_usd ?? null;
   return {
     rank: row.rank,
     slug: row.slug,
@@ -779,11 +885,29 @@ export function radarRow(row: BoardRow): RadarRow {
     rank_low: row.farm.rank_low,
     rank_high: row.farm.rank_high,
     farm_steps: row.farm_steps,
+    fees_30d_usd: enr?.fees_30d_usd ?? null,
+    fees_365d_usd: fees365,
+    ps_implied: fees365 !== null && fees365 > 0 ? Math.round((row.implied_value_usd / fees365) * 100) / 100 : null,
+    tvl_growth_30d_pct: enr?.tvl_growth_30d_pct ?? null,
+    tvl_growth_90d_pct: enr?.tvl_growth_90d_pct ?? null,
+    tvl_spark_90d: enr?.tvl_spark_90d ?? null,
+    tvl_max_1d_jump_pct: enr?.tvl_max_1d_jump_pct ?? null,
+    tvl_max_drawdown_90d_pct: enr?.tvl_max_drawdown_90d_pct ?? null,
+    raises: enr?.raises ?? null,
+    raises_total_usd_m: enr?.raises_total_usd_m ?? null,
+    github_orgs: enr?.github_orgs ?? null,
+    token_born: enr?.token_born ?? null,
   };
 }
 
 /** Everything the dashboard renders, from the snapshot and a fitted model. */
-export function buildRadar(snapshot: Snapshot, fit: FittedModel, validation: Validation): { board: BoardRow[]; radar: RadarData } {
+export function buildRadar(
+  snapshot: Snapshot,
+  fit: FittedModel,
+  validation: Validation,
+  enrichment?: Record<string, EnrichmentEntry>,
+  provenance?: { coverage?: { comps_104?: { fees_365d_gt0?: number; fees_adapter?: number }; watchlist_40?: { token_born_verdicts?: Record<string, number> } }; launch_watch?: LaunchWatchPool[]; tvl_sanity?: string },
+): { board: BoardRow[]; radar: RadarData } {
   const board = buildBoard(snapshot, fit);
   const live = liveRows(snapshot);
   const early = board.filter((r) => !snapshot.watchlist.includes(r.slug)).length;
@@ -798,9 +922,20 @@ export function buildRadar(snapshot: Snapshot, fit: FittedModel, validation: Val
     board_size: board.length,
     early_size: early,
     live_size: live.length,
-    rows: board.map(radarRow),
+    rows: board.map((r) => radarRow(r, enrichment?.[r.slug])),
     live,
     comps: fitComps(snapshot).comps.map((p) => ({ tvl_usd: p.tvl_usd, mcap_usd: p.mcap_usd! })),
+    enrichment_meta: {
+      point_in_time: '2026-11-14',
+      fetched_at_utc: '2026-11-18',
+      fees_are_daily_fees_not_revenue: true,
+      comps_fees_365d_gt0: provenance?.coverage?.comps_104?.fees_365d_gt0 ?? 0,
+      comps_fees_adapter: provenance?.coverage?.comps_104?.fees_adapter ?? 0,
+      watchlist_token_born: provenance?.coverage?.watchlist_40?.token_born_verdicts ?? {},
+    },
+    experiments: EXPERIMENTS,
+    launch_watch: provenance?.launch_watch ?? [],
+    tvl_sanity: provenance?.tvl_sanity ?? '',
   };
   return { board, radar };
 }

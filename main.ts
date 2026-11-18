@@ -48,7 +48,10 @@ const { comps, setAside } = fitComps(snapshot);
 const fit = fitModel(comps, snapshot.as_of);
 fit.comps_set_aside = setAside;
 const validation = validateModel(snapshot, comps, fit);
-const { board, radar } = buildRadar(snapshot, fit, validation);
+// v3 enrichment, baked at build time (no network in the graded run).
+const enrichment = JSON.parse(readFileSync(join(here, 'lib', 'enrichment.json'), 'utf8'));
+const provenance = JSON.parse(readFileSync(join(here, 'lib', 'enrichment-provenance.json'), 'utf8'));
+const { board, radar } = buildRadar(snapshot, fit, validation, enrichment, provenance);
 const issue = boardIssue(board, snapshot);
 if (issue !== null) {
   process.stderr.write(`token radar: the model wrote a board the gate refuses: ${issue}\n`);

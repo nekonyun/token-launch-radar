@@ -1,0 +1,8242 @@
+{
+ "3f": {
+  "fees_30d_usd": 1848,
+  "fees_365d_usd": 19151,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "3FLabs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 0.75,
+    "date": "2025-11-06",
+    "lead": [],
+    "round": "Angel Round"
+   },
+   {
+    "amount_usd_m": 4,
+    "date": "2026-04-23",
+    "lead": [
+     "Maven 11"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 4.75,
+  "slug": "3f",
+  "tvl_growth_30d_pct": 6.23,
+  "tvl_growth_90d_pct": 38.6,
+  "tvl_max_1d_jump_pct": 9.4,
+  "tvl_max_drawdown_90d_pct": 9.2,
+  "tvl_pit": 40368186,
+  "tvl_spark_90d": [
+   29125644,
+   29170384,
+   29201250,
+   29044831,
+   32475336,
+   35343856,
+   40279314,
+   41830794,
+   41406771,
+   39744441,
+   42953228,
+   41352306,
+   40383949,
+   40368186
+  ]
+ },
+ "3jane-lending": {
+  "fees_30d_usd": 56485,
+  "fees_365d_usd": 399757,
+  "fees_has_adapter": true,
+  "slug": "3jane-lending",
+  "tvl_growth_30d_pct": 20.43,
+  "tvl_growth_90d_pct": 40.76,
+  "tvl_max_1d_jump_pct": 180.2,
+  "tvl_max_drawdown_90d_pct": 85.1,
+  "tvl_pit": 14031141,
+  "tvl_spark_90d": [
+   9967868,
+   8163205,
+   8353951,
+   12429072,
+   12380055,
+   12407302,
+   10307159,
+   12075970,
+   12786557,
+   11592662,
+   10442823,
+   12049637,
+   11109443,
+   14031141
+  ]
+ },
+ "9summits": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 6854,
+  "fees_has_adapter": true,
+  "slug": "9summits",
+  "tvl_growth_30d_pct": -21.41,
+  "tvl_growth_90d_pct": 22185.81,
+  "tvl_max_1d_jump_pct": 26046.6,
+  "tvl_max_drawdown_90d_pct": 30.7,
+  "tvl_pit": 16107737,
+  "tvl_spark_90d": [
+   72278,
+   76923,
+   77015,
+   20437275,
+   21677982,
+   22283536,
+   22587534,
+   22600827,
+   21257129,
+   19949098,
+   19885860,
+   19278033,
+   17543708,
+   16107737
+  ]
+ },
+ "abstract": {
+  "fees_30d_usd": 34355,
+  "fees_365d_usd": 2937921,
+  "fees_has_adapter": true,
+  "slug": "abstract",
+  "tvl_growth_30d_pct": -34.72,
+  "tvl_growth_90d_pct": -54.67,
+  "tvl_max_1d_jump_pct": 16.8,
+  "tvl_max_drawdown_90d_pct": 65.2,
+  "tvl_pit": 9437482,
+  "tvl_spark_90d": [
+   20817493,
+   25976316,
+   24234910,
+   23538178,
+   23422977,
+   24027409,
+   24307965,
+   22388791,
+   17175839,
+   13855025,
+   13141485,
+   11729929,
+   11104377,
+   9437482
+  ]
+ },
+ "across": {
+  "fees_30d_usd": 101138,
+  "fees_365d_usd": 545009,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "across-protocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 41,
+    "date": "2025-03-04",
+    "lead": [
+     "Paradigm"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 10,
+    "date": "2022-11-23",
+    "lead": [],
+    "round": "Private token sale"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 51,
+  "slug": "across",
+  "tvl_growth_30d_pct": -23.71,
+  "tvl_growth_90d_pct": -19.31,
+  "tvl_pit": 13963545
+ },
+ "acryptos": {
+  "fees_has_adapter": false,
+  "slug": "acryptos",
+  "tvl_growth_30d_pct": -0.01,
+  "tvl_growth_90d_pct": -0.01,
+  "tvl_pit": 10529971
+ },
+ "adrastea-validator": {
+  "fees_has_adapter": false,
+  "slug": "adrastea-validator",
+  "tvl_growth_30d_pct": -21.41,
+  "tvl_growth_90d_pct": 8.21,
+  "tvl_max_1d_jump_pct": 12.2,
+  "tvl_max_drawdown_90d_pct": 33.0,
+  "tvl_pit": 21782574,
+  "tvl_spark_90d": [
+   20130524,
+   24913258,
+   27925719,
+   27139802,
+   26667681,
+   29027010,
+   31934132,
+   31827173,
+   29183078,
+   27494547,
+   30285019,
+   28101805,
+   26281025,
+   21782574
+  ]
+ },
+ "aegis-yusd": {
+  "fees_30d_usd": 174726,
+  "fees_365d_usd": 1329572,
+  "fees_has_adapter": true,
+  "slug": "aegis-yusd",
+  "tvl_growth_30d_pct": 0.54,
+  "tvl_growth_90d_pct": -3.59,
+  "tvl_max_1d_jump_pct": 0.5,
+  "tvl_max_drawdown_90d_pct": 4.3,
+  "tvl_pit": 34482908,
+  "tvl_spark_90d": [
+   35766588,
+   34838381,
+   34851900,
+   34813851,
+   34839938,
+   34848344,
+   34848578,
+   34338338,
+   34365047,
+   34363412,
+   34393275,
+   34427794,
+   34444391,
+   34482908
+  ]
+ },
+ "aftermath-aflp": {
+  "fees_has_adapter": false,
+  "slug": "aftermath-aflp",
+  "tvl_growth_30d_pct": 17.42,
+  "tvl_growth_90d_pct": 239.69,
+  "tvl_max_1d_jump_pct": 170.8,
+  "tvl_max_drawdown_90d_pct": 43.8,
+  "tvl_pit": 6452605,
+  "tvl_spark_90d": [
+   1899554,
+   1900076,
+   1900209,
+   1900295,
+   3077502,
+   3062171,
+   4731340,
+   4631170,
+   4680569,
+   5511943,
+   6006725,
+   6508317,
+   6573297,
+   6452605
+  ]
+ },
+ "agni-finance": {
+  "fees_30d_usd": 40046,
+  "fees_365d_usd": 968853,
+  "fees_has_adapter": true,
+  "slug": "agni-finance",
+  "tvl_growth_30d_pct": -7.17,
+  "tvl_growth_90d_pct": -0.43,
+  "tvl_max_1d_jump_pct": 3.8,
+  "tvl_max_drawdown_90d_pct": 11.3,
+  "tvl_pit": 15142856,
+  "tvl_spark_90d": [
+   15207509,
+   16176191,
+   16407400,
+   16527699,
+   16436577,
+   16788829,
+   17061955,
+   16959619,
+   16564696,
+   16321122,
+   16218785,
+   15949872,
+   15818926,
+   15142856
+  ]
+ },
+ "agua": {
+  "fees_has_adapter": false,
+  "slug": "agua",
+  "tvl_growth_30d_pct": -1.81,
+  "tvl_growth_90d_pct": 36.3,
+  "tvl_max_1d_jump_pct": 22.2,
+  "tvl_max_drawdown_90d_pct": 45.3,
+  "tvl_pit": 20194305,
+  "tvl_spark_90d": [
+   14816530,
+   8843108,
+   8108864,
+   9927012,
+   12011200,
+   14804503,
+   17011038,
+   16522649,
+   17048715,
+   20585692,
+   21133983,
+   24004927,
+   21260277,
+   20194305
+  ]
+ },
+ "alphagrowth": {
+  "fees_30d_usd": 7261,
+  "fees_365d_usd": 78402,
+  "fees_has_adapter": true,
+  "slug": "alphagrowth",
+  "tvl_growth_30d_pct": -23.6,
+  "tvl_growth_90d_pct": -17.51,
+  "tvl_max_1d_jump_pct": 11.7,
+  "tvl_max_drawdown_90d_pct": 29.9,
+  "tvl_pit": 5811164,
+  "tvl_spark_90d": [
+   7044635,
+   7171602,
+   7050516,
+   7106276,
+   7381950,
+   7384821,
+   7569932,
+   8287181,
+   7915395,
+   7358839,
+   7039339,
+   6405436,
+   6421537,
+   5811164
+  ]
+ },
+ "anemoy-capital": {
+  "fees_has_adapter": false,
+  "slug": "anemoy-capital",
+  "tvl_growth_30d_pct": -91.63,
+  "tvl_growth_90d_pct": -96.8,
+  "tvl_max_1d_jump_pct": 2.5,
+  "tvl_max_drawdown_90d_pct": 96.8,
+  "tvl_pit": 27928266,
+  "tvl_spark_90d": [
+   871934249,
+   873255076,
+   870721571,
+   799648571,
+   724992022,
+   350140558,
+   334046719,
+   333348681,
+   333489445,
+   333109325,
+   329974612,
+   102744805,
+   52213958,
+   27928266
+  ]
+ },
+ "ankr": {
+  "fees_30d_usd": 70643,
+  "fees_365d_usd": 1067724,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Ankr-network"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 0.12,
+    "date": "2017-11-19",
+    "lead": [
+     "Ryan Fang"
+    ],
+    "round": "Angel Round"
+   },
+   {
+    "amount_usd_m": 12,
+    "date": "2018-06-15",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": 15,
+    "date": "2018-06-21",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2022-08-12",
+    "lead": [
+     "Binance Labs"
+    ],
+    "round": "Strategic"
+   },
+   {
+    "amount_usd_m": 0.2,
+    "date": "2017-11-04",
+    "lead": [
+     "ORCAS"
+    ],
+    "round": "ICO"
+   }
+  ],
+  "raises_count": 5,
+  "raises_total_usd_m": 27.32,
+  "slug": "ankr",
+  "tvl_growth_30d_pct": -24.53,
+  "tvl_growth_90d_pct": 0.53,
+  "tvl_pit": 20838050
+ },
+ "antarctic": {
+  "fees_30d_usd": 3657018,
+  "fees_365d_usd": 25171665,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 7,
+    "date": "2026-09-07",
+    "lead": [],
+    "round": null
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 7,
+  "slug": "antarctic",
+  "tvl_growth_30d_pct": -2.2,
+  "tvl_growth_90d_pct": -13.61,
+  "tvl_max_1d_jump_pct": 7.4,
+  "tvl_max_drawdown_90d_pct": 18.2,
+  "tvl_pit": 8376714,
+  "tvl_spark_90d": [
+   9696147,
+   9515262,
+   9129190,
+   9365584,
+   9256946,
+   8321123,
+   8420421,
+   8070706,
+   8759552,
+   8877710,
+   8344736,
+   8663192,
+   8570790,
+   8376714
+  ]
+ },
+ "anthias-labs": {
+  "fees_30d_usd": 17194,
+  "fees_365d_usd": 864447,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "anthias-labs"
+  ],
+  "slug": "anthias-labs",
+  "tvl_growth_30d_pct": -23.71,
+  "tvl_growth_90d_pct": -59.35,
+  "tvl_max_1d_jump_pct": 11.0,
+  "tvl_max_drawdown_90d_pct": 60.3,
+  "tvl_pit": 7348995,
+  "tvl_spark_90d": [
+   18077059,
+   18246120,
+   11613530,
+   10695512,
+   10640652,
+   10962809,
+   10485148,
+   10264177,
+   9927158,
+   8959227,
+   8701362,
+   8394912,
+   8142570,
+   7348995
+  ]
+ },
+ "apex-omni": {
+  "fees_30d_usd": 326641,
+  "fees_365d_usd": 10544170,
+  "fees_has_adapter": true,
+  "slug": "apex-omni",
+  "tvl_growth_30d_pct": -12.94,
+  "tvl_growth_90d_pct": -6.77,
+  "tvl_max_1d_jump_pct": 3.8,
+  "tvl_max_drawdown_90d_pct": 19.1,
+  "tvl_pit": 26856971,
+  "tvl_spark_90d": [
+   28807320,
+   30407325,
+   30759199,
+   30936968,
+   31124979,
+   32310155,
+   31419276,
+   31427836,
+   31115476,
+   30698352,
+   29911948,
+   28557827,
+   27178267,
+   26856971
+  ]
+ },
+ "api3": {
+  "fees_30d_usd": 159392,
+  "fees_365d_usd": 1057540,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "api3dao"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 3,
+    "date": "2020-11-12",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 3,
+  "slug": "api3",
+  "tvl_growth_30d_pct": -40.99,
+  "tvl_growth_90d_pct": -38.38,
+  "tvl_pit": 11786290
+ },
+ "aquarius-stellar": {
+  "fees_30d_usd": 82941,
+  "fees_365d_usd": 1137865,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "AquaToken"
+  ],
+  "slug": "aquarius-stellar",
+  "tvl_growth_30d_pct": -3.83,
+  "tvl_growth_90d_pct": -7.45,
+  "tvl_pit": 37209907
+ },
+ "arcus-perps": {
+  "fees_30d_usd": 1858359,
+  "fees_365d_usd": 4032074,
+  "fees_has_adapter": true,
+  "slug": "arcus-perps",
+  "tvl_growth_30d_pct": 4.82,
+  "tvl_growth_90d_pct": 191.46,
+  "tvl_max_1d_jump_pct": 18.2,
+  "tvl_max_drawdown_90d_pct": 11.0,
+  "tvl_pit": 60046476,
+  "tvl_spark_90d": [
+   20602263,
+   19940726,
+   20011647,
+   21901861,
+   23421817,
+   24296164,
+   23816401,
+   36559528,
+   51597436,
+   61429999,
+   63807995,
+   63301971,
+   63915796,
+   60046476
+  ]
+ },
+ "armitage-by-wintermute": {
+  "fees_30d_usd": 495991,
+  "fees_365d_usd": 2096986,
+  "fees_has_adapter": true,
+  "slug": "armitage-by-wintermute",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -28.12,
+  "tvl_growth_90d_pct": 22.99,
+  "tvl_max_1d_jump_pct": 17.0,
+  "tvl_max_drawdown_90d_pct": 41.3,
+  "tvl_pit": 103529840,
+  "tvl_spark_90d": [
+   84174865,
+   114846000,
+   118139008,
+   128961262,
+   138993862,
+   136458883,
+   145873185,
+   130207494,
+   134795905,
+   145323657,
+   129018158,
+   85617742,
+   97839648,
+   103529840
+  ]
+ },
+ "arrakis-modular": {
+  "fees_30d_usd": 331268,
+  "fees_365d_usd": 5241975,
+  "fees_has_adapter": true,
+  "slug": "arrakis-modular",
+  "tvl_growth_30d_pct": -18.63,
+  "tvl_growth_90d_pct": -14.34,
+  "tvl_max_1d_jump_pct": 6.1,
+  "tvl_max_drawdown_90d_pct": 27.4,
+  "tvl_pit": 48582858,
+  "tvl_spark_90d": [
+   56714785,
+   65238302,
+   55367331,
+   55338428,
+   56232165,
+   57479580,
+   59229166,
+   63131832,
+   61101271,
+   59454404,
+   58904464,
+   55703541,
+   53639463,
+   48582858
+  ]
+ },
+ "astar-dapps-staking": {
+  "fees_has_adapter": false,
+  "slug": "astar-dapps-staking",
+  "tvl_growth_30d_pct": -23.29,
+  "tvl_growth_90d_pct": 4.93,
+  "tvl_pit": 14250059
+ },
+ "august-digital": {
+  "fees_30d_usd": 74349,
+  "fees_365d_usd": 560381,
+  "fees_has_adapter": true,
+  "slug": "august-digital",
+  "tvl_growth_30d_pct": 163.18,
+  "tvl_max_1d_jump_pct": 136.5,
+  "tvl_max_drawdown_90d_pct": 75.5,
+  "tvl_pit": 22372784,
+  "tvl_spark_90d": [
+   6248705,
+   1816171,
+   5347290,
+   11194958,
+   12089367,
+   7423219,
+   7574165,
+   8284381,
+   8316126,
+   8710334,
+   11684642,
+   12040294,
+   11883004,
+   12586577,
+   22372784
+  ]
+ },
+ "aura": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 322717,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "aurafinance"
+  ],
+  "slug": "aura",
+  "tvl_growth_30d_pct": -19.4,
+  "tvl_growth_90d_pct": -8.97,
+  "tvl_pit": 7931421
+ },
+ "avant-aveth": {
+  "fees_30d_usd": 86977,
+  "fees_365d_usd": 704203,
+  "fees_has_adapter": true,
+  "slug": "avant-aveth",
+  "tvl_growth_30d_pct": -17.43,
+  "tvl_growth_90d_pct": 0.66,
+  "tvl_max_1d_jump_pct": 18.3,
+  "tvl_max_drawdown_90d_pct": 29.9,
+  "tvl_pit": 24024729,
+  "tvl_spark_90d": [
+   23866542,
+   30636912,
+   30965603,
+   31214152,
+   31657662,
+   32540606,
+   33305341,
+   33633568,
+   31554610,
+   29357997,
+   28807968,
+   27026249,
+   27368500,
+   24024729
+  ]
+ },
+ "avant-avusd": {
+  "fees_30d_usd": 630980,
+  "fees_365d_usd": 8656041,
+  "fees_has_adapter": true,
+  "slug": "avant-avusd",
+  "tvl_growth_30d_pct": -21.34,
+  "tvl_growth_90d_pct": -25.48,
+  "tvl_max_1d_jump_pct": 2.3,
+  "tvl_max_drawdown_90d_pct": 29.5,
+  "tvl_pit": 94636850,
+  "tvl_spark_90d": [
+   126987230,
+   131906220,
+   133417565,
+   133948971,
+   128713423,
+   123339779,
+   124588243,
+   124761131,
+   124188103,
+   120076151,
+   117503466,
+   114960741,
+   109005501,
+   94636850
+  ]
+ },
+ "axis": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2025-12-03",
+    "lead": [
+     "Galaxy Digital"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2026-06-02",
+    "lead": [
+     "Steakhouse Financial",
+     "Serotonin"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 5,
+  "slug": "axis",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "base",
+    "dex": "uniswap",
+    "liquidity_usd": 2411148.21,
+    "pair_address": "0xc19d91d99afc0332e5013a569c9721cd9ecb51a14c851f7a189a140950a627fa",
+    "pair_created_at_ms": 1792390745000,
+    "token_address": "0x5bE75e3b0aFf5D1A042A5363Ae36AcB1d6d755ea",
+    "token_name": "Axis Token",
+    "token_symbol": "AXIS"
+   },
+   "note": "AXIS token trades on Base + Ethereum (DexScreener + GeckoTerminal agree); two AXIS token contracts exist, so the official one is not pinned down.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": 7.42,
+  "tvl_max_1d_jump_pct": 3.0,
+  "tvl_max_drawdown_90d_pct": 19.8,
+  "tvl_pit": 70146440,
+  "tvl_spark_90d": [
+   67551547,
+   67611817,
+   67723082,
+   66287530,
+   64223665,
+   54561969,
+   56345879,
+   58154890,
+   63138456,
+   65112813,
+   66983428,
+   66999335,
+   67287126,
+   68074744,
+   70146440
+  ]
+ },
+ "azverse-perps": {
+  "fees_30d_usd": 3281034,
+  "fees_365d_usd": 10500085,
+  "fees_has_adapter": true,
+  "slug": "azverse-perps",
+  "tvl_growth_30d_pct": -0.01,
+  "tvl_growth_90d_pct": 0.68,
+  "tvl_max_1d_jump_pct": 0.3,
+  "tvl_max_drawdown_90d_pct": 0.4,
+  "tvl_pit": 51986735,
+  "tvl_spark_90d": [
+   51637565,
+   51686363,
+   51740212,
+   51803769,
+   51841640,
+   51889222,
+   51957567,
+   52106433,
+   52014146,
+   52024359,
+   52037704,
+   52030682,
+   51907265,
+   51986735
+  ]
+ },
+ "b14g": {
+  "fees_30d_usd": 58216,
+  "fees_365d_usd": 965326,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "b14glabs"
+  ],
+  "slug": "b14g",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -33.66,
+  "tvl_growth_90d_pct": -14.65,
+  "tvl_max_1d_jump_pct": 7.4,
+  "tvl_max_drawdown_90d_pct": 37.4,
+  "tvl_pit": 174642653,
+  "tvl_spark_90d": [
+   204609163,
+   250808219,
+   253643427,
+   258541481,
+   249128630,
+   262273587,
+   272116506,
+   273426496,
+   266452020,
+   262466954,
+   260171855,
+   248823008,
+   242735135,
+   174642653
+  ]
+ },
+ "b2-buzz": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "b2network"
+  ],
+  "slug": "b2-buzz",
+  "tvl_growth_30d_pct": -74.95,
+  "tvl_growth_90d_pct": -70.55,
+  "tvl_pit": 53215430
+ },
+ "babylon-protocol": {
+  "fees_has_adapter": false,
+  "slug": "babylon-protocol",
+  "tvl_growth_30d_pct": -15.62,
+  "tvl_growth_90d_pct": 8.76,
+  "tvl_pit": 2808100340
+ },
+ "badger-dao": {
+  "fees_30d_usd": 2024,
+  "fees_365d_usd": 40611,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Badger-Finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 21,
+    "date": "2021-03-03",
+    "lead": [],
+    "round": "Treasury Diversification"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 21,
+  "slug": "badger-dao",
+  "tvl_growth_30d_pct": -17.43,
+  "tvl_growth_90d_pct": 3.97,
+  "tvl_pit": 10642905
+ },
+ "beefy": {
+  "fees_30d_usd": 77426,
+  "fees_365d_usd": 1167669,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "beefyfinance"
+  ],
+  "slug": "beefy",
+  "tvl_growth_30d_pct": -19.99,
+  "tvl_growth_90d_pct": -13.62,
+  "tvl_pit": 88457103
+ },
+ "belt-finance": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "BeltFi"
+  ],
+  "slug": "belt-finance",
+  "tvl_growth_30d_pct": -10.71,
+  "tvl_growth_90d_pct": 3.26,
+  "tvl_pit": 11824628
+ },
+ "bend": {
+  "fees_30d_usd": 11795,
+  "fees_365d_usd": 166608,
+  "fees_has_adapter": true,
+  "slug": "bend",
+  "tvl_growth_30d_pct": -19.64,
+  "tvl_growth_90d_pct": 47.17,
+  "tvl_max_1d_jump_pct": 46.6,
+  "tvl_max_drawdown_90d_pct": 25.6,
+  "tvl_pit": 9028505,
+  "tvl_spark_90d": [
+   6134676,
+   9834501,
+   9796803,
+   9832159,
+   9993312,
+   10299932,
+   11471884,
+   11558812,
+   11856413,
+   11391374,
+   11087921,
+   10033090,
+   9489552,
+   9028505
+  ]
+ },
+ "benqi-lending": {
+  "fees_30d_usd": 214779,
+  "fees_365d_usd": 2892088,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 6,
+    "date": "2021-04-14",
+    "lead": [
+     "Genesis Block Ventures"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 3.8,
+    "date": "2021-04-28",
+    "lead": [],
+    "round": "Public token sale"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 9.8,
+  "slug": "benqi-lending",
+  "tvl_growth_30d_pct": -19.59,
+  "tvl_growth_90d_pct": 15.28,
+  "tvl_pit": 95299920
+ },
+ "bifi": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "bifrost-platform"
+  ],
+  "slug": "bifi",
+  "tvl_growth_30d_pct": -17.72,
+  "tvl_growth_90d_pct": 82.31,
+  "tvl_pit": 8162062
+ },
+ "bima-cdp": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 2.25,
+    "date": "2024-07-15",
+    "lead": [
+     "Portal Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.25,
+  "slug": "bima-cdp",
+  "tvl_growth_30d_pct": -10.81,
+  "tvl_growth_90d_pct": 30.06,
+  "tvl_max_1d_jump_pct": 7.4,
+  "tvl_max_drawdown_90d_pct": 14.2,
+  "tvl_pit": 9673060,
+  "tvl_spark_90d": [
+   7437481,
+   9126768,
+   9323725,
+   9581794,
+   9323337,
+   10220129,
+   10668958,
+   10787996,
+   10968701,
+   10865769,
+   10844631,
+   10480766,
+   10317429,
+   9673060
+  ]
+ },
+ "binaryx-platform": {
+  "fees_30d_usd": 38119,
+  "fees_365d_usd": 636493,
+  "fees_has_adapter": true,
+  "slug": "binaryx-platform",
+  "tvl_growth_30d_pct": 0.07,
+  "tvl_growth_90d_pct": 1.78,
+  "tvl_max_1d_jump_pct": 0.6,
+  "tvl_max_drawdown_90d_pct": 0.1,
+  "tvl_pit": 8994856,
+  "tvl_spark_90d": [
+   8837384,
+   8904115,
+   8961676,
+   8976018,
+   8977553,
+   8979705,
+   8989776,
+   8991852,
+   8989070,
+   8991107,
+   8990703,
+   8994049,
+   8990926,
+   8994856
+  ]
+ },
+ "bisonfi": {
+  "fees_has_adapter": false,
+  "slug": "bisonfi",
+  "tvl_growth_30d_pct": -5.22,
+  "tvl_max_1d_jump_pct": 5.6,
+  "tvl_max_drawdown_90d_pct": 10.9,
+  "tvl_pit": 19982061,
+  "tvl_spark_90d": [
+   19041089,
+   19375674,
+   19827544,
+   19658785,
+   20819218,
+   21856223,
+   21665526,
+   22332683,
+   21220949,
+   21040259,
+   20700630,
+   21093007,
+   20647883,
+   20416226,
+   19982061
+  ]
+ },
+ "bitfi-basis": {
+  "fees_30d_usd": 353,
+  "fees_365d_usd": 11449,
+  "fees_has_adapter": true,
+  "slug": "bitfi-basis",
+  "tvl_growth_30d_pct": -8.61,
+  "tvl_growth_90d_pct": 11.74,
+  "tvl_max_1d_jump_pct": 7.7,
+  "tvl_max_drawdown_90d_pct": 17.6,
+  "tvl_pit": 210597415,
+  "tvl_spark_90d": [
+   188476655,
+   231209225,
+   233894973,
+   238973249,
+   231052820,
+   229337990,
+   237931475,
+   239350375,
+   233939261,
+   230028930,
+   254319694,
+   244264155,
+   238498359,
+   210597415
+  ]
+ },
+ "bitlayer-ybtc-family": {
+  "fees_has_adapter": false,
+  "slug": "bitlayer-ybtc-family",
+  "tvl_growth_30d_pct": -16.75,
+  "tvl_growth_90d_pct": 7.8,
+  "tvl_max_1d_jump_pct": 7.7,
+  "tvl_max_drawdown_90d_pct": 21.3,
+  "tvl_pit": 27353206,
+  "tvl_spark_90d": [
+   25373785,
+   31061775,
+   31463860,
+   32131572,
+   31074750,
+   32696744,
+   33885553,
+   34065597,
+   33337452,
+   32739144,
+   32467962,
+   31150240,
+   30292351,
+   27353206
+  ]
+ },
+ "bittensor-dtao": {
+  "fees_has_adapter": false,
+  "slug": "bittensor-dtao",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "solana",
+    "dex": "raydium",
+    "liquidity_usd": 6375897970.08,
+    "pair_address": "EMx8oFqjkEBNz2kW3EYPNg4FG35sjEtjk62TBtncQC4o",
+    "pair_created_at_ms": 1791121617000,
+    "token_address": "HcPbN2QrcTd1125vfjFndtibAeXxYHWMZupEWEFH6ePF",
+    "token_name": "Bittensor",
+    "token_symbol": "TAO"
+   },
+   "note": "No separate dTAO token found; the parent token TAO (Bittensor) trades at large size.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "parent_token_trades"
+  },
+  "tvl_growth_30d_pct": -21.21,
+  "tvl_max_1d_jump_pct": 16.5,
+  "tvl_max_drawdown_90d_pct": 34.0,
+  "tvl_pit": 383153744,
+  "tvl_spark_90d": [
+   463219191,
+   556790382,
+   569221689,
+   534603567,
+   537761846,
+   478502483,
+   482274837,
+   489615015,
+   488639988,
+   450699441,
+   459993972,
+   416632468,
+   393596144,
+   396607258,
+   383153744
+  ]
+ },
+ "block-analitica": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 730350,
+  "fees_has_adapter": true,
+  "slug": "block-analitica",
+  "tvl_growth_30d_pct": -24.51,
+  "tvl_growth_90d_pct": -59.17,
+  "tvl_max_1d_jump_pct": 10.8,
+  "tvl_max_drawdown_90d_pct": 60.1,
+  "tvl_pit": 7764689,
+  "tvl_spark_90d": [
+   19015812,
+   19140763,
+   12479331,
+   11478238,
+   11412946,
+   11721883,
+   11052718,
+   10832012,
+   10461413,
+   9455287,
+   9189734,
+   8854143,
+   8612849,
+   7764689
+  ]
+ },
+ "blur-bids": {
+  "fees_30d_usd": 11,
+  "fees_365d_usd": 44,
+  "fees_has_adapter": true,
+  "slug": "blur-bids",
+  "tvl_growth_30d_pct": -37.78,
+  "tvl_growth_90d_pct": -29.27,
+  "tvl_pit": 9598364
+ },
+ "boros": {
+  "fees_30d_usd": 60165,
+  "fees_365d_usd": 664223,
+  "fees_has_adapter": true,
+  "slug": "boros",
+  "tvl_growth_30d_pct": -7.7,
+  "tvl_growth_90d_pct": -10.14,
+  "tvl_max_1d_jump_pct": 7.4,
+  "tvl_max_drawdown_90d_pct": 20.8,
+  "tvl_pit": 6866643,
+  "tvl_spark_90d": [
+   7641882,
+   8448670,
+   8413420,
+   8503889,
+   7200188,
+   7551196,
+   7968895,
+   7936965,
+   7561022,
+   7392928,
+   7335099,
+   7782506,
+   7615030,
+   6866643
+  ]
+ },
+ "bouncebit-prime": {
+  "fees_has_adapter": false,
+  "slug": "bouncebit-prime",
+  "tvl_growth_30d_pct": -0.0,
+  "tvl_growth_90d_pct": 0.04,
+  "tvl_max_1d_jump_pct": 0.1,
+  "tvl_max_drawdown_90d_pct": 0.2,
+  "tvl_pit": 11444123,
+  "tvl_spark_90d": [
+   11439817,
+   11451790,
+   11453908,
+   11454667,
+   11452339,
+   11449830,
+   11452256,
+   11452490,
+   11444845,
+   11444433,
+   11443859,
+   11448202,
+   11440788,
+   11444123
+  ]
+ },
+ "brickken": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 2.5,
+    "date": "2025-01-15",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.5,
+  "slug": "brickken",
+  "tvl_growth_30d_pct": 0.44,
+  "tvl_growth_90d_pct": 0.46,
+  "tvl_pit": 42547222
+ },
+ "btcfi-cdp": {
+  "fees_has_adapter": false,
+  "slug": "btcfi-cdp",
+  "tvl_growth_30d_pct": -18.98,
+  "tvl_growth_90d_pct": -8.37,
+  "tvl_max_1d_jump_pct": 7.7,
+  "tvl_max_drawdown_90d_pct": 24.0,
+  "tvl_pit": 6073275,
+  "tvl_spark_90d": [
+   6628400,
+   7514530,
+   7607713,
+   7366894,
+   7134578,
+   7497742,
+   7781832,
+   7824117,
+   7622593,
+   7488727,
+   7182030,
+   6897339,
+   6733236,
+   6073275
+  ]
+ },
+ "bucket-cdp": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 0,
+  "fees_has_adapter": true,
+  "slug": "bucket-cdp",
+  "tvl_growth_30d_pct": -19.12,
+  "tvl_growth_90d_pct": 6.93,
+  "tvl_max_1d_jump_pct": 10.4,
+  "tvl_max_drawdown_90d_pct": 30.6,
+  "tvl_pit": 12744210,
+  "tvl_spark_90d": [
+   12677844,
+   12708418,
+   16226099,
+   17456081,
+   16965583,
+   17429688,
+   16892244,
+   16823955,
+   15886606,
+   15433060,
+   14991976,
+   14770623,
+   14287835,
+   14773533,
+   12744210
+  ]
+ },
+ "bulk": {
+  "fees_30d_usd": 495351,
+  "fees_365d_usd": 894879,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 8,
+    "date": "2025-09-24",
+    "lead": [
+     "Robot Ventures",
+     "6th Man Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 8,
+  "slug": "bulk",
+  "tvl_growth_30d_pct": -5.59,
+  "tvl_growth_90d_pct": -69.09,
+  "tvl_max_1d_jump_pct": 7.7,
+  "tvl_max_drawdown_90d_pct": 71.1,
+  "tvl_pit": 7464863,
+  "tvl_spark_90d": [
+   24152216,
+   21575707,
+   20478041,
+   13797299,
+   9446535,
+   8026868,
+   8063373,
+   7861546,
+   7799116,
+   8136363,
+   8364158,
+   8001029,
+   7469274,
+   7464863
+  ]
+ },
+ "byreal": {
+  "fees_30d_usd": 103518,
+  "fees_365d_usd": 4541829,
+  "fees_has_adapter": true,
+  "slug": "byreal",
+  "tvl_growth_30d_pct": -28.66,
+  "tvl_growth_90d_pct": -23.7,
+  "tvl_max_1d_jump_pct": 6.1,
+  "tvl_max_drawdown_90d_pct": 42.2,
+  "tvl_pit": 8839297,
+  "tvl_spark_90d": [
+   11585192,
+   12864663,
+   13378145,
+   13908522,
+   14240840,
+   14804719,
+   14963080,
+   12800638,
+   12878694,
+   12651159,
+   12039573,
+   10544687,
+   9480300,
+   8839297
+  ]
+ },
+ "cap": {
+  "fees_30d_usd": 443882,
+  "fees_365d_usd": 6742299,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "cap-labs-dev"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 8,
+    "date": "2025-04-07",
+    "lead": [
+     "Franklin Templeton",
+     "Triton Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 5.5,
+    "date": "2026-06-17",
+    "lead": [],
+    "round": "Public token sale"
+   },
+   {
+    "amount_usd_m": 1.9,
+    "date": "2024-10-28",
+    "lead": [],
+    "round": "Pre-Seed"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 15.4,
+  "slug": "cap",
+  "tvl_growth_30d_pct": -28.49,
+  "tvl_growth_90d_pct": -43.42,
+  "tvl_pit": 160430141
+ },
+ "cbridge": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "celer-network"
+  ],
+  "slug": "cbridge",
+  "tvl_growth_30d_pct": -24.8,
+  "tvl_growth_90d_pct": -14.74,
+  "tvl_pit": 11046351
+ },
+ "chain-fusion": {
+  "fees_has_adapter": false,
+  "slug": "chain-fusion",
+  "tvl_growth_30d_pct": -17.38,
+  "tvl_growth_90d_pct": -1.98,
+  "tvl_max_1d_jump_pct": 7.3,
+  "tvl_max_drawdown_90d_pct": 24.3,
+  "tvl_pit": 20175029,
+  "tvl_spark_90d": [
+   20582788,
+   24378294,
+   24895195,
+   25567203,
+   25211010,
+   25322810,
+   25806089,
+   25705453,
+   24596023,
+   24326592,
+   24217053,
+   23226995,
+   22128391,
+   20175029
+  ]
+ },
+ "chutes": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 3693238,
+  "fees_has_adapter": true,
+  "slug": "chutes",
+  "tvl_growth_30d_pct": -23.63,
+  "tvl_growth_90d_pct": -3.48,
+  "tvl_pit": 41331638
+ },
+ "cian-yield-layer": {
+  "fees_30d_usd": 767773,
+  "fees_365d_usd": 5366359,
+  "fees_has_adapter": true,
+  "slug": "cian-yield-layer",
+  "tvl_growth_30d_pct": -10.93,
+  "tvl_growth_90d_pct": 7.16,
+  "tvl_max_1d_jump_pct": 4.7,
+  "tvl_max_drawdown_90d_pct": 12.8,
+  "tvl_pit": 280943695,
+  "tvl_spark_90d": [
+   262180745,
+   293353522,
+   275197505,
+   284120557,
+   279196131,
+   297337107,
+   308406254,
+   310337207,
+   313143736,
+   315012761,
+   319629164,
+   292880919,
+   296175465,
+   280943695
+  ]
+ },
+ "circle-gateway": {
+  "fees_30d_usd": 17855,
+  "fees_365d_usd": 357487,
+  "fees_has_adapter": true,
+  "slug": "circle-gateway",
+  "tvl_growth_30d_pct": -16.55,
+  "tvl_growth_90d_pct": 9.6,
+  "tvl_max_1d_jump_pct": 12.5,
+  "tvl_max_drawdown_90d_pct": 18.2,
+  "tvl_pit": 64867939,
+  "tvl_spark_90d": [
+   59186795,
+   63996578,
+   62637849,
+   61958073,
+   66544889,
+   69765168,
+   68178801,
+   76772052,
+   79274313,
+   77687975,
+   71316518,
+   68927361,
+   70783561,
+   64867939
+  ]
+ },
+ "clearstar": {
+  "fees_30d_usd": 453187,
+  "fees_365d_usd": 2356474,
+  "fees_has_adapter": true,
+  "slug": "clearstar",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -20.68,
+  "tvl_growth_90d_pct": -6.64,
+  "tvl_max_1d_jump_pct": 53.3,
+  "tvl_max_drawdown_90d_pct": 43.1,
+  "tvl_pit": 162134833,
+  "tvl_spark_90d": [
+   173659803,
+   207891208,
+   212120229,
+   207118024,
+   201563879,
+   228511751,
+   239984478,
+   234913141,
+   212768840,
+   201083868,
+   232204227,
+   185987487,
+   178610478,
+   162134833
+  ]
+ },
+ "communityv3": {
+  "fees_30d_usd": 616023,
+  "fees_365d_usd": 637010,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "communityV3"
+  ],
+  "slug": "communityv3",
+  "tvl_max_1d_jump_pct": 65.8,
+  "tvl_max_drawdown_90d_pct": 3.0,
+  "tvl_pit": 17379715,
+  "tvl_spark_90d": [
+   4994114,
+   5046185,
+   6349240,
+   7645541,
+   12682742,
+   12722583,
+   12695063,
+   12750987,
+   12734339,
+   13881583,
+   14713212,
+   15290898,
+   15745152,
+   17379715
+  ]
+ },
+ "concrete": {
+  "fees_30d_usd": 947825,
+  "fees_365d_usd": 20901029,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 7.5,
+    "date": "2024-02-15",
+    "lead": [
+     "Hashed",
+     "Tribe Capital"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 9.5,
+    "date": "2025-06-23",
+    "lead": [
+     "Polychain Capital"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2026-08-19",
+    "lead": [
+     "Polychain Capital"
+    ],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 17.0,
+  "slug": "concrete",
+  "tvl_growth_30d_pct": -4.86,
+  "tvl_growth_90d_pct": 28.49,
+  "tvl_pit": 1102147972
+ },
+ "convex-finance": {
+  "fees_30d_usd": 1840534,
+  "fees_365d_usd": 28360560,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "convex-eth"
+  ],
+  "slug": "convex-finance",
+  "tvl_growth_30d_pct": -18.34,
+  "tvl_growth_90d_pct": -4.52,
+  "tvl_pit": 463566373
+ },
+ "cronos-zkevm-bridge": {
+  "fees_has_adapter": false,
+  "slug": "cronos-zkevm-bridge",
+  "tvl_growth_30d_pct": -18.09,
+  "tvl_growth_90d_pct": -3.65,
+  "tvl_pit": 17076226
+ },
+ "current": {
+  "fees_30d_usd": 263181,
+  "fees_365d_usd": 934042,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "current-finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2026-03-17",
+    "lead": [],
+    "round": null
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 0,
+  "slug": "current",
+  "tvl_growth_30d_pct": -17.63,
+  "tvl_growth_90d_pct": 226.95,
+  "tvl_max_1d_jump_pct": 74.8,
+  "tvl_max_drawdown_90d_pct": 21.7,
+  "tvl_pit": 49740923,
+  "tvl_spark_90d": [
+   15213537,
+   35081598,
+   31990633,
+   40644592,
+   41940914,
+   43732842,
+   54412190,
+   58014195,
+   62174694,
+   57496382,
+   55394254,
+   54871186,
+   53339869,
+   49740923
+  ]
+ },
+ "curvance": {
+  "fees_30d_usd": 414831,
+  "fees_365d_usd": 2963942,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "curvance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 4,
+    "date": "2025-11-11",
+    "lead": [
+     "F Prime",
+     "Primal Capital"
+    ],
+    "round": "Strategic"
+   },
+   {
+    "amount_usd_m": 3.6,
+    "date": "2023-12-05",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 7.6,
+  "slug": "curvance",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 35.18,
+  "tvl_growth_90d_pct": 17.97,
+  "tvl_max_1d_jump_pct": 29.8,
+  "tvl_max_drawdown_90d_pct": 28.8,
+  "tvl_pit": 136360603,
+  "tvl_spark_90d": [
+   115587971,
+   135881683,
+   135141800,
+   130196316,
+   140983893,
+   132469828,
+   129278519,
+   128957009,
+   128978170,
+   101347388,
+   131485439,
+   134190055,
+   135608800,
+   136360603
+  ]
+ },
+ "d2-finance": {
+  "fees_30d_usd": 77252,
+  "fees_365d_usd": 1726733,
+  "fees_has_adapter": true,
+  "slug": "d2-finance",
+  "tvl_growth_30d_pct": -20.27,
+  "tvl_growth_90d_pct": -18.94,
+  "tvl_max_1d_jump_pct": 7.5,
+  "tvl_max_drawdown_90d_pct": 35.4,
+  "tvl_pit": 22630631,
+  "tvl_spark_90d": [
+   27919966,
+   31898924,
+   33426511,
+   33810963,
+   32881865,
+   32025137,
+   30305699,
+   29686969,
+   29019095,
+   23598044,
+   23446857,
+   24544585,
+   23446935,
+   22630631
+  ]
+ },
+ "damm-capital": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "DAMM-Cap"
+  ],
+  "slug": "damm-capital",
+  "tvl_growth_30d_pct": -15.71,
+  "tvl_max_1d_jump_pct": 8.2,
+  "tvl_max_drawdown_90d_pct": 22.0,
+  "tvl_pit": 5840429,
+  "tvl_spark_90d": [
+   5955326,
+   5886384,
+   6426843,
+   6528600,
+   7365849,
+   7461502,
+   7074478,
+   6921623,
+   6944821,
+   6680582,
+   6538345,
+   6868968,
+   6309589,
+   5840429
+  ]
+ },
+ "decibel": {
+  "fees_30d_usd": 473918,
+  "fees_365d_usd": 3849235,
+  "fees_has_adapter": true,
+  "slug": "decibel",
+  "tvl_growth_30d_pct": -1.12,
+  "tvl_growth_90d_pct": -1.48,
+  "tvl_max_1d_jump_pct": 0.9,
+  "tvl_max_drawdown_90d_pct": 3.1,
+  "tvl_pit": 29252644,
+  "tvl_spark_90d": [
+   29691210,
+   29799378,
+   29754189,
+   29815837,
+   29510950,
+   29578231,
+   29396705,
+   29448616,
+   29484581,
+   29617542,
+   29269681,
+   29300805,
+   29205563,
+   29252644
+  ]
+ },
+ "defa-by-invoicemate": {
+  "fees_has_adapter": false,
+  "slug": "defa-by-invoicemate",
+  "tvl_growth_30d_pct": 0.01,
+  "tvl_growth_90d_pct": 0.02,
+  "tvl_max_1d_jump_pct": 0.1,
+  "tvl_max_drawdown_90d_pct": 0.1,
+  "tvl_pit": 7188834,
+  "tvl_spark_90d": [
+   7187268,
+   7189452,
+   7190386,
+   7188757,
+   7189961,
+   7189138,
+   7188932,
+   7188718,
+   7189786,
+   7187976,
+   7187009,
+   7188346,
+   7185198,
+   7187928,
+   7188834
+  ]
+ },
+ "defi-saver-asset-management": {
+  "fees_30d_usd": 560418,
+  "fees_365d_usd": 4923898,
+  "fees_has_adapter": true,
+  "slug": "defi-saver-asset-management",
+  "tvl_growth_30d_pct": -15.29,
+  "tvl_growth_90d_pct": 38.94,
+  "tvl_max_1d_jump_pct": 38.6,
+  "tvl_max_drawdown_90d_pct": 30.3,
+  "tvl_pit": 281552379,
+  "tvl_spark_90d": [
+   202640576,
+   302931534,
+   312641588,
+   332935621,
+   339362843,
+   356978088,
+   365108746,
+   364915856,
+   343265074,
+   378640268,
+   376546757,
+   359403395,
+   342970550,
+   281552379
+  ]
+ },
+ "defindex": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "paltalabs"
+  ],
+  "slug": "defindex",
+  "tvl_growth_30d_pct": -4.48,
+  "tvl_growth_90d_pct": -4.88,
+  "tvl_max_1d_jump_pct": 0.8,
+  "tvl_max_drawdown_90d_pct": 9.6,
+  "tvl_pit": 18507707,
+  "tvl_spark_90d": [
+   19456865,
+   19519558,
+   19882008,
+   20124168,
+   20164996,
+   20402295,
+   20353706,
+   19594545,
+   19452182,
+   19532846,
+   19119519,
+   18756355,
+   18785339,
+   18507707
+  ]
+ },
+ "dolomite": {
+  "fees_30d_usd": 1715734,
+  "fees_365d_usd": 12862993,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "dolomite-exchange"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2.5,
+    "date": "2023-05-12",
+    "lead": [
+     "Draper Goren Holm",
+     "NGC Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.5,
+  "slug": "dolomite",
+  "tvl_growth_30d_pct": -49.0,
+  "tvl_growth_90d_pct": -34.71,
+  "tvl_pit": 123480813
+ },
+ "doppler-finance": {
+  "fees_30d_usd": 238867,
+  "fees_365d_usd": 2936870,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 3,
+    "date": "2025-08-07",
+    "lead": [
+     "Reforge"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 2.5,
+    "date": "2025-02-27",
+    "lead": [],
+    "round": "Pre-Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 5.5,
+  "slug": "doppler-finance",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "XDP (Doppler Finance) trades on Ethereum, FDV about $171M on GeckoTerminal; both sources agree.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": -22.82,
+  "tvl_growth_90d_pct": 3.63,
+  "tvl_max_1d_jump_pct": 14.3,
+  "tvl_max_drawdown_90d_pct": 34.2,
+  "tvl_pit": 93261832,
+  "tvl_spark_90d": [
+   89996245,
+   132527265,
+   124388416,
+   126942852,
+   122902560,
+   126582141,
+   137099387,
+   133149498,
+   127284553,
+   118290440,
+   119065509,
+   115901764,
+   107426156,
+   93261832
+  ]
+ },
+ "drakewell": {
+  "fees_has_adapter": false,
+  "slug": "drakewell",
+  "tvl_growth_30d_pct": 25.86,
+  "tvl_max_1d_jump_pct": 4.5,
+  "tvl_max_drawdown_90d_pct": 0.4,
+  "tvl_pit": 28796995,
+  "tvl_spark_90d": [
+   22776644,
+   22797775,
+   22826270,
+   22846455,
+   22881818,
+   22906149,
+   23949862,
+   24968437,
+   25024058,
+   25106133,
+   26125969,
+   26149427,
+   26337066,
+   27476057,
+   28796995
+  ]
+ },
+ "eigencloud": {
+  "fees_30d_usd": 202511,
+  "fees_365d_usd": 19346953,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Layr-Labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 70,
+    "date": "2025-06-17",
+    "lead": [
+     "a16z crypto"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 50,
+    "date": "2023-03-28",
+    "lead": [
+     "Blockchain Capital"
+    ],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 100,
+    "date": "2024-02-22",
+    "lead": [
+     "a16z crypto"
+    ],
+    "round": "Private"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 220,
+  "slug": "eigencloud",
+  "tvl_growth_30d_pct": -21.2,
+  "tvl_growth_90d_pct": -1.67,
+  "tvl_pit": 4931787893
+ },
+ "ekubo": {
+  "fees_30d_usd": 265075,
+  "fees_365d_usd": 2880173,
+  "fees_has_adapter": true,
+  "slug": "ekubo",
+  "tvl_growth_30d_pct": -31.66,
+  "tvl_growth_90d_pct": -5.03,
+  "tvl_pit": 22470754
+ },
+ "ember": {
+  "fees_30d_usd": 857598,
+  "fees_365d_usd": 6011648,
+  "fees_has_adapter": true,
+  "slug": "ember",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "solana",
+    "dex": "meteora",
+    "liquidity_usd": 64405.44,
+    "pair_address": "2y6PCqa4fEp3jLiFdan9jVMw7LSK8F3gwsTfy8p7traE",
+    "pair_created_at_ms": 1788992701000,
+    "token_address": "5dvXTZ5qwgafnHtwu3Ls3QrWx1U4LQsFeCuJgkk4QEC6",
+    "token_name": "embercurve",
+    "token_symbol": "EMBER"
+   },
+   "note": "EMBER trades on Solana + Base + Robinhood chain (both sources agree); liquidity is modest (about $64K top pair).",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": -25.16,
+  "tvl_growth_90d_pct": -9.71,
+  "tvl_max_1d_jump_pct": 3.0,
+  "tvl_max_drawdown_90d_pct": 26.8,
+  "tvl_pit": 90154816,
+  "tvl_spark_90d": [
+   99851052,
+   109140290,
+   111738555,
+   112586915,
+   113671646,
+   115520642,
+   117239517,
+   118873159,
+   120829781,
+   118512689,
+   103689074,
+   96650257,
+   98020651,
+   96032294,
+   90154816
+  ]
+ },
+ "enzyme-finance": {
+  "fees_30d_usd": 7494,
+  "fees_365d_usd": 113760,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "enzymefinance"
+  ],
+  "slug": "enzyme-finance",
+  "tvl_growth_30d_pct": -16.07,
+  "tvl_growth_90d_pct": -4.38,
+  "tvl_pit": 79611102
+ },
+ "equilibria": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 1241659,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "eqbtech"
+  ],
+  "slug": "equilibria",
+  "tvl_growth_30d_pct": -29.31,
+  "tvl_growth_90d_pct": -5.9,
+  "tvl_pit": 8426236
+ },
+ "estate-protocol": {
+  "fees_has_adapter": false,
+  "slug": "estate-protocol",
+  "tvl_growth_30d_pct": -0.02,
+  "tvl_growth_90d_pct": -0.01,
+  "tvl_max_1d_jump_pct": 0.0,
+  "tvl_max_drawdown_90d_pct": 0.1,
+  "tvl_pit": 13945568,
+  "tvl_spark_90d": [
+   13947361,
+   13949345,
+   13951002,
+   13950925,
+   13952595,
+   13950669,
+   13950865,
+   13948635,
+   13949523,
+   13950790,
+   13951838,
+   13948634,
+   13948553,
+   13950812,
+   13945568
+  ]
+ },
+ "evaa-protocol": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "evaafi"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2.5,
+    "date": "2025-01-19",
+    "lead": [],
+    "round": "Private token sale"
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2023-07-01",
+    "lead": [
+     "TONcoin.fund"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 2.5,
+  "slug": "evaa-protocol",
+  "tvl_growth_30d_pct": -13.33,
+  "tvl_growth_90d_pct": -29.16,
+  "tvl_pit": 7026573
+ },
+ "exactly": {
+  "fees_30d_usd": 86115,
+  "fees_365d_usd": 350135,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "exactly"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2,
+    "date": "2025-03-14",
+    "lead": [
+     "Uphold"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 3,
+    "date": "2021-08-12",
+    "lead": [],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 2,
+    "date": "2023-01-12",
+    "lead": [
+     "Kain Warwick",
+     "Esteban Ordano"
+    ],
+    "round": "Private Round"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 7,
+  "slug": "exactly",
+  "tvl_growth_30d_pct": -9.1,
+  "tvl_growth_90d_pct": 97.95,
+  "tvl_pit": 11102428
+ },
+ "exponent-risk-tranching": {
+  "fees_has_adapter": false,
+  "slug": "exponent-risk-tranching",
+  "tvl_growth_30d_pct": -15.2,
+  "tvl_growth_90d_pct": 186.45,
+  "tvl_max_1d_jump_pct": 15.6,
+  "tvl_max_drawdown_90d_pct": 15.8,
+  "tvl_pit": 13457945,
+  "tvl_spark_90d": [
+   4698198,
+   5824288,
+   6980750,
+   8645898,
+   11485691,
+   12208171,
+   14287546,
+   14061990,
+   15178292,
+   15715778,
+   15515934,
+   14061389,
+   13512656,
+   13457945
+  ]
+ },
+ "exponent-strategy-vaults": {
+  "fees_has_adapter": false,
+  "slug": "exponent-strategy-vaults",
+  "tvl_growth_30d_pct": 47.05,
+  "tvl_growth_90d_pct": 38.75,
+  "tvl_max_1d_jump_pct": 78.2,
+  "tvl_max_drawdown_90d_pct": 28.9,
+  "tvl_pit": 16973708,
+  "tvl_spark_90d": [
+   12232869,
+   12960069,
+   11073695,
+   10329025,
+   9305898,
+   9669556,
+   12144562,
+   11997352,
+   11727304,
+   11321871,
+   10936484,
+   10232983,
+   18257098,
+   16973708
+  ]
+ },
+ "exponent-yield-exchange": {
+  "fees_30d_usd": 25357,
+  "fees_365d_usd": 1911429,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2026-04-30",
+    "lead": [
+     "Multicoin Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 2.1,
+    "date": "2024-11-21",
+    "lead": [
+     "RockawayX"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 7.1,
+  "slug": "exponent-yield-exchange",
+  "tvl_growth_30d_pct": -31.77,
+  "tvl_growth_90d_pct": -62.62,
+  "tvl_max_1d_jump_pct": 12.1,
+  "tvl_max_drawdown_90d_pct": 64.1,
+  "tvl_pit": 45117116,
+  "tvl_spark_90d": [
+   120687522,
+   118505076,
+   116602147,
+   117728260,
+   114047402,
+   73329157,
+   68881454,
+   67998877,
+   67039265,
+   61722019,
+   61031694,
+   58668091,
+   45805487,
+   45117116
+  ]
+ },
+ "extended-perps": {
+  "fees_30d_usd": 1454322,
+  "fees_365d_usd": 30890053,
+  "fees_has_adapter": true,
+  "slug": "extended-perps",
+  "tvl_growth_30d_pct": -18.15,
+  "tvl_growth_90d_pct": -23.54,
+  "tvl_max_1d_jump_pct": 6.0,
+  "tvl_max_drawdown_90d_pct": 23.5,
+  "tvl_pit": 96331996,
+  "tvl_spark_90d": [
+   125990242,
+   121536392,
+   119311144,
+   118769365,
+   116853571,
+   117404290,
+   117010493,
+   119401397,
+   118948211,
+   115562683,
+   113426623,
+   108215161,
+   99955420,
+   96331996
+  ]
+ },
+ "fables": {
+  "fees_30d_usd": 1461717,
+  "fees_365d_usd": 7559746,
+  "fees_has_adapter": true,
+  "slug": "fables",
+  "tvl_growth_30d_pct": -62.68,
+  "tvl_pit": 13074709
+ },
+ "falcon-finance": {
+  "fees_30d_usd": 148380,
+  "fees_365d_usd": 5628270,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 10,
+    "date": "2025-10-09",
+    "lead": [
+     "M2 Group"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 4,
+    "date": "2025-09-23",
+    "lead": [],
+    "round": "Public token sale"
+   },
+   {
+    "amount_usd_m": 10,
+    "date": "2025-07-30",
+    "lead": [
+     "World Liberty Financial"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 24,
+  "slug": "falcon-finance",
+  "tvl_growth_30d_pct": -9.36,
+  "tvl_growth_90d_pct": 32.71,
+  "tvl_pit": 1557072013
+ },
+ "felix-cdp": {
+  "fees_30d_usd": 36755,
+  "fees_365d_usd": 1243113,
+  "fees_has_adapter": true,
+  "slug": "felix-cdp",
+  "tvl_growth_30d_pct": -31.94,
+  "tvl_growth_90d_pct": -37.25,
+  "tvl_max_1d_jump_pct": 11.4,
+  "tvl_max_drawdown_90d_pct": 49.1,
+  "tvl_pit": 18861564,
+  "tvl_spark_90d": [
+   30058268,
+   36525269,
+   35811203,
+   34533339,
+   31971314,
+   35703362,
+   32714016,
+   31225822,
+   29560729,
+   25872328,
+   23498752,
+   24312206,
+   20828133,
+   18861564
+  ]
+ },
+ "felix-vaults": {
+  "fees_30d_usd": 57750,
+  "fees_365d_usd": 3192537,
+  "fees_has_adapter": true,
+  "slug": "felix-vaults",
+  "tvl_growth_30d_pct": -10.29,
+  "tvl_growth_90d_pct": -57.41,
+  "tvl_max_1d_jump_pct": 37.0,
+  "tvl_max_drawdown_90d_pct": 69.1,
+  "tvl_pit": 32976484,
+  "tvl_spark_90d": [
+   77429145,
+   76181818,
+   89539251,
+   60547185,
+   41822080,
+   54590326,
+   44791659,
+   43601582,
+   38912973,
+   34000094,
+   32193679,
+   29672992,
+   30181569,
+   32976484
+  ]
+ },
+ "figure-markets-exchange": {
+  "fees_30d_usd": 2012,
+  "fees_365d_usd": 173564,
+  "fees_has_adapter": true,
+  "slug": "figure-markets-exchange",
+  "tvl_growth_30d_pct": 13.4,
+  "tvl_growth_90d_pct": -13.28,
+  "tvl_max_1d_jump_pct": 120.5,
+  "tvl_max_drawdown_90d_pct": 61.4,
+  "tvl_pit": 129027559,
+  "tvl_spark_90d": [
+   148789887,
+   191573034,
+   82847368,
+   164844425,
+   161810059,
+   170859204,
+   163179358,
+   152288824,
+   149158773,
+   146076355,
+   114165093,
+   119229555,
+   126630510,
+   129027559
+  ]
+ },
+ "figure-markets-prime": {
+  "fees_has_adapter": false,
+  "slug": "figure-markets-prime",
+  "tvl_growth_30d_pct": -13.56,
+  "tvl_growth_90d_pct": -12.19,
+  "tvl_max_1d_jump_pct": 13.1,
+  "tvl_max_drawdown_90d_pct": 39.9,
+  "tvl_pit": 190530739,
+  "tvl_spark_90d": [
+   216978382,
+   255817306,
+   245408229,
+   233906613,
+   225210312,
+   207048744,
+   190229359,
+   242972906,
+   201370696,
+   197852611,
+   190824999,
+   189484840,
+   161878281,
+   190530739
+  ]
+ },
+ "fira": {
+  "fees_30d_usd": 35167,
+  "fees_365d_usd": 344075,
+  "fees_has_adapter": true,
+  "slug": "fira",
+  "tvl_growth_30d_pct": 155.29,
+  "tvl_growth_90d_pct": 99.28,
+  "tvl_max_1d_jump_pct": 26.1,
+  "tvl_max_drawdown_90d_pct": 31.7,
+  "tvl_pit": 19999517,
+  "tvl_spark_90d": [
+   10035640,
+   9850781,
+   8680411,
+   8304005,
+   8434179,
+   9503763,
+   7458803,
+   6948529,
+   7176356,
+   9096163,
+   8180492,
+   11044193,
+   19814540,
+   19999517
+  ]
+ },
+ "firelight": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "firelight-protocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 8,
+    "date": "2026-09-01",
+    "lead": [
+     "gumi Crypto Capital"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 8,
+  "slug": "firelight",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "xrpl",
+    "dex": "xrpl",
+    "liquidity_usd": 24.23,
+    "pair_address": "466972656C696768740000000000000000000000.rfiRESJMWe2jWFacMuZ6HGnDFzP5GQKoUt_XRP",
+    "pair_created_at_ms": 1752768070000,
+    "token_address": "466972656C696768740000000000000000000000.rfiRESJMWe2jWFacMuZ6HGnDFzP5GQKoUt",
+    "token_name": "Firelight",
+    "token_symbol": "Firelight"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -23.88,
+  "tvl_growth_90d_pct": -10.48,
+  "tvl_max_1d_jump_pct": 14.5,
+  "tvl_max_drawdown_90d_pct": 40.5,
+  "tvl_pit": 51541056,
+  "tvl_spark_90d": [
+   57574343,
+   83193929,
+   77180720,
+   75458343,
+   72635063,
+   72854796,
+   77366924,
+   74648154,
+   71545928,
+   66473628,
+   67159892,
+   64914927,
+   59125675,
+   51541056
+  ]
+ },
+ "flowdesk": {
+  "fees_30d_usd": 202699,
+  "fees_365d_usd": 709797,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 30,
+    "date": "2022-06-28",
+    "lead": [
+     "Agla\u00e9 Ventures"
+    ],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 50,
+    "date": "2024-01-18",
+    "lead": [
+     "Cathay Innovation"
+    ],
+    "round": "Series B"
+   },
+   {
+    "amount_usd_m": 52,
+    "date": "2025-03-04",
+    "lead": [
+     "HV Capital",
+     "BlackRock"
+    ],
+    "round": "Series B"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 132,
+  "slug": "flowdesk",
+  "tvl_growth_30d_pct": -7.59,
+  "tvl_max_1d_jump_pct": 92.5,
+  "tvl_max_drawdown_90d_pct": 41.4,
+  "tvl_pit": 28045415,
+  "tvl_spark_90d": [
+   6315563,
+   6318110,
+   6167788,
+   7542366,
+   11871239,
+   16201795,
+   19452871,
+   23584618,
+   27731770,
+   36441326,
+   40123212,
+   47455932,
+   37698751,
+   39290796,
+   28045415
+  ]
+ },
+ "flux-finance": {
+  "fees_30d_usd": 155398,
+  "fees_365d_usd": 1656655,
+  "fees_has_adapter": true,
+  "slug": "flux-finance",
+  "tvl_growth_30d_pct": -0.03,
+  "tvl_growth_90d_pct": -2.02,
+  "tvl_max_1d_jump_pct": 0.4,
+  "tvl_max_drawdown_90d_pct": 2.5,
+  "tvl_pit": 43614470,
+  "tvl_spark_90d": [
+   44511860,
+   44535721,
+   44411485,
+   44408347,
+   44431531,
+   43494106,
+   43521251,
+   43559064,
+   43609956,
+   43637483,
+   43662012,
+   43700531,
+   43639017,
+   43614470
+  ]
+ },
+ "fluxion-network": {
+  "fees_30d_usd": 197582,
+  "fees_365d_usd": 1649355,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Fluxion-Exchange"
+  ],
+  "slug": "fluxion-network",
+  "tvl_growth_30d_pct": 0.49,
+  "tvl_growth_90d_pct": 260.78,
+  "tvl_max_1d_jump_pct": 252.8,
+  "tvl_max_drawdown_90d_pct": 15.9,
+  "tvl_pit": 7137148,
+  "tvl_spark_90d": [
+   1978268,
+   1824058,
+   7155283,
+   7259598,
+   7215084,
+   7425074,
+   7325674,
+   7355826,
+   7149806,
+   7101217,
+   7147951,
+   6717869,
+   6971991,
+   7137148
+  ]
+ },
+ "flying-tulip-ftusd": {
+  "fees_30d_usd": 2286,
+  "fees_365d_usd": 15764,
+  "fees_has_adapter": true,
+  "slug": "flying-tulip-ftusd",
+  "tvl_growth_30d_pct": 5.95,
+  "tvl_growth_90d_pct": 29.53,
+  "tvl_max_1d_jump_pct": 9.9,
+  "tvl_max_drawdown_90d_pct": 22.6,
+  "tvl_pit": 5694808,
+  "tvl_spark_90d": [
+   4396620,
+   4654042,
+   3832325,
+   4193888,
+   4425498,
+   4296037,
+   4641137,
+   4852684,
+   5188113,
+   5459319,
+   5508437,
+   5540276,
+   5787694,
+   5694808
+  ]
+ },
+ "flying-tulip-lend": {
+  "fees_30d_usd": 19148,
+  "fees_365d_usd": 56730,
+  "fees_has_adapter": true,
+  "slug": "flying-tulip-lend",
+  "tvl_growth_30d_pct": 9.45,
+  "tvl_growth_90d_pct": -12.12,
+  "tvl_pit": 10133169
+ },
+ "frankencoin": {
+  "fees_30d_usd": 137283,
+  "fees_365d_usd": 1217894,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Frankencoin-ZCHF"
+  ],
+  "slug": "frankencoin",
+  "tvl_growth_30d_pct": -17.4,
+  "tvl_growth_90d_pct": -26.06,
+  "tvl_pit": 50172296
+ },
+ "fstswap": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "FstSwapDex"
+  ],
+  "slug": "fstswap",
+  "tvl_growth_30d_pct": 10.45,
+  "tvl_growth_90d_pct": 20.3,
+  "tvl_max_1d_jump_pct": 21.1,
+  "tvl_max_drawdown_90d_pct": 25.1,
+  "tvl_pit": 11715410,
+  "tvl_spark_90d": [
+   9738462,
+   10114691,
+   11397332,
+   10792598,
+   11774719,
+   10745677,
+   10260912,
+   10665335,
+   9920080,
+   10226343,
+   10030729,
+   13536809,
+   12107909,
+   11715410
+  ]
+ },
+ "fuel-bridge": {
+  "fees_has_adapter": false,
+  "slug": "fuel-bridge",
+  "tvl_growth_30d_pct": -30.47,
+  "tvl_growth_90d_pct": -28.39,
+  "tvl_pit": 7104091
+ },
+ "fx-protocol": {
+  "fees_30d_usd": 1845482,
+  "fees_365d_usd": 6074883,
+  "fees_has_adapter": true,
+  "slug": "fx-protocol",
+  "tvl_growth_30d_pct": -36.53,
+  "tvl_growth_90d_pct": -19.11,
+  "tvl_pit": 80239476
+ },
+ "gains-network": {
+  "fees_30d_usd": 167935,
+  "fees_365d_usd": 6917716,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "GainsNetwork"
+  ],
+  "slug": "gains-network",
+  "tvl_growth_30d_pct": -26.85,
+  "tvl_growth_90d_pct": -41.52,
+  "tvl_pit": 6008313
+ },
+ "galaxy-curation": {
+  "fees_30d_usd": 316273,
+  "fees_365d_usd": 1455156,
+  "fees_has_adapter": true,
+  "slug": "galaxy-curation",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 3.92,
+  "tvl_growth_90d_pct": 89.13,
+  "tvl_max_1d_jump_pct": 92.0,
+  "tvl_max_drawdown_90d_pct": 26.5,
+  "tvl_pit": 130026387,
+  "tvl_spark_90d": [
+   68750442,
+   73463009,
+   69605008,
+   69402776,
+   77904500,
+   154101124,
+   127267848,
+   126308419,
+   125342668,
+   125193877,
+   131374022,
+   117261083,
+   116912230,
+   130026387
+  ]
+ },
+ "gami-labs": {
+  "fees_has_adapter": false,
+  "slug": "gami-labs",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 12.34,
+  "tvl_growth_90d_pct": 16.24,
+  "tvl_max_1d_jump_pct": 10.4,
+  "tvl_max_drawdown_90d_pct": 9.2,
+  "tvl_pit": 63100061,
+  "tvl_spark_90d": [
+   54285409,
+   55401742,
+   55295985,
+   56723378,
+   56575893,
+   57277632,
+   58034839,
+   57784237,
+   55763112,
+   56034774,
+   58498511,
+   58834262,
+   57777889,
+   63100061
+  ]
+ },
+ "gamma-research": {
+  "fees_has_adapter": false,
+  "slug": "gamma-research",
+  "tvl_growth_30d_pct": 13.5,
+  "tvl_max_1d_jump_pct": 16.8,
+  "tvl_max_drawdown_90d_pct": 45.2,
+  "tvl_pit": 21709822,
+  "tvl_spark_90d": [
+   23362961,
+   24436668,
+   26404356,
+   31006321,
+   30917270,
+   24792608,
+   24238819,
+   25337015,
+   19254868,
+   17817312,
+   18652331,
+   17722805,
+   17451063,
+   17874712,
+   21709822
+  ]
+ },
+ "gauntlet": {
+  "fees_30d_usd": 4119540,
+  "fees_365d_usd": 34430466,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 4.41,
+    "date": "2020-09-16",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": 23.8,
+    "date": "2022-03-15",
+    "lead": [
+     "Ribbit Capital"
+    ],
+    "round": "Series B"
+   },
+   {
+    "amount_usd_m": 13.63,
+    "date": "2021-06-04",
+    "lead": [
+     "Polychain Capital"
+    ],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 125,
+    "date": "2026-07-09",
+    "lead": [
+     "SBI Holdings"
+    ],
+    "round": "Series C"
+   },
+   {
+    "amount_usd_m": 2.65,
+    "date": "2018-10-25",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 5,
+  "raises_total_usd_m": 169.49,
+  "slug": "gauntlet",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "ethereum",
+    "dex": "uniswap",
+    "liquidity_usd": 13313.83,
+    "pair_address": "0x0554Ac72E510E5A3b99b0939c877CBACD1dbE9a0",
+    "pair_created_at_ms": 1609892079000,
+    "token_address": "0xAD45320077Fc7a0f0A43976Ac7DBaCC65aD21d8F",
+    "token_name": "Gauntlet Finance",
+    "token_symbol": "GFIv2"
+   },
+   "note": "Only a vault/share token (GFIv2, FDV about $21K) found; no governance token confirmed.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "possible_weak"
+  },
+  "tvl_growth_30d_pct": -2.31,
+  "tvl_growth_90d_pct": 11.27,
+  "tvl_max_1d_jump_pct": 6.8,
+  "tvl_max_drawdown_90d_pct": 10.5,
+  "tvl_pit": 1579605708,
+  "tvl_spark_90d": [
+   1419616145,
+   1508509955,
+   1508391629,
+   1540525282,
+   1600959273,
+   1636784008,
+   1615476001,
+   1628008159,
+   1618816755,
+   1602890489,
+   1641195023,
+   1523017485,
+   1595122472,
+   1579605708
+  ]
+ },
+ "gearbox": {
+  "fees_30d_usd": 3884,
+  "fees_365d_usd": 467241,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Gearbox-protocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 4.15,
+    "date": "2022-08-31",
+    "lead": [
+     "Placeholder",
+     "Zee Prime",
+     "LedgerPrime"
+    ],
+    "round": "DAO round"
+   },
+   {
+    "amount_usd_m": 2.3,
+    "date": "2021-05-01",
+    "lead": [],
+    "round": "Private"
+   },
+   {
+    "amount_usd_m": 1.59,
+    "date": "2022-09-22",
+    "lead": [],
+    "round": "DAO round"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 8.04,
+  "slug": "gearbox",
+  "tvl_growth_30d_pct": -15.01,
+  "tvl_growth_90d_pct": 13.16,
+  "tvl_pit": 19661528
+ },
+ "gmx-solana": {
+  "fees_30d_usd": 2883718,
+  "fees_365d_usd": 24874697,
+  "fees_has_adapter": true,
+  "slug": "gmx-solana",
+  "tvl_growth_30d_pct": -15.6,
+  "tvl_growth_90d_pct": -29.05,
+  "tvl_max_1d_jump_pct": 6.7,
+  "tvl_max_drawdown_90d_pct": 30.9,
+  "tvl_pit": 22637783,
+  "tvl_spark_90d": [
+   31908715,
+   31621511,
+   29784115,
+   29121731,
+   28739318,
+   29642843,
+   30096612,
+   29368363,
+   27843046,
+   26644732,
+   26526388,
+   25203200,
+   23657628,
+   22637783
+  ]
+ },
+ "goonfi": {
+  "fees_has_adapter": false,
+  "slug": "goonfi",
+  "tvl_growth_30d_pct": -12.12,
+  "tvl_max_1d_jump_pct": 5.2,
+  "tvl_max_drawdown_90d_pct": 15.6,
+  "tvl_pit": 5225440,
+  "tvl_spark_90d": [
+   5898576,
+   5959097,
+   5862435,
+   5830116,
+   5959723,
+   5840983,
+   6115263,
+   6154092,
+   6053851,
+   5945949,
+   5800616,
+   5458006,
+   5456756,
+   5414304,
+   5225440
+  ]
+ },
+ "goose": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "GooseFarmLabs"
+  ],
+  "slug": "goose",
+  "tvl_growth_30d_pct": -0.0,
+  "tvl_growth_90d_pct": 0.07,
+  "tvl_max_1d_jump_pct": 0.1,
+  "tvl_max_drawdown_90d_pct": 0.2,
+  "tvl_pit": 12798839,
+  "tvl_spark_90d": [
+   12789393,
+   12809163,
+   12810564,
+   12811416,
+   12808770,
+   12805986,
+   12809273,
+   12809270,
+   12800232,
+   12799482,
+   12798619,
+   12802643,
+   12795137,
+   12798839
+  ]
+ },
+ "granite": {
+  "fees_has_adapter": false,
+  "slug": "granite",
+  "tvl_growth_30d_pct": -11.05,
+  "tvl_growth_90d_pct": -16.87,
+  "tvl_max_1d_jump_pct": 4.0,
+  "tvl_max_drawdown_90d_pct": 26.5,
+  "tvl_pit": 6191272,
+  "tvl_spark_90d": [
+   7447745,
+   8261545,
+   8285055,
+   7047336,
+   6897133,
+   7028173,
+   7044451,
+   7048599,
+   7035363,
+   6917807,
+   6878894,
+   6713236,
+   6410737,
+   6191272
+  ]
+ },
+ "growihf": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "Growi-DeFi"
+  ],
+  "slug": "growihf",
+  "tvl_growth_30d_pct": -8.83,
+  "tvl_growth_90d_pct": 35.13,
+  "tvl_max_1d_jump_pct": 8.7,
+  "tvl_max_drawdown_90d_pct": 10.5,
+  "tvl_pit": 12808380,
+  "tvl_spark_90d": [
+   9478579,
+   9651609,
+   10219070,
+   10943088,
+   11576331,
+   11793410,
+   12355451,
+   12651344,
+   13805341,
+   13835129,
+   13549605,
+   13319678,
+   13778609,
+   12808380
+  ]
+ },
+ "hakutora": {
+  "fees_30d_usd": 62218,
+  "fees_365d_usd": 746534,
+  "fees_has_adapter": true,
+  "slug": "hakutora",
+  "tvl_growth_30d_pct": -23.16,
+  "tvl_growth_90d_pct": -31.8,
+  "tvl_max_1d_jump_pct": 5.6,
+  "tvl_max_drawdown_90d_pct": 40.1,
+  "tvl_pit": 16195224,
+  "tvl_spark_90d": [
+   23745566,
+   24497988,
+   24205865,
+   26325515,
+   25400294,
+   23146646,
+   21910486,
+   21853955,
+   20954482,
+   21116922,
+   20445078,
+   19126146,
+   15886314,
+   16195224
+  ]
+ },
+ "harmonix-finance": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "harmonixfi"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 0.6,
+    "date": "2025-12-01",
+    "lead": [],
+    "round": "Public token sale"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 0.6,
+  "slug": "harmonix-finance",
+  "tvl_growth_30d_pct": -20.21,
+  "tvl_growth_90d_pct": 8.45,
+  "tvl_pit": 5258128
+ },
+ "harvest-finance": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "harvest-finance",
+   "harvestfi"
+  ],
+  "slug": "harvest-finance",
+  "tvl_growth_30d_pct": -25.88,
+  "tvl_growth_90d_pct": -2.82,
+  "tvl_pit": 14509118
+ },
+ "hegic": {
+  "fees_30d_usd": -5483,
+  "fees_365d_usd": -86804,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "hegic"
+  ],
+  "slug": "hegic",
+  "tvl_growth_30d_pct": -11.67,
+  "tvl_growth_90d_pct": -9.62,
+  "tvl_pit": 8190170
+ },
+ "hertzflow": {
+  "fees_30d_usd": 2407,
+  "fees_365d_usd": 52741,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2026-08-23",
+    "lead": [],
+    "round": "Angel Round"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 0,
+  "slug": "hertzflow",
+  "tvl_growth_30d_pct": -2.35,
+  "tvl_max_1d_jump_pct": 4.5,
+  "tvl_max_drawdown_90d_pct": 6.6,
+  "tvl_pit": 6937962,
+  "tvl_spark_90d": [
+   7095983,
+   7322240,
+   7199655,
+   7153282,
+   7145320,
+   7138128,
+   7144783,
+   7142119,
+   7115732,
+   7103732,
+   6990736,
+   6982063,
+   6952253,
+   6950550,
+   6937962
+  ]
+ },
+ "hipo": {
+  "fees_30d_usd": 140914,
+  "fees_365d_usd": 641966,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "HipoFinance"
+  ],
+  "slug": "hipo",
+  "tvl_growth_30d_pct": -13.04,
+  "tvl_growth_90d_pct": -14.07,
+  "tvl_pit": 9596217
+ },
+ "hive-protocol": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 110,
+    "date": "2021-11-14",
+    "lead": [],
+    "round": "Post-IPO Equity"
+   },
+   {
+    "amount_usd_m": 8.949,
+    "date": "2017-07-03",
+    "lead": [],
+    "round": "ICO"
+   },
+   {
+    "amount_usd_m": 15,
+    "date": "2021-01-12",
+    "lead": [
+     "U.S. Global Investors"
+    ],
+    "round": "Post-IPO Debt"
+   },
+   {
+    "amount_usd_m": 161.42,
+    "date": "2017-12-29",
+    "lead": [
+     "Genesis Mining",
+     "Storm Global"
+    ],
+    "round": "Post-IPO Equity"
+   }
+  ],
+  "raises_count": 4,
+  "raises_total_usd_m": 295.37,
+  "slug": "hive-protocol",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 1949.66,
+  "tvl_growth_90d_pct": 2558.22,
+  "tvl_max_1d_jump_pct": 2392.0,
+  "tvl_max_drawdown_90d_pct": 18.9,
+  "tvl_pit": 199245798,
+  "tvl_spark_90d": [
+   7495470,
+   9188759,
+   9304974,
+   9505266,
+   9190988,
+   9662862,
+   10031072,
+   10089067,
+   9862016,
+   9694030,
+   235615760,
+   226413087,
+   221016453,
+   199245798
+  ]
+ },
+ "huma": {
+  "fees_30d_usd": 2823605,
+  "fees_365d_usd": 18122341,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "00labs"
+  ],
+  "slug": "huma",
+  "tvl_growth_30d_pct": -9.77,
+  "tvl_growth_90d_pct": 71.05,
+  "tvl_pit": 368562485
+ },
+ "hydration-dex": {
+  "fees_30d_usd": 91350,
+  "fees_365d_usd": 929299,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "galacticcouncil"
+  ],
+  "slug": "hydration-dex",
+  "tvl_growth_30d_pct": -19.59,
+  "tvl_growth_90d_pct": -15.61,
+  "tvl_pit": 20850919
+ },
+ "hylo-protocol": {
+  "fees_30d_usd": 329930,
+  "fees_365d_usd": 3498086,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 1.5,
+    "date": "2025-08-07",
+    "lead": [
+     "Robot Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 1.5,
+  "slug": "hylo-protocol",
+  "tvl_growth_30d_pct": -26.74,
+  "tvl_growth_90d_pct": 55.34,
+  "tvl_max_1d_jump_pct": 18.0,
+  "tvl_max_drawdown_90d_pct": 33.3,
+  "tvl_pit": 29288153,
+  "tvl_spark_90d": [
+   18854678,
+   24463053,
+   28700188,
+   28619885,
+   29509330,
+   35580317,
+   42125303,
+   43326601,
+   40938600,
+   39197575,
+   38070983,
+   35738848,
+   33629374,
+   29288153
+  ]
+ },
+ "hyperbeat-earn": {
+  "fees_30d_usd": 43262,
+  "fees_365d_usd": 1767063,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 5.2,
+    "date": "2025-08-15",
+    "lead": [
+     "Electric Capital",
+     "ether.fi Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 5.2,
+  "slug": "hyperbeat-earn",
+  "tvl_growth_30d_pct": -9.43,
+  "tvl_growth_90d_pct": -29.49,
+  "tvl_max_1d_jump_pct": 9.0,
+  "tvl_max_drawdown_90d_pct": 35.0,
+  "tvl_pit": 17659594,
+  "tvl_spark_90d": [
+   25045809,
+   25432672,
+   26453662,
+   25653164,
+   24435232,
+   25759602,
+   24509987,
+   22840931,
+   20645158,
+   19134837,
+   18548499,
+   19707616,
+   18395787,
+   17659594
+  ]
+ },
+ "hyperithm": {
+  "fees_30d_usd": 465062,
+  "fees_365d_usd": 3657187,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 11,
+    "date": "2021-08-06",
+    "lead": [],
+    "round": "Series B"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 11,
+  "slug": "hyperithm",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -15.76,
+  "tvl_growth_90d_pct": -13.39,
+  "tvl_max_1d_jump_pct": 10.8,
+  "tvl_max_drawdown_90d_pct": 22.7,
+  "tvl_pit": 222002257,
+  "tvl_spark_90d": [
+   256316414,
+   264317338,
+   267782266,
+   250790594,
+   258337462,
+   268574630,
+   273551368,
+   283562997,
+   278753544,
+   260369179,
+   261281221,
+   244207097,
+   231016907,
+   222002257
+  ]
+ },
+ "hyperlane": {
+  "fees_30d_usd": 50518,
+  "fees_365d_usd": 362193,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 18.5,
+    "date": "2022-09-22",
+    "lead": [
+     "Variant"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 18.5,
+  "slug": "hyperlane",
+  "tvl_growth_30d_pct": -10.83,
+  "tvl_growth_90d_pct": -20.76,
+  "tvl_pit": 66372003
+ },
+ "icarus-cl": {
+  "fees_has_adapter": false,
+  "slug": "icarus-cl",
+  "tvl_growth_30d_pct": -0.12,
+  "tvl_max_1d_jump_pct": 54.4,
+  "tvl_max_drawdown_90d_pct": 1.7,
+  "tvl_pit": 8024227,
+  "tvl_spark_90d": [
+   5170539,
+   5211865,
+   5194414,
+   8061825,
+   8154586,
+   8161176,
+   8103844,
+   8098035,
+   8070793,
+   8036949,
+   8033820,
+   8031427,
+   8031315,
+   8028546,
+   8024227
+  ]
+ },
+ "index-coop": {
+  "fees_30d_usd": 23807,
+  "fees_365d_usd": 253101,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "SetProtocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2.25,
+    "date": "2021-12-08",
+    "lead": [
+     "Sequoia Capital India",
+     "Blockchain Capital",
+     "White Star Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 7.7,
+    "date": "2021-07-07",
+    "lead": [
+     "Galaxy Digital"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 9.95,
+  "slug": "index-coop",
+  "tvl_growth_30d_pct": -27.66,
+  "tvl_growth_90d_pct": 2.97,
+  "tvl_pit": 10419076
+ },
+ "infinifi": {
+  "fees_30d_usd": 427515,
+  "fees_365d_usd": 6442056,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "InfiniFi-Labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 3,
+    "date": "2025-02-11",
+    "lead": [
+     "Electric Capital"
+    ],
+    "round": "Pre-Seed"
+   },
+   {
+    "amount_usd_m": 3,
+    "date": "2026-09-23",
+    "lead": [
+     "Electric Capital"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 6,
+  "slug": "infinifi",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "base",
+    "dex": "uniswap",
+    "liquidity_usd": 101437.88,
+    "pair_address": "0xb9ec360dd38364fdafd0b4ab6998e198cfd48c9bf59782e165866df88062f694",
+    "pair_created_at_ms": 1792952217000,
+    "token_address": "0x76675B96ab5403B52d41CBb54f846615Cc265F03",
+    "token_name": "InfiniFi",
+    "token_symbol": "INFI"
+   },
+   "note": "INFI (InfiniFi) trades on Base + Solana; several INFI contracts exist, so the official one is not pinned down.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": 15.28,
+  "tvl_growth_90d_pct": 35.11,
+  "tvl_max_1d_jump_pct": 27.7,
+  "tvl_max_drawdown_90d_pct": 16.3,
+  "tvl_pit": 70723858,
+  "tvl_spark_90d": [
+   52345949,
+   48308985,
+   47020315,
+   46539707,
+   46023691,
+   49033215,
+   50482713,
+   44162590,
+   58467163,
+   65986745,
+   69228887,
+   68608494,
+   73170377,
+   70723858
+  ]
+ },
+ "infrared-finance": {
+  "fees_30d_usd": 11470,
+  "fees_365d_usd": 172253,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "infrared-dao"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2.5,
+    "date": "2024-01-29",
+    "lead": [
+     "Synergis"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2024-06-24",
+    "lead": [
+     "Binance Labs"
+    ],
+    "round": "Private"
+   },
+   {
+    "amount_usd_m": 14,
+    "date": "2025-03-04",
+    "lead": [
+     "Framework Ventures"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 16.5,
+  "slug": "infrared-finance",
+  "tvl_growth_30d_pct": -51.59,
+  "tvl_growth_90d_pct": -28.63,
+  "tvl_pit": 11755207
+ },
+ "inverse-finance-firm": {
+  "fees_30d_usd": 263716,
+  "fees_365d_usd": 3844975,
+  "fees_has_adapter": true,
+  "slug": "inverse-finance-firm",
+  "tvl_growth_30d_pct": -16.48,
+  "tvl_growth_90d_pct": 21.48,
+  "tvl_pit": 27248325
+ },
+ "ipor-fusion": {
+  "fees_30d_usd": 334942,
+  "fees_365d_usd": 2285199,
+  "fees_has_adapter": true,
+  "slug": "ipor-fusion",
+  "tvl_growth_30d_pct": -16.46,
+  "tvl_growth_90d_pct": 48.05,
+  "tvl_max_1d_jump_pct": 11.7,
+  "tvl_max_drawdown_90d_pct": 20.9,
+  "tvl_pit": 68587649,
+  "tvl_spark_90d": [
+   46327382,
+   57478003,
+   62078405,
+   62575937,
+   63903300,
+   69282874,
+   75364213,
+   77984396,
+   79664348,
+   82928687,
+   82244765,
+   80617543,
+   79083710,
+   68587649
+  ]
+ },
+ "k3-capital": {
+  "fees_30d_usd": 487247,
+  "fees_365d_usd": 7658575,
+  "fees_has_adapter": true,
+  "slug": "k3-capital",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -11.12,
+  "tvl_growth_90d_pct": -64.18,
+  "tvl_max_1d_jump_pct": 17.5,
+  "tvl_max_drawdown_90d_pct": 67.6,
+  "tvl_pit": 208475767,
+  "tvl_spark_90d": [
+   581990129,
+   618776782,
+   597939067,
+   551272013,
+   444875264,
+   457144274,
+   437574619,
+   420598430,
+   243484113,
+   229804123,
+   220831360,
+   210401315,
+   228548964,
+   208475767
+  ]
+ },
+ "kaio": {
+  "fees_30d_usd": 36490,
+  "fees_365d_usd": 233699,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 8,
+    "date": "2026-04-20",
+    "lead": [],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 8,
+  "slug": "kaio",
+  "tvl_growth_30d_pct": -12.59,
+  "tvl_growth_90d_pct": -16.03,
+  "tvl_pit": 34655410
+ },
+ "katana-dex": {
+  "fees_30d_usd": 21376,
+  "fees_365d_usd": 668496,
+  "fees_has_adapter": true,
+  "slug": "katana-dex",
+  "tvl_growth_30d_pct": -20.13,
+  "tvl_growth_90d_pct": -5.1,
+  "tvl_max_1d_jump_pct": 9.6,
+  "tvl_max_drawdown_90d_pct": 28.7,
+  "tvl_pit": 7504796,
+  "tvl_spark_90d": [
+   7907837,
+   9298048,
+   9177676,
+   9304411,
+   9267274,
+   9810131,
+   10243299,
+   10302359,
+   9935956,
+   9258382,
+   8912102,
+   8491585,
+   8248965,
+   7504796
+  ]
+ },
+ "katana-pre-launch": {
+  "fees_has_adapter": false,
+  "slug": "katana-pre-launch",
+  "tvl_growth_30d_pct": -5.47,
+  "tvl_growth_90d_pct": 0.49,
+  "tvl_max_1d_jump_pct": 3.1,
+  "tvl_max_drawdown_90d_pct": 8.4,
+  "tvl_pit": 17639253,
+  "tvl_spark_90d": [
+   17553581,
+   18605184,
+   18697595,
+   18657714,
+   18612907,
+   18921262,
+   19098936,
+   19071836,
+   18796151,
+   18642534,
+   18521487,
+   18291393,
+   18186617,
+   17639253
+  ]
+ },
+ "kava-mint": {
+  "fees_has_adapter": false,
+  "slug": "kava-mint",
+  "tvl_growth_30d_pct": -13.28,
+  "tvl_growth_90d_pct": 6.67,
+  "tvl_max_1d_jump_pct": 6.2,
+  "tvl_max_drawdown_90d_pct": 24.0,
+  "tvl_pit": 10507491,
+  "tvl_spark_90d": [
+   9850108,
+   11925830,
+   11844199,
+   12360915,
+   12854506,
+   13247979,
+   13493792,
+   13413336,
+   12906147,
+   12084066,
+   12136002,
+   11691346,
+   11371572,
+   10507491
+  ]
+ },
+ "keyrock": {
+  "fees_30d_usd": 182817,
+  "fees_365d_usd": 296901,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 5.02,
+    "date": "2020-10-29",
+    "lead": [],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 72,
+    "date": "2022-11-30",
+    "lead": [],
+    "round": "Series B"
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2026-03-31",
+    "lead": [
+     "SC Ventures"
+    ],
+    "round": "Series C"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 77.02,
+  "slug": "keyrock",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 0.74,
+  "tvl_max_1d_jump_pct": 1055.1,
+  "tvl_max_drawdown_90d_pct": 100.0,
+  "tvl_pit": 83071060,
+  "tvl_spark_90d": [
+   0,
+   0,
+   0,
+   5917384,
+   6983466,
+   83163583,
+   83158383,
+   82600675,
+   82632053,
+   83341923,
+   84067671,
+   82386245,
+   83579970,
+   83071060
+  ]
+ },
+ "kinetic": {
+  "fees_30d_usd": 81721,
+  "fees_365d_usd": 1170915,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "kinetic-market"
+  ],
+  "slug": "kinetic",
+  "tvl_growth_30d_pct": -27.31,
+  "tvl_growth_90d_pct": -17.27,
+  "tvl_pit": 25087062
+ },
+ "kyros": {
+  "fees_30d_usd": 47728,
+  "fees_365d_usd": 577882,
+  "fees_has_adapter": true,
+  "slug": "kyros",
+  "tvl_growth_30d_pct": -17.38,
+  "tvl_growth_90d_pct": 18.46,
+  "tvl_pit": 10379590
+ },
+ "lagoon": {
+  "fees_30d_usd": 97337,
+  "fees_365d_usd": 1398786,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "hopperlabsxyz"
+  ],
+  "slug": "lagoon",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "seiv2",
+    "dex": "dragonswap",
+    "liquidity_usd": 0.18,
+    "pair_address": "0xa94844d008421bAEcdE824527Ef040bfD7206bBe",
+    "pair_created_at_ms": 1792592884000,
+    "token_address": "0x7646ed0010A861Ef1BA6957A5b5A51d0FB9aC6aA",
+    "token_name": "Tidal Lagoon",
+    "token_symbol": "TLAGOO"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -4.01,
+  "tvl_growth_90d_pct": 16.41,
+  "tvl_max_1d_jump_pct": 5.8,
+  "tvl_max_drawdown_90d_pct": 6.1,
+  "tvl_pit": 151355917,
+  "tvl_spark_90d": [
+   130022073,
+   138325374,
+   138827536,
+   144402571,
+   145448324,
+   151888141,
+   155251224,
+   158715714,
+   157186780,
+   157126051,
+   160079127,
+   157576469,
+   156843324,
+   151355917
+  ]
+ },
+ "lido": {
+  "fees_30d_usd": 54982703,
+  "fees_365d_usd": 580552470,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "lidofinance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 73,
+    "date": "2021-05-05",
+    "lead": [
+     "Paradigm"
+    ],
+    "round": "Private token sale"
+   },
+   {
+    "amount_usd_m": 70,
+    "date": "2022-03-03",
+    "lead": [
+     "a16z"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 24,
+    "date": "2022-09-14",
+    "lead": [
+     "Dragonfly Capital"
+    ],
+    "round": "Treasury Diversification"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 167,
+  "slug": "lido",
+  "tvl_growth_30d_pct": -19.62,
+  "tvl_growth_90d_pct": 5.23,
+  "tvl_pit": 18836485051
+ },
+ "lightning-network": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 70,
+    "date": "2022-04-08",
+    "lead": [],
+    "round": "Series B"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 70,
+  "slug": "lightning-network",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -25.54,
+  "tvl_growth_90d_pct": -9.76,
+  "tvl_max_1d_jump_pct": 8.0,
+  "tvl_max_drawdown_90d_pct": 32.5,
+  "tvl_pit": 218024875,
+  "tvl_spark_90d": [
+   241613518,
+   300896738,
+   313803458,
+   305687946,
+   288903330,
+   284207911,
+   323222520,
+   312971494,
+   315022825,
+   306197143,
+   295195831,
+   295141519,
+   277157858,
+   246270507,
+   218024875
+  ]
+ },
+ "liminal-basis": {
+  "fees_has_adapter": false,
+  "slug": "liminal-basis",
+  "tvl_growth_30d_pct": 22.85,
+  "tvl_growth_90d_pct": 4.35,
+  "tvl_max_1d_jump_pct": 6.6,
+  "tvl_max_drawdown_90d_pct": 15.4,
+  "tvl_pit": 25664246,
+  "tvl_spark_90d": [
+   24594873,
+   22892904,
+   24236177,
+   24437458,
+   23701128,
+   22592208,
+   22000783,
+   20962810,
+   20898950,
+   20915316,
+   20914466,
+   21418467,
+   21160788,
+   25664246
+  ]
+ },
+ "liqwid": {
+  "fees_30d_usd": 67160,
+  "fees_365d_usd": 1334182,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 2.7,
+    "date": "2022-11-30",
+    "lead": [
+     "cFund"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.7,
+  "slug": "liqwid",
+  "tvl_growth_30d_pct": -27.65,
+  "tvl_growth_90d_pct": -31.7,
+  "tvl_pit": 8468061
+ },
+ "lofty": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 0.8,
+    "date": "2019-08-19",
+    "lead": [],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 1.2,
+    "date": "2020-08-01",
+    "lead": [
+     "Hustle Fund"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 3,
+    "date": "2021-03-09",
+    "lead": [],
+    "round": "Debt Financing"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 5.0,
+  "slug": "lofty",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -0.01,
+  "tvl_growth_90d_pct": 1.03,
+  "tvl_max_1d_jump_pct": 0.4,
+  "tvl_max_drawdown_90d_pct": 0.1,
+  "tvl_pit": 101139463,
+  "tvl_spark_90d": [
+   100108102,
+   100171213,
+   100550571,
+   100557235,
+   100536803,
+   101068961,
+   101089084,
+   101223033,
+   101155460,
+   101151336,
+   101146744,
+   101181576,
+   101105529,
+   101139463
+  ]
+ },
+ "looped-hype": {
+  "fees_30d_usd": 8732,
+  "fees_365d_usd": 318568,
+  "fees_has_adapter": true,
+  "slug": "looped-hype",
+  "tvl_growth_30d_pct": -23.64,
+  "tvl_growth_90d_pct": -34.33,
+  "tvl_pit": 5067673
+ },
+ "loopscale-curation": {
+  "fees_has_adapter": false,
+  "slug": "loopscale-curation",
+  "tvl_growth_30d_pct": -16.16,
+  "tvl_max_1d_jump_pct": 4.4,
+  "tvl_max_drawdown_90d_pct": 18.3,
+  "tvl_pit": 6380386,
+  "tvl_spark_90d": [
+   7523146,
+   7415009,
+   7452080,
+   7395994,
+   7473880,
+   7609759,
+   7415112,
+   7466434,
+   7155035,
+   7078995,
+   6874071,
+   6631085,
+   6647297,
+   6605633,
+   6380386
+  ]
+ },
+ "loopscale-lending": {
+  "fees_30d_usd": 246218,
+  "fees_365d_usd": 1750646,
+  "fees_has_adapter": true,
+  "slug": "loopscale-lending",
+  "tvl_growth_30d_pct": -15.75,
+  "tvl_growth_90d_pct": -22.1,
+  "tvl_max_1d_jump_pct": 10.3,
+  "tvl_max_drawdown_90d_pct": 25.9,
+  "tvl_pit": 70951329,
+  "tvl_spark_90d": [
+   91075342,
+   95704965,
+   89987782,
+   89266868,
+   85899103,
+   77146553,
+   74330990,
+   83381184,
+   84215963,
+   93754613,
+   91333859,
+   80959940,
+   78774359,
+   70951329
+  ]
+ },
+ "lulo": {
+  "fees_30d_usd": 104626,
+  "fees_365d_usd": 1422202,
+  "fees_has_adapter": true,
+  "slug": "lulo",
+  "tvl_growth_30d_pct": -22.72,
+  "tvl_growth_90d_pct": -54.51,
+  "tvl_max_1d_jump_pct": 2.7,
+  "tvl_max_drawdown_90d_pct": 54.6,
+  "tvl_pit": 24448217,
+  "tvl_spark_90d": [
+   53740505,
+   53598613,
+   53032218,
+   52368324,
+   36156941,
+   33625331,
+   33566136,
+   32891915,
+   32998718,
+   32530659,
+   30393540,
+   27337555,
+   25791308,
+   24448217
+  ]
+ },
+ "makina": {
+  "fees_30d_usd": 243126,
+  "fees_365d_usd": 2418366,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "MakinaHQ"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 3,
+    "date": "2025-06-25",
+    "lead": [],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 3,
+  "slug": "makina",
+  "tvl_growth_30d_pct": -9.67,
+  "tvl_growth_90d_pct": -17.5,
+  "tvl_max_1d_jump_pct": 7.4,
+  "tvl_max_drawdown_90d_pct": 22.1,
+  "tvl_pit": 38750584,
+  "tvl_spark_90d": [
+   46969794,
+   45258739,
+   43631526,
+   43687501,
+   43798738,
+   43582325,
+   43509072,
+   44782169,
+   45138182,
+   41134726,
+   41018574,
+   39884661,
+   38723826,
+   38750584
+  ]
+ },
+ "manifest-trade": {
+  "fees_30d_usd": 21063,
+  "fees_365d_usd": 21063,
+  "fees_has_adapter": true,
+  "slug": "manifest-trade",
+  "tvl_growth_30d_pct": -48.64,
+  "tvl_growth_90d_pct": -45.85,
+  "tvl_max_1d_jump_pct": 74.6,
+  "tvl_max_drawdown_90d_pct": 76.5,
+  "tvl_pit": 8948863,
+  "tvl_spark_90d": [
+   16526123,
+   17774671,
+   19425237,
+   19558999,
+   19476537,
+   20207543,
+   20573241,
+   19406735,
+   18667748,
+   17348743,
+   17806312,
+   13606345,
+   5428695,
+   8948863
+  ]
+ },
+ "mansory": {
+  "fees_has_adapter": false,
+  "slug": "mansory",
+  "tvl_growth_30d_pct": -13.04,
+  "tvl_growth_90d_pct": -7.99,
+  "tvl_pit": 5544990
+ },
+ "manta-cedefi": {
+  "fees_has_adapter": false,
+  "slug": "manta-cedefi",
+  "tvl_growth_30d_pct": -1.07,
+  "tvl_growth_90d_pct": 0.15,
+  "tvl_max_1d_jump_pct": 0.6,
+  "tvl_max_drawdown_90d_pct": 1.7,
+  "tvl_pit": 26532259,
+  "tvl_spark_90d": [
+   26493302,
+   26793792,
+   26813823,
+   26833700,
+   26828492,
+   26894683,
+   26938662,
+   26939866,
+   26858808,
+   26812630,
+   26784372,
+   26720535,
+   26697315,
+   26532259
+  ]
+ },
+ "manta-pacific": {
+  "fees_has_adapter": false,
+  "slug": "manta-pacific",
+  "tvl_growth_30d_pct": -20.79,
+  "tvl_growth_90d_pct": -6.73,
+  "tvl_pit": 19753215
+ },
+ "marginfi-lending": {
+  "fees_30d_usd": 138800,
+  "fees_365d_usd": 312191,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 3,
+    "date": "2022-02-24",
+    "lead": [
+     "Multicoin Capital",
+     "Pantera Capital"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 3,
+  "slug": "marginfi-lending",
+  "tvl_growth_30d_pct": -22.78,
+  "tvl_growth_90d_pct": -12.73,
+  "tvl_max_1d_jump_pct": 13.4,
+  "tvl_max_drawdown_90d_pct": 35.0,
+  "tvl_pit": 27939127,
+  "tvl_spark_90d": [
+   40335039,
+   36808712,
+   34819290,
+   42617793,
+   42908381,
+   40658630,
+   40382872,
+   37806340,
+   35669075,
+   35664108,
+   34980298,
+   32744509,
+   31490024,
+   29280458,
+   27939127
+  ]
+ },
+ "mellow-core": {
+  "fees_has_adapter": false,
+  "slug": "mellow-core",
+  "tvl_growth_30d_pct": -9.04,
+  "tvl_growth_90d_pct": 9.51,
+  "tvl_max_1d_jump_pct": 15.7,
+  "tvl_max_drawdown_90d_pct": 18.1,
+  "tvl_pit": 232174336,
+  "tvl_spark_90d": [
+   212007678,
+   251304510,
+   247039384,
+   250493368,
+   255569376,
+   270486189,
+   280875871,
+   280576070,
+   260143591,
+   259708393,
+   254355749,
+   246284208,
+   254627041,
+   232174336
+  ]
+ },
+ "merlins-seal": {
+  "fees_has_adapter": false,
+  "slug": "merlins-seal",
+  "tvl_growth_30d_pct": -25.43,
+  "tvl_growth_90d_pct": 3.03,
+  "tvl_pit": 352584334
+ },
+ "merlinswap": {
+  "fees_has_adapter": false,
+  "slug": "merlinswap",
+  "tvl_growth_30d_pct": 18.39,
+  "tvl_growth_90d_pct": 16.61,
+  "tvl_pit": 7380767
+ },
+ "metalx-lending": {
+  "fees_has_adapter": false,
+  "slug": "metalx-lending",
+  "tvl_growth_30d_pct": -23.24,
+  "tvl_growth_90d_pct": -3.96,
+  "tvl_pit": 27434685
+ },
+ "metalx-swap": {
+  "fees_has_adapter": false,
+  "slug": "metalx-swap",
+  "tvl_growth_30d_pct": -11.96,
+  "tvl_growth_90d_pct": -18.41,
+  "tvl_max_1d_jump_pct": 9.5,
+  "tvl_max_drawdown_90d_pct": 37.2,
+  "tvl_pit": 7143781,
+  "tvl_spark_90d": [
+   8755395,
+   10026125,
+   10148170,
+   9647803,
+   9749352,
+   9068010,
+   9190445,
+   8961121,
+   8612560,
+   8321647,
+   7503555,
+   7280949,
+   6948142,
+   7265963,
+   7143781
+  ]
+ },
+ "mev-capital": {
+  "fees_30d_usd": 19438,
+  "fees_365d_usd": 3089986,
+  "fees_has_adapter": true,
+  "slug": "mev-capital",
+  "tvl_growth_30d_pct": -18.39,
+  "tvl_growth_90d_pct": -19.19,
+  "tvl_max_1d_jump_pct": 11.3,
+  "tvl_max_drawdown_90d_pct": 32.2,
+  "tvl_pit": 8365812,
+  "tvl_spark_90d": [
+   10352248,
+   11952318,
+   11863463,
+   11077302,
+   11031931,
+   11471992,
+   11604153,
+   11518057,
+   10810690,
+   10121330,
+   10010886,
+   9674664,
+   9363119,
+   8365812
+  ]
+ },
+ "mezo-earn": {
+  "fees_has_adapter": false,
+  "slug": "mezo-earn",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "ethereum",
+    "dex": "uniswap",
+    "liquidity_usd": 2445950.75,
+    "pair_address": "0xCd7997d0062b5a58F2a480cA9bF5067C46a7050a",
+    "pair_created_at_ms": 1776139511000,
+    "token_address": "0x5b0B0BE71D2df08F129a32a8268d40EfbC7dC01f",
+    "token_name": "MEZO",
+    "token_symbol": "MEZO"
+   },
+   "note": "MEZO trades against MUSD on Ethereum (both sources agree).",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": -18.1,
+  "tvl_growth_90d_pct": 2.82,
+  "tvl_max_1d_jump_pct": 7.0,
+  "tvl_max_drawdown_90d_pct": 23.2,
+  "tvl_pit": 53696101,
+  "tvl_spark_90d": [
+   52223568,
+   64308687,
+   63383947,
+   65029518,
+   62988574,
+   66030925,
+   68412964,
+   68775991,
+   66467493,
+   65372060,
+   64445695,
+   62238118,
+   60767227,
+   53696101
+  ]
+ },
+ "mezzanine": {
+  "fees_has_adapter": false,
+  "slug": "mezzanine",
+  "tvl_max_1d_jump_pct": 103.9,
+  "tvl_max_drawdown_90d_pct": 22.3,
+  "tvl_pit": 5935626,
+  "tvl_spark_90d": [
+   2194478,
+   2194890,
+   2275600,
+   1767028,
+   2620336,
+   2596223,
+   2695133,
+   2821622,
+   2822639,
+   2307231,
+   4705216,
+   4935879,
+   4980022,
+   5144951,
+   5935626
+  ]
+ },
+ "monarq": {
+  "fees_has_adapter": false,
+  "slug": "monarq",
+  "tvl_growth_30d_pct": -37.46,
+  "tvl_max_1d_jump_pct": 8.8,
+  "tvl_max_drawdown_90d_pct": 58.6,
+  "tvl_pit": 5118778,
+  "tvl_spark_90d": [
+   10836929,
+   10571387,
+   10063060,
+   12352219,
+   11759501,
+   11065459,
+   10470225,
+   8363727,
+   7947534,
+   7611031,
+   7136606,
+   6650898,
+   6295088,
+   5492521,
+   5118778
+  ]
+ },
+ "monolith-market": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "MonolithMarket"
+  ],
+  "slug": "monolith-market",
+  "tvl_growth_30d_pct": 2264.3,
+  "tvl_growth_90d_pct": 3009.23,
+  "tvl_max_1d_jump_pct": 92.7,
+  "tvl_max_drawdown_90d_pct": 24.5,
+  "tvl_pit": 7164548,
+  "tvl_spark_90d": [
+   230428,
+   245437,
+   261718,
+   263429,
+   230451,
+   223957,
+   247243,
+   259823,
+   352919,
+   299373,
+   355894,
+   1027167,
+   3423359,
+   7164548
+  ]
+ },
+ "morpheusai": {
+  "fees_30d_usd": 38268,
+  "fees_365d_usd": 467691,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "MorpheusAIs"
+  ],
+  "slug": "morpheusai",
+  "tvl_growth_30d_pct": -60.04,
+  "tvl_growth_90d_pct": -52.93,
+  "tvl_pit": 7634244
+ },
+ "mystic-finance-lending": {
+  "fees_30d_usd": 14786,
+  "fees_365d_usd": 762676,
+  "fees_has_adapter": true,
+  "slug": "mystic-finance-lending",
+  "tvl_growth_30d_pct": -1.42,
+  "tvl_growth_90d_pct": 544.54,
+  "tvl_max_1d_jump_pct": 636.0,
+  "tvl_max_drawdown_90d_pct": 16.2,
+  "tvl_pit": 30245353,
+  "tvl_spark_90d": [
+   4692535,
+   4964317,
+   4853164,
+   4903681,
+   34071945,
+   33311665,
+   34615359,
+   33849387,
+   34601884,
+   31850097,
+   32166498,
+   31484561,
+   31650867,
+   30245353
+  ]
+ },
+ "nado-spot": {
+  "fees_30d_usd": 4432,
+  "fees_365d_usd": 60167,
+  "fees_has_adapter": true,
+  "slug": "nado-spot",
+  "tvl_growth_30d_pct": 0.45,
+  "tvl_growth_90d_pct": 6.69,
+  "tvl_max_1d_jump_pct": 10.0,
+  "tvl_max_drawdown_90d_pct": 10.1,
+  "tvl_pit": 51113205,
+  "tvl_spark_90d": [
+   47907625,
+   50115709,
+   51707466,
+   51257041,
+   51883731,
+   53113397,
+   54157046,
+   52535660,
+   51066384,
+   50702442,
+   50709919,
+   48880162,
+   53536065,
+   51113205
+  ]
+ },
+ "native-credit-pool": {
+  "fees_30d_usd": 14913,
+  "fees_365d_usd": 658511,
+  "fees_has_adapter": true,
+  "slug": "native-credit-pool",
+  "tvl_growth_30d_pct": 5.01,
+  "tvl_growth_90d_pct": -28.18,
+  "tvl_max_1d_jump_pct": 23.4,
+  "tvl_max_drawdown_90d_pct": 34.8,
+  "tvl_pit": 19135597,
+  "tvl_spark_90d": [
+   26643845,
+   24502910,
+   23368190,
+   24244822,
+   23378225,
+   24217890,
+   21931980,
+   20941827,
+   19233227,
+   22257387,
+   26545989,
+   25798386,
+   20288881,
+   19135597
+  ]
+ },
+ "nemo-trading": {
+  "fees_has_adapter": false,
+  "slug": "nemo-trading",
+  "tvl_growth_30d_pct": 26.19,
+  "tvl_max_1d_jump_pct": 12.4,
+  "tvl_max_drawdown_90d_pct": 4.5,
+  "tvl_pit": 20107783,
+  "tvl_spark_90d": [
+   14387184,
+   15340105,
+   15235345,
+   15372327,
+   15587845,
+   15338195,
+   15673812,
+   16312557,
+   16484534,
+   16005755,
+   17532423,
+   18078001,
+   20156299,
+   20141356,
+   20107783
+  ]
+ },
+ "neutral-trade": {
+  "fees_30d_usd": 30661,
+  "fees_365d_usd": -1299,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "neutral-trade"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2,
+    "date": "2025-05-31",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": 0.5,
+    "date": "2026-08-26",
+    "lead": [
+     "YZi Labs"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 2.5,
+  "slug": "neutral-trade",
+  "tvl_growth_30d_pct": -9.12,
+  "tvl_growth_90d_pct": 55.79,
+  "tvl_max_1d_jump_pct": 44.8,
+  "tvl_max_drawdown_90d_pct": 14.7,
+  "tvl_pit": 21347329,
+  "tvl_spark_90d": [
+   13702779,
+   14109913,
+   13253058,
+   12068408,
+   17945840,
+   21946064,
+   22903537,
+   24806591,
+   24407923,
+   23040527,
+   23071567,
+   23179893,
+   22267540,
+   21347329
+  ]
+ },
+ "noble": {
+  "fees_30d_usd": 453,
+  "fees_365d_usd": 10115,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "noble-assets"
+  ],
+  "slug": "noble",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "seiv2",
+    "dex": "dragonswap",
+    "liquidity_usd": 2033.86,
+    "pair_address": "0xfF64743312fCf27C6A4eF450C821a98e9e62d945",
+    "pair_created_at_ms": 1716966343000,
+    "token_address": "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1",
+    "token_name": "Noble USDC",
+    "token_symbol": "USDC.n"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -11.99,
+  "tvl_growth_90d_pct": -35.56,
+  "tvl_max_1d_jump_pct": 3.3,
+  "tvl_max_drawdown_90d_pct": 35.6,
+  "tvl_pit": 83042723,
+  "tvl_spark_90d": [
+   128863443,
+   124751913,
+   126403946,
+   119524904,
+   118976863,
+   108616467,
+   109604607,
+   97348602,
+   97485539,
+   93851588,
+   88041919,
+   86586022,
+   86663299,
+   83042723
+  ]
+ },
+ "nonce-capital": {
+  "fees_has_adapter": false,
+  "slug": "nonce-capital",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -12.59,
+  "tvl_growth_90d_pct": 18.68,
+  "tvl_max_1d_jump_pct": 12.6,
+  "tvl_max_drawdown_90d_pct": 19.6,
+  "tvl_pit": 516037889,
+  "tvl_spark_90d": [
+   434831077,
+   535634560,
+   570240271,
+   576914792,
+   587739846,
+   613656487,
+   629996655,
+   633894898,
+   603590566,
+   588634047,
+   585321221,
+   572076089,
+   568898681,
+   516037889
+  ]
+ },
+ "noon": {
+  "fees_30d_usd": 261012,
+  "fees_365d_usd": 2955333,
+  "fees_has_adapter": true,
+  "slug": "noon",
+  "tvl_growth_30d_pct": 7.25,
+  "tvl_growth_90d_pct": 5.79,
+  "tvl_max_1d_jump_pct": 4.9,
+  "tvl_max_drawdown_90d_pct": 12.8,
+  "tvl_pit": 38329012,
+  "tvl_spark_90d": [
+   36230983,
+   38412501,
+   38345586,
+   34318505,
+   36207065,
+   37592152,
+   39050253,
+   38559534,
+   36265407,
+   35980197,
+   37075110,
+   37394359,
+   37903029,
+   38329012
+  ]
+ },
+ "nucleus": {
+  "fees_has_adapter": false,
+  "slug": "nucleus",
+  "tvl_growth_30d_pct": -30.61,
+  "tvl_growth_90d_pct": 6.11,
+  "tvl_max_1d_jump_pct": 48.2,
+  "tvl_max_drawdown_90d_pct": 55.7,
+  "tvl_pit": 5009264,
+  "tvl_spark_90d": [
+   4720707,
+   5231086,
+   5126225,
+   6323299,
+   11317454,
+   7433496,
+   7005982,
+   7249068,
+   6958818,
+   10423824,
+   7756051,
+   6246773,
+   6648521,
+   5009264
+  ]
+ },
+ "nuva": {
+  "fees_has_adapter": false,
+  "slug": "nuva",
+  "tvl_growth_30d_pct": 129.52,
+  "tvl_growth_90d_pct": 202.76,
+  "tvl_max_1d_jump_pct": 174.1,
+  "tvl_max_drawdown_90d_pct": 18.3,
+  "tvl_pit": 15864954,
+  "tvl_spark_90d": [
+   5240052,
+   5572760,
+   6467366,
+   6945397,
+   6941882,
+   6958545,
+   6967216,
+   6907982,
+   6913514,
+   6911584,
+   6670597,
+   6073040,
+   6081046,
+   15864954
+  ]
+ },
+ "onre": {
+  "fees_30d_usd": 2466092,
+  "fees_365d_usd": 19254771,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "onre-finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2026-05-05",
+    "lead": [
+     "RockawayX",
+     "Forward Industries"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 5,
+  "slug": "onre",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "base",
+    "dex": "uniswap",
+    "liquidity_usd": 3368.93,
+    "pair_address": "0x5e7fb728A701Cb7C6baef48E478269DdC189754a",
+    "pair_created_at_ms": 1761278285000,
+    "token_address": "0xADF628cC4814002B66bd2C5aaCcABF30726046C3",
+    "token_name": "MOON github.com/moonrepo/MOON",
+    "token_symbol": "MOON"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 5.47,
+  "tvl_growth_90d_pct": 18.17,
+  "tvl_max_1d_jump_pct": 2.7,
+  "tvl_max_drawdown_90d_pct": 6.1,
+  "tvl_pit": 308960528,
+  "tvl_spark_90d": [
+   261452735,
+   273589552,
+   284728440,
+   299195379,
+   295728153,
+   304133978,
+   296763222,
+   291640801,
+   292399910,
+   293552662,
+   295460542,
+   307764640,
+   308659437,
+   308960528
+  ]
+ },
+ "opentrade": {
+  "fees_30d_usd": 12792,
+  "fees_365d_usd": 988834,
+  "fees_has_adapter": true,
+  "slug": "opentrade",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_pit": null
+ },
+ "origami-finance": {
+  "fees_30d_usd": 14760,
+  "fees_365d_usd": 316705,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 1.5,
+    "date": "2024-08-26",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 1.5,
+  "slug": "origami-finance",
+  "tvl_growth_30d_pct": -48.12,
+  "tvl_growth_90d_pct": -36.1,
+  "tvl_max_1d_jump_pct": 15.2,
+  "tvl_max_drawdown_90d_pct": 52.5,
+  "tvl_pit": 29049371,
+  "tvl_spark_90d": [
+   45462055,
+   47268796,
+   53195132,
+   60463048,
+   58996127,
+   58639291,
+   60348925,
+   56790951,
+   57665900,
+   54548576,
+   53721120,
+   50319177,
+   40281868,
+   29049371
+  ]
+ },
+ "osmosis-dex": {
+  "fees_30d_usd": 176803,
+  "fees_365d_usd": 2075855,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "osmosis-labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 21,
+    "date": "2021-10-27",
+    "lead": [
+     "Paradigm"
+    ],
+    "round": "ICO"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 21,
+  "slug": "osmosis-dex",
+  "tvl_growth_30d_pct": -28.29,
+  "tvl_growth_90d_pct": -34.2,
+  "tvl_pit": 7858131
+ },
+ "paimon": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "Paimon-R-D"
+  ],
+  "slug": "paimon",
+  "tvl_growth_30d_pct": 0.24,
+  "tvl_growth_90d_pct": 14.69,
+  "tvl_max_1d_jump_pct": 8.2,
+  "tvl_max_drawdown_90d_pct": 0.1,
+  "tvl_pit": 14102931,
+  "tvl_spark_90d": [
+   12296994,
+   12334048,
+   12346832,
+   12350744,
+   12367907,
+   12374152,
+   13438417,
+   13853148,
+   14003907,
+   14077647,
+   14084970,
+   14095490,
+   14104284,
+   14102931
+  ]
+ },
+ "pangolins": {
+  "fees_30d_usd": 37961,
+  "fees_365d_usd": 986493,
+  "fees_has_adapter": true,
+  "slug": "pangolins",
+  "tvl_growth_30d_pct": -36.97,
+  "tvl_max_1d_jump_pct": 5.6,
+  "tvl_max_drawdown_90d_pct": 55.8,
+  "tvl_pit": 8185000,
+  "tvl_spark_90d": [
+   18505200,
+   14623074,
+   13977611,
+   13781422,
+   13301731,
+   13026382,
+   13594336,
+   13368978,
+   12986115,
+   11112756,
+   9267644,
+   9178285,
+   8916809,
+   8362778,
+   8185000
+  ]
+ },
+ "perena-vaults": {
+  "fees_has_adapter": false,
+  "slug": "perena-vaults",
+  "tvl_growth_30d_pct": 35.68,
+  "tvl_max_1d_jump_pct": 14.0,
+  "tvl_max_drawdown_90d_pct": 4.6,
+  "tvl_pit": 17232940,
+  "tvl_spark_90d": [
+   0,
+   0,
+   0,
+   11892119,
+   11657011,
+   12273754,
+   13023686,
+   13210283,
+   13123684,
+   12919967,
+   14670239,
+   16850129,
+   17492490,
+   17232940
+  ]
+ },
+ "phoenix-perp": {
+  "fees_30d_usd": 226319,
+  "fees_365d_usd": 1251890,
+  "fees_has_adapter": true,
+  "slug": "phoenix-perp",
+  "tvl_growth_30d_pct": -4.91,
+  "tvl_max_1d_jump_pct": 2.6,
+  "tvl_max_drawdown_90d_pct": 6.8,
+  "tvl_pit": 22529196,
+  "tvl_spark_90d": [
+   22947096,
+   23533412,
+   23455785,
+   23773669,
+   23667637,
+   23982401,
+   23899704,
+   23980947,
+   23309706,
+   23614145,
+   23257378,
+   23176786,
+   22719607,
+   22529196
+  ]
+ },
+ "pinksale": {
+  "fees_30d_usd": 9758,
+  "fees_365d_usd": 492703,
+  "fees_has_adapter": true,
+  "slug": "pinksale",
+  "tvl_growth_30d_pct": -10.5,
+  "tvl_growth_90d_pct": -4.86,
+  "tvl_pit": 136796904
+ },
+ "plasma-one": {
+  "fees_has_adapter": false,
+  "slug": "plasma-one",
+  "tvl_growth_30d_pct": 112.76,
+  "tvl_growth_90d_pct": 241.45,
+  "tvl_max_1d_jump_pct": 101.5,
+  "tvl_max_drawdown_90d_pct": 15.0,
+  "tvl_pit": 31783572,
+  "tvl_spark_90d": [
+   9308424,
+   10249998,
+   10519800,
+   11880271,
+   11907233,
+   12541860,
+   13165364,
+   13164918,
+   14494457,
+   15200660,
+   31028820,
+   30551527,
+   31600126,
+   31783572
+  ]
+ },
+ "plasma-saving-vaults": {
+  "fees_30d_usd": 105569,
+  "fees_365d_usd": 3773049,
+  "fees_has_adapter": true,
+  "slug": "plasma-saving-vaults",
+  "tvl_growth_30d_pct": -3.26,
+  "tvl_growth_90d_pct": -3.58,
+  "tvl_max_1d_jump_pct": 2.5,
+  "tvl_max_drawdown_90d_pct": 3.9,
+  "tvl_pit": 31745424,
+  "tvl_spark_90d": [
+   32923725,
+   32656766,
+   32673634,
+   32700518,
+   32295036,
+   32283881,
+   32035631,
+   32031656,
+   32809315,
+   32823237,
+   31821895,
+   31872630,
+   31659462,
+   31745424
+  ]
+ },
+ "plume-vaults": {
+  "fees_30d_usd": 1077962,
+  "fees_365d_usd": 5345307,
+  "fees_has_adapter": true,
+  "slug": "plume-vaults",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "ethereum",
+    "dex": "uniswap",
+    "liquidity_usd": 43966449.19,
+    "pair_address": "0xBE3997964e346d68B9742495e7346bA61fEB16Eb",
+    "pair_created_at_ms": 1772796191000,
+    "token_address": "0x3B999b25867977688F319CD996b603B52ebf264b",
+    "token_name": "Plume",
+    "token_symbol": "PLUME"
+   },
+   "note": "No separate vault token found; the parent token PLUME trades at large size.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "parent_token_trades"
+  },
+  "tvl_growth_30d_pct": -9.53,
+  "tvl_growth_90d_pct": 81.68,
+  "tvl_max_1d_jump_pct": 26.9,
+  "tvl_max_drawdown_90d_pct": 11.3,
+  "tvl_pit": 211541691,
+  "tvl_spark_90d": [
+   116435566,
+   107794729,
+   111292550,
+   144700161,
+   160481689,
+   207976806,
+   220102225,
+   232374679,
+   235271441,
+   235217805,
+   229594234,
+   228805550,
+   218450536,
+   211541691
+  ]
+ },
+ "polygon-bridge": {
+  "fees_has_adapter": false,
+  "slug": "polygon-bridge",
+  "tvl_growth_30d_pct": -5.53,
+  "tvl_growth_90d_pct": 0.93,
+  "tvl_pit": 2560761987
+ },
+ "polymarket-international": {
+  "fees_30d_usd": 35691370,
+  "fees_365d_usd": 284480337,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 150,
+    "date": "2025-10-07",
+    "lead": [
+     "Founders Fund"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 55,
+    "date": "2024-11-01",
+    "lead": [
+     "Blockchain Capital"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 4,
+    "date": "2020-10-19",
+    "lead": [],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 1000,
+    "date": "2025-10-07",
+    "lead": [
+     "Intercontinental Exchange"
+    ],
+    "round": "Strategic"
+   },
+   {
+    "amount_usd_m": 600,
+    "date": "2026-03-27",
+    "lead": [
+     "Intercontinental Exchange"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 25,
+    "date": "2024-05-14",
+    "lead": [
+     "General Catalyst"
+    ],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 45,
+    "date": "2024-05-14",
+    "lead": [
+     "Founders Fund"
+    ],
+    "round": "Series B"
+   }
+  ],
+  "raises_count": 7,
+  "raises_total_usd_m": 1879,
+  "slug": "polymarket-international",
+  "tvl_growth_30d_pct": -8.25,
+  "tvl_growth_90d_pct": -8.2,
+  "tvl_max_1d_jump_pct": 5.6,
+  "tvl_max_drawdown_90d_pct": 21.2,
+  "tvl_pit": 322317382,
+  "tvl_spark_90d": [
+   351108455,
+   350035003,
+   368212818,
+   351781174,
+   360144003,
+   353286765,
+   355454452,
+   348063261,
+   346031678,
+   355674229,
+   400308511,
+   362629750,
+   326394113,
+   322317382
+  ]
+ },
+ "portal": {
+  "fees_30d_usd": 15550,
+  "fees_365d_usd": 319986,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "wormhole-foundation"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 8.5,
+    "date": "2021-09-21",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": 225,
+    "date": "2023-11-29",
+    "lead": [
+     "Brevan Howard",
+     "Coinbase Ventures",
+     "Multicoin Capital"
+    ],
+    "round": "Private"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 233.5,
+  "slug": "portal",
+  "tvl_growth_30d_pct": -20.18,
+  "tvl_growth_90d_pct": -4.3,
+  "tvl_pit": 1295764283
+ },
+ "predict-fun": {
+  "fees_30d_usd": 7899977,
+  "fees_365d_usd": 34987017,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2026-04-02",
+    "lead": [
+     "YZi Labs",
+     "Susquehanna"
+    ],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 0,
+  "slug": "predict-fun",
+  "tvl_growth_30d_pct": -1.77,
+  "tvl_growth_90d_pct": -5.91,
+  "tvl_max_1d_jump_pct": 25.0,
+  "tvl_max_drawdown_90d_pct": 31.8,
+  "tvl_pit": 10749052,
+  "tvl_spark_90d": [
+   11424148,
+   9884304,
+   11272149,
+   10817226,
+   11692704,
+   10327134,
+   10453982,
+   9934362,
+   10244544,
+   10767652,
+   12887293,
+   9509414,
+   13059345,
+   10749052
+  ]
+ },
+ "project-0": {
+  "fees_30d_usd": 139655,
+  "fees_365d_usd": 406307,
+  "fees_has_adapter": true,
+  "slug": "project-0",
+  "tvl_growth_30d_pct": -20.34,
+  "tvl_growth_90d_pct": -0.27,
+  "tvl_max_1d_jump_pct": 10.6,
+  "tvl_max_drawdown_90d_pct": 31.3,
+  "tvl_pit": 48821107,
+  "tvl_spark_90d": [
+   48954199,
+   60493288,
+   64462118,
+   63175779,
+   60321715,
+   64182358,
+   70223227,
+   69391626,
+   65809889,
+   60639575,
+   59677373,
+   57742763,
+   54743207,
+   48821107
+  ]
+ },
+ "project-x": {
+  "fees_30d_usd": 1537200,
+  "fees_365d_usd": 26670156,
+  "fees_has_adapter": true,
+  "slug": "project-x",
+  "tvl_growth_30d_pct": -3.35,
+  "tvl_growth_90d_pct": -7.99,
+  "tvl_max_1d_jump_pct": 9.1,
+  "tvl_max_drawdown_90d_pct": 31.0,
+  "tvl_pit": 34499950,
+  "tvl_spark_90d": [
+   37496641,
+   45680429,
+   46568514,
+   43903087,
+   41978595,
+   41946005,
+   41435465,
+   40682211,
+   37464368,
+   34773492,
+   34121488,
+   35798989,
+   35073112,
+   34499950
+  ]
+ },
+ "pumpbtc": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "pumpbtc"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 10,
+    "date": "2024-10-29",
+    "lead": [
+     "SevenX Ventures",
+     "Mirana Ventures"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 0.75,
+    "date": "2025-04-01",
+    "lead": [],
+    "round": "Public token sale"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 10.75,
+  "slug": "pumpbtc",
+  "tvl_growth_30d_pct": -16.55,
+  "tvl_growth_90d_pct": 6.96,
+  "tvl_pit": 23162007
+ },
+ "qearn": {
+  "fees_has_adapter": false,
+  "slug": "qearn",
+  "tvl_growth_30d_pct": -36.89,
+  "tvl_growth_90d_pct": -26.87,
+  "tvl_max_1d_jump_pct": 45.5,
+  "tvl_max_drawdown_90d_pct": 54.4,
+  "tvl_pit": 11046700,
+  "tvl_spark_90d": [
+   15106326,
+   14819243,
+   14166367,
+   14399714,
+   13227775,
+   12698142,
+   14848571,
+   19496158,
+   22062825,
+   15998982,
+   12522555,
+   12425928,
+   11731940,
+   11046700
+  ]
+ },
+ "quickswap-dex": {
+  "fees_30d_usd": 204681,
+  "fees_365d_usd": 23425807,
+  "fees_has_adapter": true,
+  "slug": "quickswap-dex",
+  "tvl_growth_30d_pct": -18.57,
+  "tvl_growth_90d_pct": -78.04,
+  "tvl_pit": 41603757
+ },
+ "r25": {
+  "fees_has_adapter": false,
+  "slug": "r25",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 25.9,
+  "tvl_growth_90d_pct": 51.03,
+  "tvl_max_1d_jump_pct": 15.9,
+  "tvl_max_drawdown_90d_pct": 7.2,
+  "tvl_pit": 198193349,
+  "tvl_spark_90d": [
+   131228454,
+   131570913,
+   131985618,
+   132395022,
+   132758573,
+   133258591,
+   134211243,
+   133775277,
+   143483641,
+   169836418,
+   184734923,
+   196432985,
+   197645329,
+   198193349
+  ]
+ },
+ "railgun": {
+  "fees_30d_usd": 352088,
+  "fees_365d_usd": 4062817,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Railgun-Privacy",
+   "Railgun-Community"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 7,
+    "date": "2021-07-26",
+    "lead": [
+     "DCG"
+    ],
+    "round": "Private token sale"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 7,
+  "slug": "railgun",
+  "tvl_growth_30d_pct": -2.78,
+  "tvl_growth_90d_pct": 43.32,
+  "tvl_pit": 108116763
+ },
+ "re": {
+  "fees_30d_usd": 2254699,
+  "fees_365d_usd": 13657203,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2026-06-17",
+    "lead": [
+     "Coinbase Ventures"
+    ],
+    "round": "Strategic"
+   },
+   {
+    "amount_usd_m": 14,
+    "date": "2022-09-28",
+    "lead": [
+     "Tribe Capital",
+     "Defy",
+     "Exor"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 14,
+  "slug": "re",
+  "tvl_growth_30d_pct": 12.95,
+  "tvl_growth_90d_pct": 70.2,
+  "tvl_pit": 487575199
+ },
+ "re7-labs": {
+  "fees_30d_usd": 65285,
+  "fees_365d_usd": 14277,
+  "fees_has_adapter": true,
+  "slug": "re7-labs",
+  "tvl_growth_30d_pct": -21.8,
+  "tvl_growth_90d_pct": -39.68,
+  "tvl_max_1d_jump_pct": 5.0,
+  "tvl_max_drawdown_90d_pct": 52.6,
+  "tvl_pit": 46944551,
+  "tvl_spark_90d": [
+   77830108,
+   84984833,
+   83104516,
+   85141748,
+   86572207,
+   89630022,
+   91817600,
+   94539232,
+   62170658,
+   59515482,
+   59194587,
+   54313776,
+   53814056,
+   46944551
+  ]
+ },
+ "renzo": {
+  "fees_30d_usd": 34757,
+  "fees_365d_usd": 8585138,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Renzo-Protocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2024-02-22",
+    "lead": [
+     "Binance Labs"
+    ],
+    "round": "Private"
+   },
+   {
+    "amount_usd_m": 17,
+    "date": "2024-06-18",
+    "lead": [
+     "Galaxy",
+     "Brevan Howard Digital"
+    ],
+    "round": "Private"
+   },
+   {
+    "amount_usd_m": 3.2,
+    "date": "2024-01-15",
+    "lead": [
+     "Maven 11"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 20.2,
+  "slug": "renzo",
+  "tvl_growth_30d_pct": -22.65,
+  "tvl_growth_90d_pct": -3.46,
+  "tvl_pit": 86504519
+ },
+ "reserve-protocol": {
+  "fees_30d_usd": 81958,
+  "fees_365d_usd": 3425381,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "reserve-protocol"
+  ],
+  "slug": "reserve-protocol",
+  "tvl_growth_30d_pct": -9.55,
+  "tvl_growth_90d_pct": 26.17,
+  "tvl_pit": 43337776
+ },
+ "resolv-usr": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 6960554,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 10,
+    "date": "2025-04-16",
+    "lead": [
+     "Cyber Fund",
+     "Maven 11"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 10,
+  "slug": "resolv-usr",
+  "tvl_growth_30d_pct": -2.53,
+  "tvl_growth_90d_pct": -4.11,
+  "tvl_pit": 6084920
+ },
+ "resupply": {
+  "fees_30d_usd": 116527,
+  "fees_365d_usd": 1285075,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "resupplyfi"
+  ],
+  "slug": "resupply",
+  "tvl_growth_30d_pct": -24.21,
+  "tvl_growth_90d_pct": -3.1,
+  "tvl_pit": 42957806
+ },
+ "reti-pooling": {
+  "fees_has_adapter": false,
+  "slug": "reti-pooling",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -23.32,
+  "tvl_growth_90d_pct": 10.15,
+  "tvl_max_1d_jump_pct": 12.9,
+  "tvl_max_drawdown_90d_pct": 34.4,
+  "tvl_pit": 65251058,
+  "tvl_spark_90d": [
+   59240381,
+   67323926,
+   65796347,
+   69241147,
+   67970973,
+   80011073,
+   85759971,
+   96632905,
+   86923372,
+   82327075,
+   77273149,
+   70393965,
+   72630451,
+   65251058
+  ]
+ },
+ "reya-perps": {
+  "fees_30d_usd": 24622,
+  "fees_365d_usd": 2895756,
+  "fees_has_adapter": true,
+  "slug": "reya-perps",
+  "tvl_growth_30d_pct": 3.63,
+  "tvl_growth_90d_pct": -3.67,
+  "tvl_max_1d_jump_pct": 12.2,
+  "tvl_max_drawdown_90d_pct": 28.2,
+  "tvl_pit": 9776937,
+  "tvl_spark_90d": [
+   10149071,
+   10403607,
+   9825345,
+   9800123,
+   9861278,
+   10144952,
+   9052709,
+   8955839,
+   9075937,
+   9380124,
+   9387158,
+   9901897,
+   9925913,
+   9776937
+  ]
+ },
+ "rif-on-chain": {
+  "fees_has_adapter": false,
+  "slug": "rif-on-chain",
+  "tvl_growth_30d_pct": -29.96,
+  "tvl_growth_90d_pct": -21.38,
+  "tvl_max_1d_jump_pct": 10.7,
+  "tvl_max_drawdown_90d_pct": 41.1,
+  "tvl_pit": 16769743,
+  "tvl_spark_90d": [
+   21329619,
+   24199588,
+   21696359,
+   23201584,
+   24145132,
+   26004994,
+   27222463,
+   24787459,
+   25836999,
+   23847634,
+   21750723,
+   20123558,
+   17974244,
+   16769743
+  ]
+ },
+ "risex": {
+  "fees_has_adapter": false,
+  "slug": "risex",
+  "tvl_growth_30d_pct": 1.78,
+  "tvl_growth_90d_pct": 31.66,
+  "tvl_max_1d_jump_pct": 4.6,
+  "tvl_max_drawdown_90d_pct": 10.3,
+  "tvl_pit": 21565058,
+  "tvl_spark_90d": [
+   16379209,
+   16163761,
+   17302264,
+   17954582,
+   18037572,
+   16855075,
+   17529883,
+   20361728,
+   21300355,
+   20382884,
+   20771436,
+   21104292,
+   21987699,
+   21565058
+  ]
+ },
+ "rockawayx": {
+  "fees_30d_usd": 1005553,
+  "fees_365d_usd": 2784317,
+  "fees_has_adapter": true,
+  "slug": "rockawayx",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 5.06,
+  "tvl_growth_90d_pct": 54.35,
+  "tvl_max_1d_jump_pct": 19.2,
+  "tvl_max_drawdown_90d_pct": 15.4,
+  "tvl_pit": 292511917,
+  "tvl_spark_90d": [
+   189508451,
+   193301703,
+   201208199,
+   290676260,
+   299380486,
+   308924425,
+   319974030,
+   300154205,
+   298735130,
+   283519311,
+   285224525,
+   279329189,
+   303413745,
+   292511917
+  ]
+ },
+ "rocket-pool": {
+  "fees_30d_usd": 400472,
+  "fees_365d_usd": 27243661,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "rocket-pool"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2023-08-10",
+    "lead": [
+     "Coinbase Ventures"
+    ],
+    "round": "Private token sale"
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2018-05-14",
+    "lead": [
+     "Consensys"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 0,
+  "slug": "rocket-pool",
+  "tvl_growth_30d_pct": -25.98,
+  "tvl_growth_90d_pct": -5.84,
+  "tvl_pit": 933484659
+ },
+ "rocksolid-network": {
+  "fees_30d_usd": 38299,
+  "fees_365d_usd": 439177,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 2.8,
+    "date": "2025-09-25",
+    "lead": [
+     "Castle Island Ventures"
+    ],
+    "round": "Pre-Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.8,
+  "slug": "rocksolid-network",
+  "tvl_growth_30d_pct": -21.56,
+  "tvl_growth_90d_pct": -10.54,
+  "tvl_max_1d_jump_pct": 18.1,
+  "tvl_max_drawdown_90d_pct": 37.1,
+  "tvl_pit": 18305756,
+  "tvl_spark_90d": [
+   20463193,
+   25226549,
+   25554744,
+   25849666,
+   26347354,
+   27473284,
+   26344243,
+   26321476,
+   24292398,
+   23281334,
+   22633890,
+   21451867,
+   21189417,
+   18305756
+  ]
+ },
+ "saturn": {
+  "fees_30d_usd": 663613,
+  "fees_365d_usd": 4564488,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 2,
+    "date": "2026-05-07",
+    "lead": [
+     "The Spartan Group"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 0.8,
+    "date": "2026-01-15",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": null,
+    "date": "2026-08-13",
+    "lead": [
+     "Ondo Finance"
+    ],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 2.8,
+  "slug": "saturn",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "bsc",
+    "dex": "pancakeswap",
+    "liquidity_usd": 14103.07,
+    "pair_address": "0x9b389424b95ba97e4e00159CC6e1d0cb967D0fe2",
+    "pair_created_at_ms": 1787932053000,
+    "token_address": "0xF23E4A84a950e9AdaE4B95468a4857ca34Ce7777",
+    "token_name": "Saturn",
+    "token_symbol": "SATURN"
+   },
+   "note": "A token named Saturn trades (small liquidity, about $14K top pair); name match only, official link unverified.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "possible_weak"
+  },
+  "tvl_growth_30d_pct": 6.25,
+  "tvl_growth_90d_pct": -10.56,
+  "tvl_max_1d_jump_pct": 6.4,
+  "tvl_max_drawdown_90d_pct": 21.5,
+  "tvl_pit": 154329401,
+  "tvl_spark_90d": [
+   172546333,
+   172575070,
+   156531224,
+   140579436,
+   138599059,
+   140452132,
+   144484032,
+   154797423,
+   159461769,
+   151992094,
+   156588710,
+   145150016,
+   154489565,
+   154329401
+  ]
+ },
+ "sdai": {
+  "fees_30d_usd": 150858,
+  "fees_365d_usd": 3311588,
+  "fees_has_adapter": true,
+  "slug": "sdai",
+  "tvl_growth_30d_pct": -10.39,
+  "tvl_growth_90d_pct": -30.7,
+  "tvl_pit": 37343715
+ },
+ "sentora-curator": {
+  "fees_30d_usd": 6185740,
+  "fees_365d_usd": 49907980,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 25,
+    "date": "2025-05-06",
+    "lead": [
+     "New Form Capital"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 25,
+  "slug": "sentora-curator",
+  "tvl_growth_30d_pct": 9.48,
+  "tvl_growth_90d_pct": 51.9,
+  "tvl_max_1d_jump_pct": 10.7,
+  "tvl_max_drawdown_90d_pct": 6.6,
+  "tvl_pit": 2761214968,
+  "tvl_spark_90d": [
+   1817843668,
+   1990468397,
+   2002552276,
+   1974463860,
+   1948307345,
+   1988892693,
+   2109759355,
+   2493298606,
+   2564312141,
+   2500354011,
+   2489449703,
+   2592794496,
+   2685411545,
+   2761214968
+  ]
+ },
+ "serum": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "project-serum",
+   "SerumTaxTime"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 20,
+    "date": "2020-07-30",
+    "lead": [
+     "Evernew Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 100,
+    "date": "2022-01-07",
+    "lead": [],
+    "round": "Ecosystem Foundation raise"
+   },
+   {
+    "amount_usd_m": 0.15,
+    "date": "2020-07-31",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 120.15,
+  "slug": "serum",
+  "tvl_growth_30d_pct": -9.17,
+  "tvl_growth_90d_pct": 0.05,
+  "tvl_pit": 14852404
+ },
+ "set-protocol": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "SetProtocol"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 14,
+    "date": "2021-05-28",
+    "lead": [],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 2,
+    "date": "2018-12-17",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 16,
+  "slug": "set-protocol",
+  "tvl_growth_30d_pct": -20.58,
+  "tvl_growth_90d_pct": 1.74,
+  "tvl_max_1d_jump_pct": 12.0,
+  "tvl_max_drawdown_90d_pct": 34.3,
+  "tvl_pit": 10150215,
+  "tvl_spark_90d": [
+   9976525,
+   12301047,
+   12413013,
+   13202610,
+   12709335,
+   13985699,
+   15002861,
+   15245194,
+   13525402,
+   12625476,
+   12192064,
+   11849677,
+   11561646,
+   10150215
+  ]
+ },
+ "sharpbyte-capital": {
+  "fees_30d_usd": 52507,
+  "fees_365d_usd": 127651,
+  "fees_has_adapter": true,
+  "slug": "sharpbyte-capital",
+  "tvl_growth_30d_pct": -4.47,
+  "tvl_max_1d_jump_pct": 38.0,
+  "tvl_max_drawdown_90d_pct": 18.7,
+  "tvl_pit": 10650051,
+  "tvl_spark_90d": [
+   0,
+   5331665,
+   5333128,
+   5332450,
+   6593958,
+   12143950,
+   11762245,
+   11007866,
+   10407536,
+   10865009,
+   11111367,
+   11578861,
+   11581182,
+   11590286,
+   10650051
+  ]
+ },
+ "shift-defi": {
+  "fees_has_adapter": false,
+  "slug": "shift-defi",
+  "tvl_growth_30d_pct": 3305.62,
+  "tvl_max_1d_jump_pct": 3098.3,
+  "tvl_max_drawdown_90d_pct": 38.0,
+  "tvl_pit": 47601215,
+  "tvl_spark_90d": [
+   97888,
+   301706,
+   1209254,
+   858279,
+   1366973,
+   1364123,
+   1404829,
+   1313314,
+   1184766,
+   1062999,
+   1059072,
+   1045687,
+   31605451,
+   47601215
+  ]
+ },
+ "snuggle": {
+  "fees_30d_usd": 971011,
+  "fees_365d_usd": 6031104,
+  "fees_has_adapter": true,
+  "slug": "snuggle",
+  "tvl_growth_30d_pct": -13.85,
+  "tvl_growth_90d_pct": 83.39,
+  "tvl_max_1d_jump_pct": 53.8,
+  "tvl_max_drawdown_90d_pct": 40.5,
+  "tvl_pit": 10895689,
+  "tvl_spark_90d": [
+   5941419,
+   6930784,
+   8151309,
+   10067813,
+   9944773,
+   11597617,
+   13273590,
+   13410506,
+   8395504,
+   12433555,
+   12091645,
+   11966711,
+   11578055,
+   10895689
+  ]
+ },
+ "solomon-usdv": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 27164,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "SolomonLabs"
+  ],
+  "slug": "solomon-usdv",
+  "tvl_growth_30d_pct": 5.53,
+  "tvl_growth_90d_pct": 478.04,
+  "tvl_pit": 8736190
+ },
+ "solstice": {
+  "fees_30d_usd": 14265,
+  "fees_365d_usd": 3020254,
+  "fees_has_adapter": true,
+  "slug": "solstice",
+  "tvl_growth_30d_pct": -3.97,
+  "tvl_growth_90d_pct": -60.28,
+  "tvl_pit": 201007121
+ },
+ "solv-strategies": {
+  "fees_has_adapter": false,
+  "slug": "solv-strategies",
+  "tvl_growth_30d_pct": -11.59,
+  "tvl_growth_90d_pct": 4.67,
+  "tvl_max_1d_jump_pct": 7.7,
+  "tvl_max_drawdown_90d_pct": 23.3,
+  "tvl_pit": 57017636,
+  "tvl_spark_90d": [
+   54474363,
+   66517858,
+   67511139,
+   68942695,
+   66710008,
+   70136942,
+   72572933,
+   72996051,
+   66510763,
+   63893412,
+   63445745,
+   61292417,
+   59743109,
+   57017636
+  ]
+ },
+ "stablehodl": {
+  "fees_has_adapter": false,
+  "slug": "stablehodl",
+  "tvl_growth_30d_pct": 0.01,
+  "tvl_growth_90d_pct": 0.01,
+  "tvl_max_1d_jump_pct": 0.1,
+  "tvl_max_drawdown_90d_pct": 0.2,
+  "tvl_pit": 6358764,
+  "tvl_spark_90d": [
+   6358166,
+   6362853,
+   6363809,
+   6364052,
+   6362821,
+   6361684,
+   6363644,
+   6363346,
+   6359279,
+   6359017,
+   6357877,
+   6359806,
+   6357351,
+   6358764
+  ]
+ },
+ "stader": {
+  "fees_30d_usd": 352949,
+  "fees_365d_usd": 7081392,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "stader-labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 12.5,
+    "date": "2022-01-23",
+    "lead": [
+     "3AC"
+    ],
+    "round": "Strategic Private Sale"
+   },
+   {
+    "amount_usd_m": 4,
+    "date": "2021-10-07",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 16.5,
+  "slug": "stader",
+  "tvl_growth_30d_pct": -35.78,
+  "tvl_growth_90d_pct": -21.68,
+  "tvl_pit": 155114553
+ },
+ "starknet-bridge": {
+  "fees_has_adapter": false,
+  "slug": "starknet-bridge",
+  "tvl_growth_30d_pct": -44.11,
+  "tvl_growth_90d_pct": 53.64,
+  "tvl_pit": 215283682
+ },
+ "steakhouse-financial": {
+  "fees_30d_usd": 7483025,
+  "fees_365d_usd": 66629348,
+  "fees_has_adapter": true,
+  "slug": "steakhouse-financial",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 11.77,
+  "tvl_growth_90d_pct": 9.58,
+  "tvl_max_1d_jump_pct": 9.1,
+  "tvl_max_drawdown_90d_pct": 11.0,
+  "tvl_pit": 2753365194,
+  "tvl_spark_90d": [
+   2512686685,
+   2414360366,
+   2431198973,
+   2451280451,
+   2455269459,
+   2520054392,
+   2603124511,
+   2537757590,
+   2340173381,
+   2502117801,
+   2581968532,
+   2732617709,
+   2894061907,
+   2753365194
+  ]
+ },
+ "steer-protocol": {
+  "fees_30d_usd": 18752,
+  "fees_365d_usd": 470328,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 1.5,
+    "date": "2023-04-06",
+    "lead": [
+     "Druid Ventures"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 1.5,
+  "slug": "steer-protocol",
+  "tvl_growth_30d_pct": -27.61,
+  "tvl_growth_90d_pct": -22.85,
+  "tvl_max_1d_jump_pct": 8.0,
+  "tvl_max_drawdown_90d_pct": 37.4,
+  "tvl_pit": 13772805,
+  "tvl_spark_90d": [
+   17851941,
+   20439703,
+   19810031,
+   20242495,
+   20399651,
+   21005319,
+   21785610,
+   21541968,
+   19790157,
+   18484240,
+   17959120,
+   15640148,
+   14914756,
+   13772805
+  ]
+ },
+ "stellar-amm": {
+  "fees_has_adapter": false,
+  "slug": "stellar-amm",
+  "tvl_growth_30d_pct": -39.86,
+  "tvl_growth_90d_pct": 1.94,
+  "tvl_max_1d_jump_pct": 45.7,
+  "tvl_max_drawdown_90d_pct": 46.6,
+  "tvl_pit": 7668153,
+  "tvl_spark_90d": [
+   7522044,
+   8740340,
+   8243390,
+   8367063,
+   8235825,
+   8920759,
+   9431988,
+   14048983,
+   13327370,
+   8795588,
+   8533347,
+   8419155,
+   7891691,
+   7668153
+  ]
+ },
+ "stellar-defi-hub": {
+  "fees_has_adapter": false,
+  "slug": "stellar-defi-hub",
+  "tvl_growth_30d_pct": 50.94,
+  "tvl_growth_90d_pct": 661.66,
+  "tvl_max_1d_jump_pct": 73.0,
+  "tvl_max_drawdown_90d_pct": 46.7,
+  "tvl_pit": 83174716,
+  "tvl_spark_90d": [
+   10920149,
+   13741882,
+   17501277,
+   28997026,
+   33907481,
+   35362883,
+   57256856,
+   57415083,
+   56102419,
+   54769832,
+   112729040,
+   71608901,
+   82626734,
+   83174716
+  ]
+ },
+ "stellar-dex": {
+  "fees_has_adapter": false,
+  "slug": "stellar-dex",
+  "tvl_growth_30d_pct": -14.26,
+  "tvl_growth_90d_pct": 4.16,
+  "tvl_max_1d_jump_pct": 22.6,
+  "tvl_max_drawdown_90d_pct": 27.3,
+  "tvl_pit": 13406433,
+  "tvl_spark_90d": [
+   12871442,
+   15827040,
+   14452804,
+   14596561,
+   14531816,
+   15341344,
+   16952383,
+   17716668,
+   16209866,
+   15888784,
+   14990429,
+   14569276,
+   13736074,
+   13406433
+  ]
+ },
+ "ston.fi": {
+  "fees_30d_usd": 286013,
+  "fees_365d_usd": 5435538,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 9.5,
+    "date": "2025-07-30",
+    "lead": [
+     "Ribbit Capital",
+     "CoinFund"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 9.5,
+  "slug": "ston.fi",
+  "tvl_growth_30d_pct": -14.1,
+  "tvl_growth_90d_pct": -20.56,
+  "tvl_pit": 20736173
+ },
+ "strata-markets": {
+  "fees_30d_usd": 140226,
+  "fees_365d_usd": 4709221,
+  "fees_has_adapter": true,
+  "slug": "strata-markets",
+  "tvl_growth_30d_pct": -55.34,
+  "tvl_growth_90d_pct": -79.34,
+  "tvl_max_1d_jump_pct": 6.3,
+  "tvl_max_drawdown_90d_pct": 80.7,
+  "tvl_pit": 14897218,
+  "tvl_spark_90d": [
+   72093020,
+   74046527,
+   76416383,
+   68212688,
+   47575716,
+   38475538,
+   37672908,
+   37056805,
+   35946842,
+   34692924,
+   33359325,
+   32491002,
+   18035331,
+   16823189,
+   14897218
+  ]
+ },
+ "strato-cdp": {
+  "fees_30d_usd": 16205,
+  "fees_365d_usd": 59479,
+  "fees_has_adapter": true,
+  "slug": "strato-cdp",
+  "tvl_growth_30d_pct": -20.87,
+  "tvl_growth_90d_pct": -24.11,
+  "tvl_max_1d_jump_pct": 3.7,
+  "tvl_max_drawdown_90d_pct": 28.6,
+  "tvl_pit": 12638988,
+  "tvl_spark_90d": [
+   16654100,
+   17467705,
+   17395164,
+   16714278,
+   16532462,
+   16760680,
+   16808005,
+   16557997,
+   16003766,
+   15997182,
+   15971569,
+   15626427,
+   15452277,
+   15063480,
+   12638988
+  ]
+ },
+ "streamflow": {
+  "fees_30d_usd": 189932,
+  "fees_365d_usd": 1656068,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "streamflow-finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 1.9,
+    "date": "2024-10-28",
+    "lead": [
+     "John Lilic"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 3.1,
+    "date": "2022-03-04",
+    "lead": [
+     "Jump Crypto"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 5.0,
+  "slug": "streamflow",
+  "tvl_growth_30d_pct": -40.02,
+  "tvl_growth_90d_pct": 3426.91,
+  "tvl_pit": 8924778
+ },
+ "stusdt": {
+  "fees_30d_usd": 175066,
+  "fees_365d_usd": 1469831,
+  "fees_has_adapter": true,
+  "slug": "stusdt",
+  "tvl_growth_30d_pct": -83.15,
+  "tvl_growth_90d_pct": -84.9,
+  "tvl_pit": 9491269
+ },
+ "subfrost": {
+  "fees_has_adapter": false,
+  "slug": "subfrost",
+  "tvl_growth_30d_pct": -12.36,
+  "tvl_growth_90d_pct": 8.09,
+  "tvl_max_1d_jump_pct": 14.2,
+  "tvl_max_drawdown_90d_pct": 25.6,
+  "tvl_pit": 7813231,
+  "tvl_spark_90d": [
+   7228636,
+   8631381,
+   8318448,
+   8570389,
+   8237708,
+   8783038,
+   10423534,
+   9169696,
+   9000782,
+   8903556,
+   8908031,
+   8636570,
+   8590835,
+   7813231
+  ]
+ },
+ "superearn": {
+  "fees_has_adapter": false,
+  "slug": "superearn",
+  "tvl_growth_30d_pct": -30.66,
+  "tvl_growth_90d_pct": -38.3,
+  "tvl_max_1d_jump_pct": 14.1,
+  "tvl_max_drawdown_90d_pct": 43.0,
+  "tvl_pit": 9808933,
+  "tvl_spark_90d": [
+   15897825,
+   14918403,
+   16083356,
+   14067681,
+   13440666,
+   14560814,
+   14717251,
+   14189667,
+   14171019,
+   14146902,
+   15941639,
+   10942004,
+   9275802,
+   9808933
+  ]
+ },
+ "superfluid": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "superfluid-finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 9,
+    "date": "2021-07-13",
+    "lead": [
+     "Multicoin Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 2,
+    "date": "2025-08-28",
+    "lead": [],
+    "round": "Public token sale"
+   },
+   {
+    "amount_usd_m": 5.1,
+    "date": "2024-02-22",
+    "lead": [
+     "Fabric Ventures"
+    ],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 16.1,
+  "slug": "superfluid",
+  "tvl_growth_30d_pct": -7.58,
+  "tvl_growth_90d_pct": -11.83,
+  "tvl_pit": 5141164
+ },
+ "sushiswap": {
+  "fees_30d_usd": 85246,
+  "fees_365d_usd": 1265738,
+  "fees_has_adapter": true,
+  "slug": "sushiswap",
+  "tvl_growth_30d_pct": -17.26,
+  "tvl_growth_90d_pct": -2.65,
+  "tvl_pit": 31824529
+ },
+ "swan-dao": {
+  "fees_30d_usd": 3401,
+  "fees_365d_usd": 3401,
+  "fees_has_adapter": true,
+  "slug": "swan-dao",
+  "tvl_pit": 6183408
+ },
+ "sygnum-fiusd-liquidity-fund": {
+  "fees_has_adapter": false,
+  "slug": "sygnum-fiusd-liquidity-fund",
+  "tvl_growth_30d_pct": -22.46,
+  "tvl_growth_90d_pct": -40.61,
+  "tvl_max_1d_jump_pct": 0.0,
+  "tvl_max_drawdown_90d_pct": 40.8,
+  "tvl_pit": 14194453,
+  "tvl_spark_90d": [
+   23901872,
+   23918838,
+   23938257,
+   22275996,
+   22289567,
+   22305567,
+   19314014,
+   18286179,
+   18301689,
+   18313284,
+   18326943,
+   15332825,
+   14183687,
+   14194453
+  ]
+ },
+ "symbiosis": {
+  "fees_30d_usd": 207822,
+  "fees_365d_usd": 622755,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "symbiosis-finance"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 2,
+    "date": "2021-10-21",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2,
+  "slug": "symbiosis",
+  "tvl_growth_30d_pct": -1.01,
+  "tvl_growth_90d_pct": -8.96,
+  "tvl_pit": 7953378
+ },
+ "symbiotic": {
+  "fees_30d_usd": 136123,
+  "fees_365d_usd": 1315507,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "symbioticfi"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 5.8,
+    "date": "2024-06-11",
+    "lead": [
+     "Paradigm",
+     "Cyber Fund"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 29,
+    "date": "2025-04-23",
+    "lead": [
+     "Pantera Capital"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 34.8,
+  "slug": "symbiotic",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "base",
+    "dex": "sushiswap",
+    "liquidity_usd": 141083.58,
+    "pair_address": "0x2F58679116FFb64A755EB3615804b44c0D9b092e",
+    "pair_created_at_ms": 1790001587000,
+    "token_address": "0xD7C1d5b2BDF5D673C7757B2c61b427dE3D2843C2",
+    "token_name": "Symbiotic",
+    "token_symbol": "SYBT"
+   },
+   "note": "SYBT (Symbiotic) trades on Base, FDV about $671M on GeckoTerminal; both sources agree.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "likely_token"
+  },
+  "tvl_growth_30d_pct": -43.55,
+  "tvl_growth_90d_pct": -24.47,
+  "tvl_max_1d_jump_pct": 12.6,
+  "tvl_max_drawdown_90d_pct": 47.8,
+  "tvl_pit": 254942531,
+  "tvl_spark_90d": [
+   337525191,
+   422002211,
+   427438419,
+   449194992,
+   441432762,
+   463149532,
+   478996196,
+   480411137,
+   459564170,
+   450686492,
+   321691287,
+   308173522,
+   287890650,
+   254942531
+  ]
+ },
+ "synapse-cross-chain-bridge": {
+  "fees_30d_usd": 1148,
+  "fees_365d_usd": 30390,
+  "fees_has_adapter": true,
+  "slug": "synapse-cross-chain-bridge",
+  "tvl_growth_30d_pct": -24.99,
+  "tvl_growth_90d_pct": -37.43,
+  "tvl_pit": 7153588
+ },
+ "syncswap": {
+  "fees_30d_usd": 13452,
+  "fees_365d_usd": 452907,
+  "fees_has_adapter": true,
+  "slug": "syncswap",
+  "tvl_growth_30d_pct": -14.41,
+  "tvl_growth_90d_pct": -12.26,
+  "tvl_max_1d_jump_pct": 12.1,
+  "tvl_max_drawdown_90d_pct": 27.5,
+  "tvl_pit": 7294451,
+  "tvl_spark_90d": [
+   8314040,
+   10056235,
+   8928184,
+   8780500,
+   8685822,
+   8610698,
+   9291245,
+   9096478,
+   9166952,
+   8749667,
+   8515028,
+   8398545,
+   8283170,
+   8032675,
+   7294451
+  ]
+ },
+ "syntetika": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 2.5,
+    "date": "2025-07-17",
+    "lead": [],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 2.5,
+  "slug": "syntetika",
+  "tvl_growth_30d_pct": -14.62,
+  "tvl_max_1d_jump_pct": 12.6,
+  "tvl_max_drawdown_90d_pct": 18.4,
+  "tvl_pit": 14709794,
+  "tvl_spark_90d": [
+   10179510,
+   11547304,
+   12096099,
+   13030434,
+   13627249,
+   14232754,
+   15737565,
+   15544087,
+   16006235,
+   17676836,
+   17182015,
+   17351564,
+   16504361,
+   17203403,
+   14709794
+  ]
+ },
+ "syntropia": {
+  "fees_30d_usd": 83530,
+  "fees_365d_usd": 440843,
+  "fees_has_adapter": true,
+  "slug": "syntropia",
+  "tvl_growth_30d_pct": 3.27,
+  "tvl_growth_90d_pct": 159.5,
+  "tvl_max_1d_jump_pct": 38.0,
+  "tvl_max_drawdown_90d_pct": 1.5,
+  "tvl_pit": 13589370,
+  "tvl_spark_90d": [
+   5236767,
+   5465317,
+   5465017,
+   7861865,
+   7885560,
+   9000271,
+   11349688,
+   12065134,
+   13117355,
+   13275915,
+   13077113,
+   13595277,
+   13592535,
+   13589370
+  ]
+ },
+ "t3tris-finance": {
+  "fees_30d_usd": 891,
+  "fees_365d_usd": -36005,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "t3tris-finance"
+  ],
+  "slug": "t3tris-finance",
+  "tvl_growth_30d_pct": 2.35,
+  "tvl_growth_90d_pct": 15.57,
+  "tvl_max_1d_jump_pct": 13.2,
+  "tvl_max_drawdown_90d_pct": 7.9,
+  "tvl_pit": 13881394,
+  "tvl_spark_90d": [
+   12011124,
+   13200831,
+   13278285,
+   13411022,
+   13205679,
+   13565189,
+   13818510,
+   13863627,
+   13702074,
+   13439402,
+   13388954,
+   13130086,
+   12990429,
+   13881394
+  ]
+ },
+ "taiko-bridge": {
+  "fees_has_adapter": false,
+  "slug": "taiko-bridge",
+  "tvl_growth_30d_pct": -2.98,
+  "tvl_growth_90d_pct": 1.93,
+  "tvl_pit": 10852030
+ },
+ "tau-labs": {
+  "fees_30d_usd": 9045,
+  "fees_365d_usd": 379349,
+  "fees_has_adapter": true,
+  "slug": "tau-labs",
+  "tvl_growth_30d_pct": -17.8,
+  "tvl_growth_90d_pct": 40.81,
+  "tvl_max_1d_jump_pct": 12.8,
+  "tvl_max_drawdown_90d_pct": 22.1,
+  "tvl_pit": 10577519,
+  "tvl_spark_90d": [
+   7511951,
+   8297367,
+   9602289,
+   10432159,
+   11283594,
+   11949973,
+   12271638,
+   13143880,
+   13148983,
+   12918621,
+   13053329,
+   11850988,
+   11660781,
+   10577519
+  ]
+ },
+ "team-finance": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "team-finance"
+  ],
+  "slug": "team-finance",
+  "tvl_growth_30d_pct": -19.84,
+  "tvl_growth_90d_pct": 10.76,
+  "tvl_pit": 50630233
+ },
+ "tectonic": {
+  "fees_30d_usd": 943,
+  "fees_365d_usd": 2670369,
+  "fees_has_adapter": true,
+  "slug": "tectonic",
+  "tvl_growth_30d_pct": -34.47,
+  "tvl_growth_90d_pct": -88.61,
+  "tvl_pit": 13421359
+ },
+ "templar-lending": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 4,
+    "date": "2025-03-13",
+    "lead": [],
+    "round": "Pre-Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 4,
+  "slug": "templar-lending",
+  "tvl_growth_30d_pct": -13.51,
+  "tvl_growth_90d_pct": 14.07,
+  "tvl_max_1d_jump_pct": 7.3,
+  "tvl_max_drawdown_90d_pct": 16.4,
+  "tvl_pit": 27342121,
+  "tvl_spark_90d": [
+   23970327,
+   28073402,
+   27480945,
+   27961675,
+   29231392,
+   30604589,
+   32029533,
+   32059665,
+   30621815,
+   30652623,
+   30388307,
+   29627243,
+   28501374,
+   27342121
+  ]
+ },
+ "temple": {
+  "fees_30d_usd": 221708,
+  "fees_365d_usd": 534983,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2025-10-16",
+    "lead": [
+     "Paper Ventures"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 5,
+  "slug": "temple",
+  "tvl_growth_30d_pct": -14.38,
+  "tvl_growth_90d_pct": 45.97,
+  "tvl_max_1d_jump_pct": 45.1,
+  "tvl_max_drawdown_90d_pct": 60.9,
+  "tvl_pit": 6322122,
+  "tvl_spark_90d": [
+   4331004,
+   5296840,
+   5784036,
+   5957665,
+   5597340,
+   5570006,
+   6579392,
+   2738911,
+   6615939,
+   6779383,
+   7406926,
+   7372765,
+   6215146,
+   6322122
+  ]
+ },
+ "tempo-stablecoin-dex": {
+  "fees_has_adapter": false,
+  "slug": "tempo-stablecoin-dex",
+  "tvl_growth_30d_pct": 7.45,
+  "tvl_growth_90d_pct": 103.6,
+  "tvl_max_1d_jump_pct": 115.7,
+  "tvl_max_drawdown_90d_pct": 53.8,
+  "tvl_pit": 16995844,
+  "tvl_spark_90d": [
+   8347716,
+   11499134,
+   11448786,
+   11761335,
+   11448429,
+   11500966,
+   11428394,
+   12804123,
+   15758664,
+   15758115,
+   16754015,
+   16739498,
+   16728119,
+   16995844
+  ]
+ },
+ "tessera-v": {
+  "fees_has_adapter": false,
+  "slug": "tessera-v",
+  "tvl_growth_30d_pct": -15.61,
+  "tvl_max_1d_jump_pct": 34.5,
+  "tvl_max_drawdown_90d_pct": 50.9,
+  "tvl_pit": 11149773,
+  "tvl_spark_90d": [
+   12982573,
+   11949967,
+   13205478,
+   12518398,
+   11495283,
+   11704287,
+   13538316,
+   12668469,
+   13177592,
+   9113934,
+   8239632,
+   7907149,
+   11905249,
+   11149773
+  ]
+ },
+ "theo-network-thbill": {
+  "fees_30d_usd": 40397,
+  "fees_365d_usd": 3543567,
+  "fees_has_adapter": true,
+  "slug": "theo-network-thbill",
+  "tvl_growth_30d_pct": 5.25,
+  "tvl_growth_90d_pct": -81.4,
+  "tvl_max_1d_jump_pct": 126.9,
+  "tvl_max_drawdown_90d_pct": 84.7,
+  "tvl_pit": 11810439,
+  "tvl_spark_90d": [
+   63488616,
+   59891960,
+   59907966,
+   59922932,
+   59948946,
+   27789572,
+   17736241,
+   16199466,
+   11214725,
+   11227243,
+   9736961,
+   11801089,
+   11802777,
+   11810439
+  ]
+ },
+ "theo-network-thusd": {
+  "fees_has_adapter": false,
+  "slug": "theo-network-thusd",
+  "tvl_growth_30d_pct": 4.85,
+  "tvl_growth_90d_pct": 1.78,
+  "tvl_max_1d_jump_pct": 4.8,
+  "tvl_max_drawdown_90d_pct": 3.0,
+  "tvl_pit": 138582569,
+  "tvl_spark_90d": [
+   136165027,
+   136130823,
+   136036766,
+   135840560,
+   135778021,
+   134578557,
+   133821065,
+   132295058,
+   132189033,
+   132056418,
+   132157549,
+   132210398,
+   138576898,
+   138582569
+  ]
+ },
+ "thorchain-dex": {
+  "fees_30d_usd": 3701626,
+  "fees_365d_usd": 21793552,
+  "fees_has_adapter": true,
+  "slug": "thorchain-dex",
+  "tvl_growth_30d_pct": -12.26,
+  "tvl_growth_90d_pct": 5.49,
+  "tvl_pit": 56506443
+ },
+ "tori-finance": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2026-03-24",
+    "lead": [
+     "Delphi Digital"
+    ],
+    "round": "Seed"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 0,
+  "slug": "tori-finance",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 8.83,
+  "tvl_growth_90d_pct": 20.68,
+  "tvl_max_1d_jump_pct": 6.3,
+  "tvl_max_drawdown_90d_pct": 9.8,
+  "tvl_pit": 77391329,
+  "tvl_spark_90d": [
+   64131726,
+   64851587,
+   66265204,
+   66437610,
+   67827125,
+   67902318,
+   73023789,
+   75336893,
+   70578867,
+   71523779,
+   72182400,
+   72254149,
+   73979207,
+   77391329
+  ]
+ },
+ "tornado-cash": {
+  "fees_30d_usd": 342430,
+  "fees_365d_usd": 5009223,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "tornadocash"
+  ],
+  "slug": "tornado-cash",
+  "tvl_growth_30d_pct": -2.54,
+  "tvl_growth_90d_pct": 16.3,
+  "tvl_pit": 665874638
+ },
+ "treehouse-protocol": {
+  "fees_30d_usd": 31099,
+  "fees_365d_usd": 610635,
+  "fees_has_adapter": true,
+  "slug": "treehouse-protocol",
+  "tvl_growth_30d_pct": -20.58,
+  "tvl_growth_90d_pct": -2.9,
+  "tvl_pit": 52589670
+ },
+ "tulipa-capital": {
+  "fees_30d_usd": -383,
+  "fees_365d_usd": 207564,
+  "fees_has_adapter": true,
+  "slug": "tulipa-capital",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 26.47,
+  "tvl_growth_90d_pct": 39.59,
+  "tvl_max_1d_jump_pct": 50.4,
+  "tvl_max_drawdown_90d_pct": 16.8,
+  "tvl_pit": 52505181,
+  "tvl_spark_90d": [
+   37613013,
+   44238985,
+   44692418,
+   45359029,
+   45560284,
+   47116444,
+   46298064,
+   45265236,
+   42966777,
+   41444033,
+   60781195,
+   58436964,
+   57820183,
+   52505181
+  ]
+ },
+ "turboflow-perps": {
+  "fees_has_adapter": false,
+  "slug": "turboflow-perps",
+  "tvl_growth_30d_pct": 1.41,
+  "tvl_growth_90d_pct": 11.67,
+  "tvl_max_1d_jump_pct": 2.1,
+  "tvl_max_drawdown_90d_pct": 3.2,
+  "tvl_pit": 6667703,
+  "tvl_spark_90d": [
+   5970694,
+   5878190,
+   5958473,
+   6094290,
+   6298362,
+   6366380,
+   6306823,
+   6381781,
+   6570684,
+   6664394,
+   6717475,
+   6645473,
+   6746362,
+   6667703
+  ]
+ },
+ "tydro": {
+  "fees_30d_usd": 305761,
+  "fees_365d_usd": 6443569,
+  "fees_has_adapter": true,
+  "slug": "tydro",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -12.48,
+  "tvl_growth_90d_pct": 98.88,
+  "tvl_max_1d_jump_pct": 46.6,
+  "tvl_max_drawdown_90d_pct": 23.2,
+  "tvl_pit": 111864170,
+  "tvl_spark_90d": [
+   56246966,
+   62852365,
+   86427241,
+   87549052,
+   91996833,
+   140676733,
+   137127651,
+   137440279,
+   136029356,
+   129634598,
+   131817522,
+   126064761,
+   118447338,
+   111864170
+  ]
+ },
+ "ultrayield-curator": {
+  "fees_30d_usd": 5,
+  "fees_365d_usd": 11474,
+  "fees_has_adapter": true,
+  "slug": "ultrayield-curator",
+  "tvl_growth_30d_pct": -21.49,
+  "tvl_growth_90d_pct": -11.57,
+  "tvl_max_1d_jump_pct": 16.3,
+  "tvl_max_drawdown_90d_pct": 36.5,
+  "tvl_pit": 40516219,
+  "tvl_spark_90d": [
+   45817874,
+   54008598,
+   54779848,
+   53783520,
+   61086788,
+   63476152,
+   58612155,
+   57515474,
+   54863856,
+   51282720,
+   49199103,
+   47436564,
+   44937960,
+   40516219
+  ]
+ },
+ "ultrayield-vaults": {
+  "fees_30d_usd": 81526,
+  "fees_365d_usd": 874403,
+  "fees_has_adapter": true,
+  "slug": "ultrayield-vaults",
+  "tvl_growth_30d_pct": -22.59,
+  "tvl_growth_90d_pct": 56.31,
+  "tvl_max_1d_jump_pct": 55.9,
+  "tvl_max_drawdown_90d_pct": 26.6,
+  "tvl_pit": 18501217,
+  "tvl_spark_90d": [
+   11836170,
+   13527105,
+   14579128,
+   15150935,
+   23556075,
+   24304670,
+   24454448,
+   24482204,
+   24168220,
+   23955810,
+   23675974,
+   21084979,
+   20592311,
+   18501217
+  ]
+ },
+ "upshift": {
+  "fees_30d_usd": 2179893,
+  "fees_365d_usd": 14779310,
+  "fees_has_adapter": true,
+  "slug": "upshift",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "ethereum",
+    "dex": "uniswap",
+    "liquidity_usd": 3999.6,
+    "pair_address": "0xd772209d11656f522d6c3671eda4bfeb6df1ead605e01cfa72244e68eda3c260",
+    "pair_created_at_ms": 1790669255000,
+    "token_address": "0xE9B725010A9E419412ed67d0fA5f3A5f40159D32",
+    "token_name": "Upshift Core USDC",
+    "token_symbol": "coreUSDC"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 19.2,
+  "tvl_growth_90d_pct": 43.94,
+  "tvl_max_1d_jump_pct": 11.6,
+  "tvl_max_drawdown_90d_pct": 10.8,
+  "tvl_pit": 498803808,
+  "tvl_spark_90d": [
+   346534783,
+   382474094,
+   381630183,
+   404372204,
+   423371398,
+   413962832,
+   430720526,
+   426624767,
+   399596176,
+   386137571,
+   394365574,
+   432369786,
+   460479793,
+   498803808
+  ]
+ },
+ "uranium.io": {
+  "fees_has_adapter": false,
+  "slug": "uranium.io",
+  "tvl_pit": null
+ },
+ "usd-ai": {
+  "fees_30d_usd": 2721031,
+  "fees_365d_usd": 27799614,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": null,
+    "date": "2025-11-17",
+    "lead": [
+     "Coinbase Ventures"
+    ],
+    "round": null
+   },
+   {
+    "amount_usd_m": 4,
+    "date": "2025-09-22",
+    "lead": [
+     "Bullish"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 4,
+  "slug": "usd-ai",
+  "tvl_growth_30d_pct": -54.49,
+  "tvl_growth_90d_pct": -10.13,
+  "tvl_pit": 157251215
+ },
+ "usdcx": {
+  "fees_has_adapter": false,
+  "slug": "usdcx",
+  "tvl_growth_30d_pct": -13.48,
+  "tvl_growth_90d_pct": -4.29,
+  "tvl_max_1d_jump_pct": 8.5,
+  "tvl_max_drawdown_90d_pct": 22.5,
+  "tvl_pit": 56628936,
+  "tvl_spark_90d": [
+   59168665,
+   63538972,
+   62249947,
+   61411711,
+   66433206,
+   68817457,
+   67940447,
+   67599098,
+   66855015,
+   65659071,
+   63644034,
+   60265440,
+   58525531,
+   56628936
+  ]
+ },
+ "usdd": {
+  "fees_30d_usd": 182055,
+  "fees_365d_usd": 4220172,
+  "fees_has_adapter": true,
+  "slug": "usdd",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "solana",
+    "dex": "raydium",
+    "liquidity_usd": 209578774.48,
+    "pair_address": "9KRgQCET9xivTfKSppgBraQpqZmiKe8H8QmUbehgn7Lv",
+    "pair_created_at_ms": 1786719966000,
+    "token_address": "73fZSffhx1tGDoe1S8Re9znpv5h7BfMMKYNvmjgYAnoa",
+    "token_name": "USDD",
+    "token_symbol": "USDD"
+   },
+   "note": "USDD itself is the stablecoin product and trades; there is no separate governance launch to farm.",
+   "sources": [
+    "dexscreener",
+    "geckoterminal"
+   ],
+   "verdict": "token_is_product"
+  },
+  "tvl_growth_30d_pct": -13.26,
+  "tvl_growth_90d_pct": -18.48,
+  "tvl_max_1d_jump_pct": 32.0,
+  "tvl_max_drawdown_90d_pct": 28.0,
+  "tvl_pit": 1054719534,
+  "tvl_spark_90d": [
+   1293846409,
+   1280667133,
+   1304291577,
+   1234075278,
+   1247215619,
+   1281939725,
+   1277862710,
+   1252878925,
+   1329424111,
+   1254850619,
+   1242699557,
+   1247261644,
+   1086760824,
+   1054719534
+  ]
+ },
+ "usual-usd0": {
+  "fees_30d_usd": 509599,
+  "fees_365d_usd": 9949715,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 7,
+    "date": "2024-04-17",
+    "lead": [
+     "IOSG Ventures",
+     "Kraken Ventures"
+    ],
+    "round": "Strategic"
+   },
+   {
+    "amount_usd_m": 1.5,
+    "date": "2024-11-06",
+    "lead": [],
+    "round": "Community Round"
+   },
+   {
+    "amount_usd_m": 10,
+    "date": "2024-12-23",
+    "lead": [
+     "Binance Labs",
+     "Kraken Ventures"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 3,
+  "raises_total_usd_m": 18.5,
+  "slug": "usual-usd0",
+  "tvl_growth_30d_pct": -4.76,
+  "tvl_growth_90d_pct": -14.45,
+  "tvl_pit": 79307192
+ },
+ "valantis-sthype-restaking": {
+  "fees_30d_usd": 20676,
+  "fees_365d_usd": 20707,
+  "fees_has_adapter": true,
+  "slug": "valantis-sthype-restaking",
+  "tvl_max_1d_jump_pct": 42.8,
+  "tvl_max_drawdown_90d_pct": 7.8,
+  "tvl_pit": 8326954,
+  "tvl_spark_90d": [
+   6132509,
+   6160147,
+   6175306,
+   8816794,
+   8606679,
+   8789157,
+   8604187,
+   8136742,
+   8327141,
+   8222291,
+   8331103,
+   8454678,
+   8131082,
+   8137626,
+   8326954
+  ]
+ },
+ "valos": {
+  "fees_has_adapter": false,
+  "slug": "valos",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "base",
+    "dex": "uniswap",
+    "liquidity_usd": null,
+    "pair_address": "0x8215b0a0f107a2af3b33d25459bd60e57929e78a4fd7b0c04cb2bc85fc5d44d8",
+    "pair_created_at_ms": 1792925735000,
+    "token_address": "0x3854ebafcb4148B9E0BB2e4e93073b82eA09630a",
+    "token_name": "Cavalos Pontilhismo - Arembepe",
+    "token_symbol": "CAVALOS"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": 0.55,
+  "tvl_growth_90d_pct": -3.42,
+  "tvl_max_1d_jump_pct": 0.1,
+  "tvl_max_drawdown_90d_pct": 4.7,
+  "tvl_pit": 106330749,
+  "tvl_spark_90d": [
+   110095044,
+   110313873,
+   107031863,
+   107157999,
+   105238004,
+   105354000,
+   105492594,
+   105634080,
+   105692687,
+   105826765,
+   105962938,
+   106129784,
+   106201346,
+   106330749
+  ]
+ },
+ "vault-street": {
+  "fees_has_adapter": false,
+  "slug": "vault-street",
+  "tvl_pit": null
+ },
+ "veda": {
+  "fees_30d_usd": 5166859,
+  "fees_365d_usd": 34287208,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Veda-Labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 18,
+    "date": "2025-06-23",
+    "lead": [
+     "CoinFund"
+    ],
+    "round": null
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 18,
+  "slug": "veda",
+  "token_born": {
+   "checked": "2026-11-18",
+   "evidence": {
+    "chain": "ethereum",
+    "dex": "uniswap",
+    "liquidity_usd": 4456058233.9,
+    "pair_address": "0x1d2D5cf2D09358708eF8519E4101755c0E5348c9",
+    "pair_created_at_ms": 1776144767000,
+    "token_address": "0x4b1c8e2915Ee797EdE75DBfCCaea42c9b3094302",
+    "token_name": "RaveDAO",
+    "token_symbol": "RAVE"
+   },
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -13.91,
+  "tvl_growth_90d_pct": 11.39,
+  "tvl_max_1d_jump_pct": 8.4,
+  "tvl_max_drawdown_90d_pct": 19.2,
+  "tvl_pit": 1567668018,
+  "tvl_spark_90d": [
+   1407360583,
+   1660329884,
+   1700334117,
+   1756409450,
+   1776318731,
+   1869749475,
+   1907127931,
+   1913146784,
+   1847049704,
+   1820889046,
+   1803843410,
+   1754190707,
+   1702083340,
+   1567668018
+  ]
+ },
+ "vena-finance": {
+  "fees_30d_usd": 11504,
+  "fees_365d_usd": 135811,
+  "fees_has_adapter": true,
+  "slug": "vena-finance",
+  "tvl_growth_30d_pct": 0.88,
+  "tvl_growth_90d_pct": -1.36,
+  "tvl_max_1d_jump_pct": 3.0,
+  "tvl_max_drawdown_90d_pct": 6.0,
+  "tvl_pit": 9222981,
+  "tvl_spark_90d": [
+   9350420,
+   9404992,
+   9363706,
+   9367496,
+   9430828,
+   9726969,
+   9408184,
+   9427279,
+   9175681,
+   9141601,
+   9184241,
+   9195763,
+   9194720,
+   9222981
+  ]
+ },
+ "veno-finance": {
+  "fees_30d_usd": 52748,
+  "fees_365d_usd": 1253964,
+  "fees_has_adapter": true,
+  "slug": "veno-finance",
+  "tvl_growth_30d_pct": -18.66,
+  "tvl_growth_90d_pct": -6.75,
+  "tvl_pit": 28112024
+ },
+ "veranta": {
+  "fees_30d_usd": 827899,
+  "fees_365d_usd": 11837611,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "Avantis-Labs"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 4,
+    "date": "2023-09-26",
+    "lead": [
+     "Pantera Capital"
+    ],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 8,
+    "date": "2025-06-03",
+    "lead": [
+     "Pantera Capital",
+     "Founders Fund"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 12,
+  "slug": "veranta",
+  "tvl_growth_30d_pct": -7.42,
+  "tvl_growth_90d_pct": -46.24,
+  "tvl_pit": 10836003
+ },
+ "vesu": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "vesuxyz"
+  ],
+  "slug": "vesu",
+  "tvl_growth_30d_pct": -22.67,
+  "tvl_growth_90d_pct": -26.33,
+  "tvl_max_1d_jump_pct": 12.6,
+  "tvl_max_drawdown_90d_pct": 36.8,
+  "tvl_pit": 8908329,
+  "tvl_spark_90d": [
+   12092618,
+   13878409,
+   13574415,
+   12104167,
+   12965831,
+   12924826,
+   12854343,
+   13022279,
+   12455690,
+   11189748,
+   10682759,
+   10337491,
+   9950942,
+   8908329
+  ]
+ },
+ "vfat.io": {
+  "fees_30d_usd": 81296,
+  "fees_365d_usd": 1046004,
+  "fees_has_adapter": true,
+  "slug": "vfat.io",
+  "tvl_growth_30d_pct": -21.17,
+  "tvl_growth_90d_pct": 10.92,
+  "tvl_max_1d_jump_pct": 26.1,
+  "tvl_max_drawdown_90d_pct": 29.7,
+  "tvl_pit": 28187462,
+  "tvl_spark_90d": [
+   25412222,
+   25577427,
+   27848471,
+   25881308,
+   27986254,
+   27238581,
+   29045993,
+   38902046,
+   39477620,
+   37160797,
+   35755050,
+   35186252,
+   33435279,
+   31484468,
+   28187462
+  ]
+ },
+ "vishwa": {
+  "fees_has_adapter": false,
+  "slug": "vishwa",
+  "tvl_growth_30d_pct": -16.26,
+  "tvl_growth_90d_pct": -16.2,
+  "tvl_max_1d_jump_pct": 15.5,
+  "tvl_max_drawdown_90d_pct": 39.0,
+  "tvl_pit": 45600761,
+  "tvl_spark_90d": [
+   54412991,
+   66691341,
+   67559256,
+   69000610,
+   58227538,
+   70220792,
+   72786980,
+   56540168,
+   55325855,
+   54373041,
+   53841235,
+   51677648,
+   50521945,
+   45600761
+  ]
+ },
+ "waterline": {
+  "fees_30d_usd": 129005,
+  "fees_365d_usd": 2450308,
+  "fees_has_adapter": true,
+  "slug": "waterline",
+  "tvl_growth_30d_pct": -6.21,
+  "tvl_max_1d_jump_pct": 2.1,
+  "tvl_max_drawdown_90d_pct": 15.3,
+  "tvl_pit": 22600348,
+  "tvl_spark_90d": [
+   25380921,
+   24617140,
+   24268127,
+   24142319,
+   23843934,
+   23835277,
+   23527884,
+   23532163,
+   23943129,
+   23826565,
+   23937747,
+   23527693,
+   21904023,
+   21505625,
+   22600348
+  ]
+ },
+ "waterneuron": {
+  "fees_30d_usd": 24074,
+  "fees_365d_usd": 436887,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "WaterNeuron"
+  ],
+  "slug": "waterneuron",
+  "tvl_growth_30d_pct": -19.32,
+  "tvl_growth_90d_pct": 10.53,
+  "tvl_pit": 5867556
+ },
+ "wise-token": {
+  "fees_30d_usd": 435,
+  "fees_365d_usd": 18241,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "wise-foundation"
+  ],
+  "slug": "wise-token",
+  "tvl_growth_30d_pct": -20.54,
+  "tvl_pit": 54778295
+ },
+ "xion-finance": {
+  "fees_has_adapter": false,
+  "slug": "xion-finance",
+  "tvl_growth_30d_pct": -10.87,
+  "tvl_growth_90d_pct": 2.24,
+  "tvl_max_1d_jump_pct": 87.1,
+  "tvl_max_drawdown_90d_pct": 49.1,
+  "tvl_pit": 21883293,
+  "tvl_spark_90d": [
+   21404086,
+   22905269,
+   23870968,
+   22890238,
+   22828287,
+   22491670,
+   24070425,
+   24860506,
+   23398127,
+   23405375,
+   21957990,
+   26964625,
+   22677297,
+   21883293
+  ]
+ },
+ "xrpl-dex": {
+  "fees_30d_usd": 14039,
+  "fees_365d_usd": 14039,
+  "fees_has_adapter": true,
+  "slug": "xrpl-dex",
+  "tvl_growth_30d_pct": -22.35,
+  "tvl_growth_90d_pct": 3.28,
+  "tvl_max_1d_jump_pct": 15.6,
+  "tvl_max_drawdown_90d_pct": 34.2,
+  "tvl_pit": 27754911,
+  "tvl_spark_90d": [
+   26874569,
+   40239179,
+   37458235,
+   37893617,
+   36639089,
+   37624505,
+   40817438,
+   39869480,
+   37588952,
+   34827184,
+   34833935,
+   33564830,
+   31172054,
+   27754911
+  ]
+ },
+ "xsy": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2025-05-15",
+    "lead": [
+     "Borderless Capital",
+     "Protagonist"
+    ],
+    "round": "Series A"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 5,
+  "slug": "xsy",
+  "tvl_growth_30d_pct": 0.05,
+  "tvl_pit": 12993621
+ },
+ "y10k-capital": {
+  "fees_has_adapter": false,
+  "slug": "y10k-capital",
+  "tvl_growth_30d_pct": 20.25,
+  "tvl_growth_90d_pct": -12.52,
+  "tvl_max_1d_jump_pct": 48.1,
+  "tvl_max_drawdown_90d_pct": 35.9,
+  "tvl_pit": 28340258,
+  "tvl_spark_90d": [
+   32394973,
+   32654178,
+   31605113,
+   31765915,
+   31806443,
+   31889403,
+   31153985,
+   35726279,
+   36140608,
+   34669939,
+   34253025,
+   33023494,
+   28535844,
+   28340258
+  ]
+ },
+ "yield-basis": {
+  "fees_30d_usd": 197284,
+  "fees_365d_usd": 2787738,
+  "fees_has_adapter": true,
+  "raises": [
+   {
+    "amount_usd_m": 5,
+    "date": "2025-02-18",
+    "lead": [],
+    "round": null
+   },
+   {
+    "amount_usd_m": 5,
+    "date": "2025-10-01",
+    "lead": [],
+    "round": "Public token sale"
+   }
+  ],
+  "raises_count": 2,
+  "raises_total_usd_m": 10,
+  "slug": "yield-basis",
+  "tvl_growth_30d_pct": -35.95,
+  "tvl_growth_90d_pct": -36.57,
+  "tvl_pit": 82442085
+ },
+ "yield-yak-aggregator": {
+  "fees_30d_usd": 608,
+  "fees_365d_usd": 59829,
+  "fees_has_adapter": true,
+  "slug": "yield-yak-aggregator",
+  "tvl_growth_30d_pct": -22.93,
+  "tvl_growth_90d_pct": -10.6,
+  "tvl_pit": 11731131
+ },
+ "yieldfi": {
+  "fees_30d_usd": 0,
+  "fees_365d_usd": 938552,
+  "fees_has_adapter": true,
+  "github_orgs": [
+   "YieldFiLabs"
+  ],
+  "slug": "yieldfi",
+  "tvl_growth_30d_pct": -5.45,
+  "tvl_growth_90d_pct": 1.14,
+  "tvl_max_1d_jump_pct": 3.5,
+  "tvl_max_drawdown_90d_pct": 8.4,
+  "tvl_pit": 10774707,
+  "tvl_spark_90d": [
+   10653333,
+   11338537,
+   11376365,
+   11413243,
+   11415383,
+   11559085,
+   11664383,
+   11669647,
+   11488046,
+   11377129,
+   11325906,
+   11191748,
+   11149022,
+   10774707
+  ]
+ },
+ "yuzu-money": {
+  "fees_30d_usd": 476170,
+  "fees_365d_usd": 4773245,
+  "fees_has_adapter": true,
+  "slug": "yuzu-money",
+  "token_born": {
+   "checked": "2026-11-18",
+   "note": "No pool whose token name matches this protocol was found on DexScreener (search 2026-11-18); GeckoTerminal cross-check run only for name-match candidates.",
+   "sources": [
+    "dexscreener"
+   ],
+   "verdict": "no_pool"
+  },
+  "tvl_growth_30d_pct": -29.43,
+  "tvl_growth_90d_pct": -23.92,
+  "tvl_max_1d_jump_pct": 9.1,
+  "tvl_max_drawdown_90d_pct": 31.6,
+  "tvl_pit": 57344947,
+  "tvl_spark_90d": [
+   75374805,
+   83071771,
+   82219370,
+   79183356,
+   73727166,
+   75694905,
+   78486272,
+   79040884,
+   79966971,
+   80300528,
+   77207551,
+   77041019,
+   63046443,
+   57344947
+  ]
+ },
+ "zama": {
+  "fees_has_adapter": false,
+  "github_orgs": [
+   "zama-ai"
+  ],
+  "raises": [
+   {
+    "amount_usd_m": 7.8,
+    "date": "2021-06-15",
+    "lead": [],
+    "round": "Seed"
+   },
+   {
+    "amount_usd_m": 44,
+    "date": "2026-01-26",
+    "lead": [],
+    "round": "Public token sale"
+   },
+   {
+    "amount_usd_m": 57,
+    "date": "2025-06-25",
+    "lead": [
+     "Pantera Capital",
+     "Blockchange Ventures"
+    ],
+    "round": "Series B"
+   },
+   {
+    "amount_usd_m": 73,
+    "date": "2024-03-07",
+    "lead": [
+     "Multicoin Capital",
+     "Protocol Labs"
+    ],
+    "round": "Series A"
+   },
+   {
+    "amount_usd_m": 1.1,
+    "date": "2020-04-01",
+    "lead": [],
+    "round": "Pre-Seed"
+   }
+  ],
+  "raises_count": 5,
+  "raises_total_usd_m": 182.9,
+  "slug": "zama",
+  "tvl_growth_30d_pct": -26.0,
+  "tvl_growth_90d_pct": 61.42,
+  "tvl_pit": 90393313
+ },
+ "zerobase-cedefi": {
+  "fees_has_adapter": false,
+  "slug": "zerobase-cedefi",
+  "tvl_growth_30d_pct": -1.59,
+  "tvl_growth_90d_pct": 13.56,
+  "tvl_pit": 60032946
+ },
+ "zoo-finance": {
+  "fees_has_adapter": false,
+  "raises": [
+   {
+    "amount_usd_m": 10,
+    "date": "2025-12-01",
+    "lead": [
+     "Bitrise Capital"
+    ],
+    "round": "Strategic"
+   }
+  ],
+  "raises_count": 1,
+  "raises_total_usd_m": 10,
+  "slug": "zoo-finance",
+  "tvl_growth_30d_pct": -15.42,
+  "tvl_growth_90d_pct": 36.42,
+  "tvl_max_1d_jump_pct": 17.1,
+  "tvl_max_drawdown_90d_pct": 28.3,
+  "tvl_pit": 24637143,
+  "tvl_spark_90d": [
+   18059200,
+   20836513,
+   18816985,
+   21210728,
+   21119025,
+   25070342,
+   30765552,
+   29447672,
+   30128778,
+   28355102,
+   33531996,
+   30145976,
+   27220444,
+   24637143
+  ]
+ },
+ "zyfai": {
+  "fees_30d_usd": 6705,
+  "fees_365d_usd": 78105,
+  "fees_has_adapter": true,
+  "slug": "zyfai",
+  "tvl_growth_30d_pct": -17.43,
+  "tvl_growth_90d_pct": -11.33,
+  "tvl_pit": 8287125
+ }
+}
