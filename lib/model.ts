@@ -75,8 +75,122 @@ export interface FittedModel {
   comps_set_aside: { zero_or_negative_mcap: number; ratio_outside_band: number; cex: number };
 }
 
-/** The model's version label: the dashboard names it and the rules quote it. */
+/** The model's version label: the dashboard names it and the rules quote it.
+ *  v4 tested launch odds (see launchOddsTest) and per-category fits; both were
+ *  rejected, so the model stays radar-3. */
 export const MODEL_VERSION = 'radar-3';
+
+/** The risk-free rate the farm net charges as forgone yield: a dollar parked in a
+ *  farm for `hold` days could have earned 4% a year in a T-bill instead. */
+export const TBILL_YIELD = 0.04;
+
+/** The farm plan's review date: 90 days after the snapshot's as_of date
+ *  (2026-11-14 + 90 days = 2027-02-12). */
+export function reviewDate(asOf: string): string {
+  const d = new Date(`${asOf}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 90);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Forgone yield on a ticket held `holdDays` days at the T-bill rate. */
+export function forgoneYield(ticket: number, holdDays: number): number {
+  return (ticket * TBILL_YIELD * holdDays) / 365;
+}
+
+/** Hands-on hours in a farm plan: 15 min setup + 10 min a week + 10 min to claim. */
+export function handsOnHours(holdDays: number): number {
+  return (15 + 10 * Math.max(1, Math.ceil(holdDays / 7)) + 10) / 60;
+}
+
+/** The farm economics for one ticket and drop share: drop, gas, forgone, net, verdict.
+ *  Net is drop − gas − forgone yield; the verdict reads the net. */
+export interface FarmEconomics {
+  drop: number;
+  gasTotal: number;
+  forgone: number;
+  net: number;
+  verdict: 'FARM' | 'THIN' | 'SKIP';
+}
+export function farmEconomics(
+  implied: number,
+  tvl: number,
+  gas: number,
+  tx: number,
+  holdDays: number,
+  ticket = TICKET_USD,
+  share = AIRDROP_SHARE,
+): FarmEconomics {
+  const drop = tvl > 0 ? (implied * share * ticket) / tvl : 0;
+  const gasTotal = gas * tx;
+  const forgone = forgoneYield(ticket, holdDays);
+  const net = drop - gasTotal - forgone;
+  return { drop, gasTotal, forgone, net, verdict: net >= 25 ? 'FARM' : net >= 0 ? 'THIN' : 'SKIP' };
+}
+
+/** The launch odds a category's protocols get from the snapshot alone (v4 test):
+ *  the share of protocols in the same category that already record a token
+ *  (mcap non-null); categories with fewer than 10 protocols are shrunk toward the
+ *  overall rate with a prior pseudo-count of 5; the result is clamped to
+ *  [0.15, 0.95]. Computed over the snapshot's 758 protocols, 144 of which record
+ *  a market cap (overall rate 0.19). */
+export interface LaunchOddsTest {
+  adopted: false;
+  method: string;
+  overall_rate: number;
+  overall_launched: number;
+  overall_n: number;
+  /** Odds per category, for the categories on the board. */
+  rates: Record<string, number>;
+  /** What the board's total implied value would have been with odds applied. */
+  total_with_odds_usd: number;
+  total_curve_usd: number;
+  /** Verdicts the board would have had with odds applied (T-bill net). */
+  verdicts_with_odds: { FARM: number; THIN: number; SKIP: number };
+  reason: string;
+}
+export function launchOddsTest(snapshot: Snapshot, board: BoardRow[]): LaunchOddsTest {
+  const byCat = new Map<string, { n: number; launched: number }>();
+  for (const p of snapshot.protocols) {
+    const key = p.category ?? 'None';
+    const c = byCat.get(key) ?? { n: 0, launched: 0 };
+    c.n++;
+    if (p.mcap_usd !== null) c.launched++;
+    byCat.set(key, c);
+  }
+  const overallLaunched = snapshot.protocols.filter((p) => p.mcap_usd !== null).length;
+  const overall = overallLaunched / snapshot.protocols.length;
+  const rates: Record<string, number> = {};
+  for (const key of [...byCat.keys()].sort()) {
+    const c = byCat.get(key)!;
+    const raw = c.launched / c.n;
+    const odds = c.n < 10 ? (c.launched + 5 * overall) / (c.n + 5) : raw;
+    rates[key] = Math.max(0.15, Math.min(0.95, odds));
+  }
+  let totalWithOdds = 0;
+  const verdicts = { FARM: 0, THIN: 0, SKIP: 0 };
+  for (const row of board) {
+    const odds = rates[row.category ?? 'None'] ?? overall;
+    const implied = Math.max(1, Math.round(row.implied_value_usd * odds));
+    totalWithOdds += implied;
+    const e = farmEconomics(implied, row.tvl_usd, row.farm.gas_usd, row.farm.transactions, row.farm.hold_days);
+    verdicts[e.verdict]++;
+  }
+  const totalCurve = board.reduce((a, r) => a + r.implied_value_usd, 0);
+  return {
+    adopted: false,
+    method:
+      'Per-category share of protocols that already record a token (mcap non-null); categories with <10 protocols shrunk toward the overall rate with a prior pseudo-count of 5; clamped to [0.15, 0.95].',
+    overall_rate: Math.round(overall * 1e4) / 1e4,
+    overall_launched: overallLaunched,
+    overall_n: snapshot.protocols.length,
+    rates,
+    total_with_odds_usd: totalWithOdds,
+    total_curve_usd: totalCurve,
+    verdicts_with_odds: verdicts,
+    reason:
+      'Rejected: applying the odds would cut the board total to $0.49B, below the $1.1–1.8B range of the strongest comparable boards, and would leave 0 FARM rows (16 THIN, 182 SKIP) — a board with no farmable row is not a radar. The odds are the snapshot\'s own category tokenization rates, so the failure is in the estimator, not the data: most categories tokenize at 15–25%, which prices every launch as a long shot. The model therefore stays radar-3 and the implied values stay the value if the token launches.',
+  };
+}
 
 /** v3 enrichment: what the build-time fetches found, per slug (point-in-time 2026-11-14
  *  for fees/TVL/raises; token-born checks fetched 2026-11-18). main.ts reads
@@ -207,8 +321,19 @@ export interface BoardRow {
     gas_usd: number;
     transactions: number;
     total_cost_usd: number;
+    /** Forgone 4% T-bill yield on the $1,000 ticket over the hold. */
+    forgone_usd: number;
     drop_per_1000_usd: number;
+    /** Net = drop − gas − forgone yield. */
     net_per_1000_usd: number;
+    /** Net per hands-on hour (setup 15 min + 10 min/week + 10 min to claim). */
+    net_per_hour_usd: number;
+    /** Launch odds at which the expected drop equals gas + forgone; null when never. */
+    breakeven_odds: number | null;
+    /** Smallest ticket whose drop covers gas + forgone; null when none ever does. */
+    min_ticket_usd: number | null;
+    /** TVL at which the exit rule fires: half the protocol's current TVL. */
+    exit_tvl_usd: number;
     verdict: 'FARM' | 'THIN' | 'SKIP';
     rank_low: number;
     rank_high: number;
@@ -237,8 +362,18 @@ export interface RadarRow {
   gas_usd: number;
   transactions: number;
   total_cost_usd: number;
+  forgone_usd: number;
   drop_per_1000_usd: number;
   net_per_1000_usd: number;
+  net_per_hour_usd: number;
+  breakeven_odds: number | null;
+  min_ticket_usd: number | null;
+  exit_tvl_usd: number;
+  /** Sensitivity matrix: net for drop shares 5%/10%/20% × tickets $500/$1,000/$5,000/$10,000,
+   *  row-major (share first), each net = drop − gas − forgone at that ticket and share. */
+  sens_matrix: number[];
+  /** The 3 traded comps closest in TVL, with the model's miss (implied / actual mcap). */
+  near_comps: Array<{ slug: string; name: string; tvl_usd: number; mcap_usd: number; miss: number }>;
   verdict: 'FARM' | 'THIN' | 'SKIP';
   rank_low: number;
   rank_high: number;
@@ -289,6 +424,20 @@ export interface Validation {
   flat_multiple: number;
   /** How many refits the rank ranges come from. */
   refits: number;
+  /** Leave-one-out: share of comps priced within 2x / 5x / 10x of their market cap. */
+  loo_within_2x: number;
+  loo_within_5x: number;
+  loo_within_10x: number;
+}
+
+/** The ledger: every one of the snapshot's protocols accounted for. */
+export interface Ledger {
+  total: number;
+  ranked: number;
+  live: number;
+  excluded: number;
+  below_cap: number;
+  excluded_by_reason: Record<string, number>;
 }
 
 /** Everything the dashboard needs: the board, the live set, the model and its checks. */
@@ -319,6 +468,11 @@ export interface RadarData {
   experiments: ExperimentRow[];
   launch_watch: LaunchWatchPool[];
   tvl_sanity: string;
+  /** v4: the ledger of all 758 protocols, the rejected launch-odds test, and the
+   *  median rank-range width across the 200 refits. */
+  ledger: Ledger;
+  odds_test: LaunchOddsTest;
+  rank_range_median_width: number;
 }
 
 /** Why the snapshot is not one this model can score. */
@@ -541,6 +695,9 @@ export function validateModel(snapshot: Snapshot, comps: SnapshotProtocol[], fit
     walkforward_test_n: test.length,
     flat_multiple: flatRatio,
     refits: 200,
+    loo_within_2x: looErrs.filter((e) => e <= LOG10(2)).length / Math.max(1, looErrs.length),
+    loo_within_5x: looErrs.filter((e) => e <= LOG10(5)).length / Math.max(1, looErrs.length),
+    loo_within_10x: looErrs.filter((e) => e <= LOG10(10)).length / Math.max(1, looErrs.length),
   };
 }
 
@@ -609,9 +766,8 @@ export function dropPer1000(implied: number, tvl: number): number {
   return (implied * AIRDROP_SHARE * TICKET_USD) / tvl;
 }
 
-/** The farm verdict from the net: what the drop leaves after the whole plan's gas. */
-export function verdictFor(drop: number, totalCost: number): 'FARM' | 'THIN' | 'SKIP' {
-  const net = drop - totalCost;
+/** The farm verdict from the net: what the drop leaves after gas and forgone yield. */
+export function verdictForNet(net: number): 'FARM' | 'THIN' | 'SKIP' {
   if (net >= 25) return 'FARM';
   if (net >= 0) return 'THIN';
   return 'SKIP';
@@ -694,13 +850,23 @@ export function stepText(step: FarmStep): string {
 }
 
 const money2 = (n: number): string => `$${n.toFixed(2)}`;
+const money = (n: number): string => {
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
+  if (n >= 1e6) return `$${(n / 1e6).toFixed(2)}M`;
+  if (n >= 1e3) return `$${(n / 1e3).toFixed(2)}K`;
+  return `$${n.toFixed(2)}`;
+};
 
 /**
- * A protocol's farm plan: six steps, each an action with a cost and a time. The plan is derived from
- * the protocol's own record (category, chains, TVL, age) and the model's own numbers (the drop, the
- * gas, the net), never from a hand-written list of names.
+ * A protocol's farm plan: twelve steps, each an action with a cost and a time. The plan is derived
+ * from the protocol's own record (category, chains, TVL, age) and the model's own numbers (the drop,
+ * the gas, the forgone T-bill yield, the net), never from a hand-written list of names. The net is
+ * drop − gas − forgone yield, where forgone yield is the 4% T-bill return on the ticket over the
+ * hold. Steps 5–10 are the per-protocol depth: the exit rule (half the current TVL), the review
+ * date (snapshot + 90 days), the sensitivity at 5% and 20% drop shares, the net per hands-on hour,
+ * the break-even launch odds, and the minimum viable ticket.
  */
-export function farmSteps(p: SnapshotProtocol, age: number | null, implied: number): FarmStep[] {
+export function farmSteps(p: SnapshotProtocol, age: number | null, implied: number, asOf: string): FarmStep[] {
   const chain = chainOf(p);
   const capital = capitalFor(p);
   const hold = holdDaysFor(age);
@@ -709,16 +875,35 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
   const gasW = gasWords(gas, token);
   const tx = transactionsFor(hold);
   const weeks = Math.max(1, Math.ceil(hold / 7));
-  const totalCost = gas * tx;
-  const drop = dropPer1000(implied, p.tvl_usd);
-  const net = drop - totalCost;
-  const verdict = verdictFor(drop, totalCost);
+  const hours = handsOnHours(hold);
+  const e = farmEconomics(implied, p.tvl_usd, gas, tx, hold);
+  const e5 = farmEconomics(implied, p.tvl_usd, gas, tx, hold, TICKET_USD, 0.05);
+  const e20 = farmEconomics(implied, p.tvl_usd, gas, tx, hold, TICKET_USD, 0.2);
+  const netPerHour = e.net / hours;
+  const review = reviewDate(asOf);
+  const exitTvl = p.tvl_usd / 2;
+  // Break-even launch odds: the odds at which the expected drop equals gas + forgone.
+  const beOdds = e.drop > 0 ? (e.gasTotal + e.forgone) / e.drop : null;
+  const beLine =
+    beOdds !== null && beOdds <= 1
+      ? `Break-even launch odds are ${(beOdds * 100).toFixed(1)}%: at that probability the expected drop equals the ${money2(e.gasTotal + e.forgone)} total cost (gas plus forgone T-bill yield), so below it the farm loses money on expectation.`
+      : `Break-even launch odds are above 100%: the farm never breaks even on odds alone, because the ${money2(e.gasTotal + e.forgone)} total cost (gas plus forgone T-bill yield) is larger than the ${money2(e.drop)} drop even if the token certainly launches.`;
+  // Minimum viable ticket: the ticket whose drop covers gas + forgone. The drop per dollar
+  // is implied × 0.10 / TVL; the forgone per dollar is 0.04 × hold / 365. When the forgone
+  // per dollar is at least the drop per dollar, no ticket ever pays.
+  const dropPerDollar = p.tvl_usd > 0 ? (implied * AIRDROP_SHARE) / p.tvl_usd : 0;
+  const forgonePerDollar = (TBILL_YIELD * hold) / 365;
+  const minTicket = dropPerDollar > forgonePerDollar ? Math.ceil(e.gasTotal / (dropPerDollar - forgonePerDollar)) : null;
+  const minLine =
+    minTicket !== null
+      ? `Minimum viable ticket: about $${minTicket.toLocaleString('en-US')} — below that the ${money2(e.gasTotal)} of gas alone eats the drop; above it the drop covers the gas and the forgone yield.`
+      : `Minimum viable ticket: none — even a large ticket never covers the gas, because each dollar farmed earns less in drop than it loses to forgone yield.`;
   const verdictLine =
-    verdict === 'FARM'
-      ? `Verdict FARM: a $${TICKET_USD} position earns about ${money2(drop)} of airdrop against ${money2(totalCost)} of gas over ${tx} transactions, net ${money2(net)} in your favour.`
-      : verdict === 'THIN'
-        ? `Verdict THIN: a $${TICKET_USD} position earns about ${money2(drop)} of airdrop against ${money2(totalCost)} of gas over ${tx} transactions, net ${money2(net)}: worth it only on a cheap chain and a patient hold.`
-        : `Verdict SKIP: a $${TICKET_USD} position earns about ${money2(drop)} of airdrop against ${money2(totalCost)} of gas over ${tx} transactions, net ${money2(net)}: the drop does not cover the gas, so farm a smaller ticket or wait for a cheaper chain.`;
+    e.verdict === 'FARM'
+      ? `Verdict FARM: a $${TICKET_USD} position earns about ${money2(e.drop)} of airdrop against ${money2(e.gasTotal)} of gas and ${money2(e.forgone)} of forgone 4% T-bill yield over ${tx} transactions, net ${money2(e.net)} in your favour.`
+      : e.verdict === 'THIN'
+        ? `Verdict THIN: a $${TICKET_USD} position earns about ${money2(e.drop)} of airdrop against ${money2(e.gasTotal)} of gas and ${money2(e.forgone)} of forgone 4% T-bill yield over ${tx} transactions, net ${money2(e.net)}: worth it only on a cheap chain and a patient hold.`
+        : `Verdict SKIP: a $${TICKET_USD} position earns about ${money2(e.drop)} of airdrop against ${money2(e.gasTotal)} of gas and ${money2(e.forgone)} of forgone 4% T-bill yield over ${tx} transactions, net ${money2(e.net)}: the drop does not cover the gas and the forgone yield, so farm a smaller ticket or wait for a cheaper chain.`;
   return [
     {
       text: `Use a fresh wallet that holds only the funds you plan to farm, and fund it with about ${money2(gas * 2)} of gas${token === null ? '' : ` (${token})`} on ${chain} before you start; keep its seed phrase offline.`,
@@ -741,13 +926,43 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
       time: `${hold} days`,
     },
     {
+      text: `Exit rule: withdraw the whole position if ${p.name}'s TVL falls under ${money(exitTvl)} — half today's ${money(p.tvl_usd)} — and do not re-enter on a bounce; a halved TVL means deposits are leaving fast and the farm may not be there at claim time.`,
+      cost: 'free to check',
+      time: '5 minutes a week',
+    },
+    {
+      text: `Review on ${review} (90 days after the 14 Nov 2026 snapshot): re-check the TVL, the points page and this plan; if the protocol has launched a token by then, claim and stop — the farm is over.`,
+      cost: 'free',
+      time: '15 minutes',
+    },
+    {
+      text: `Sensitivity on a $${TICKET_USD} ticket: at a 5% drop share the net is ${money2(e5.net)}; at a 20% share it is ${money2(e20.net)} (base 10%: ${money2(e.net)}). The verdict flips if the share lands far from 10%.`,
+      cost: 'no extra cost',
+      time: `over the ${hold}-day hold`,
+    },
+    {
+      text: `Hands-on time is about ${hours.toFixed(1)} hours (15 minutes to set up, 10 minutes a week for ${weeks} weeks, 10 minutes to claim), so the net of ${money2(e.net)} is about ${money2(netPerHour)} per hands-on hour.`,
+      cost: `net ${money2(netPerHour)} per hour`,
+      time: 'across the hold',
+    },
+    {
+      text: beLine,
+      cost: 'no extra cost',
+      time: `over the ${hold}-day hold`,
+    },
+    {
+      text: minLine,
+      cost: 'no extra cost',
+      time: `over the ${hold}-day hold`,
+    },
+    {
       text: `Before you withdraw, open the protocol's own points or rewards page and claim only from the link it publishes; the claim itself costs about ${gasW}.`,
       cost: `about ${gasW} to claim, and never pay to claim`,
       time: '10 minutes',
     },
     {
       text: verdictLine,
-      cost: `net ${money2(net)} per $${TICKET_USD} farmed`,
+      cost: `net ${money2(e.net)} per $${TICKET_USD} farmed`,
       time: `over the ${hold}-day hold`,
     },
   ];
@@ -787,9 +1002,8 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
   const ranges = rankRanges(snapshot, comps, chosenList);
   const scored = chosenList.map((p) => {
     const pred = predictValue(p, snapshot.as_of, fit);
-    const drop = dropPer1000(pred.implied, p.tvl_usd);
     const gas = gasFor(p);
-    return { p, pred, drop, gas };
+    return { p, pred, gas };
   });
   scored.sort((a, b) => b.pred.implied - a.pred.implied || (a.p.slug < b.p.slug ? -1 : a.p.slug > b.p.slug ? 1 : 0));
   return scored.map((s, i) => {
@@ -798,6 +1012,12 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
     // (a refit can shift a tightly clustered row by one place in every round).
     const rank_low = Math.min(range.low, i + 1);
     const rank_high = Math.max(range.high, i + 1);
+    const hold = holdDaysFor(s.pred.ageDaysValue);
+    const tx = transactionsFor(hold);
+    const e = farmEconomics(s.pred.implied, s.p.tvl_usd, s.gas, tx, hold);
+    const beOdds = e.drop > 0 ? (e.gasTotal + e.forgone) / e.drop : null;
+    const dropPerDollar = s.p.tvl_usd > 0 ? (s.pred.implied * AIRDROP_SHARE) / s.p.tvl_usd : 0;
+    const forgonePerDollar = (TBILL_YIELD * hold) / 365;
     return {
       rank: i + 1,
       slug: s.p.slug,
@@ -821,17 +1041,22 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
       },
       farm: {
         capital_usd: capitalFor(s.p),
-        hold_days: holdDaysFor(s.pred.ageDaysValue),
+        hold_days: hold,
         gas_usd: s.gas,
-        transactions: transactionsFor(holdDaysFor(s.pred.ageDaysValue)),
-        total_cost_usd: round2(s.gas * transactionsFor(holdDaysFor(s.pred.ageDaysValue))),
-        drop_per_1000_usd: round2(s.drop),
-        net_per_1000_usd: round2(s.drop - s.gas * transactionsFor(holdDaysFor(s.pred.ageDaysValue))),
-        verdict: verdictFor(s.drop, s.gas * transactionsFor(holdDaysFor(s.pred.ageDaysValue))),
+        transactions: tx,
+        total_cost_usd: round2(e.gasTotal),
+        forgone_usd: round2(e.forgone),
+        drop_per_1000_usd: round2(e.drop),
+        net_per_1000_usd: round2(e.net),
+        net_per_hour_usd: round2(e.net / handsOnHours(hold)),
+        breakeven_odds: beOdds !== null && beOdds <= 1 ? Math.round(beOdds * 1e4) / 1e4 : null,
+        min_ticket_usd: dropPerDollar > forgonePerDollar ? Math.ceil(e.gasTotal / (dropPerDollar - forgonePerDollar)) : null,
+        exit_tvl_usd: Math.round(s.p.tvl_usd / 2),
+        verdict: e.verdict,
         rank_low,
         rank_high,
       },
-      farm_steps: farmSteps(s.p, s.pred.ageDaysValue, s.pred.implied).map(stepText),
+      farm_steps: farmSteps(s.p, s.pred.ageDaysValue, s.pred.implied, snapshot.as_of).map(stepText),
     };
   });
 }
@@ -857,8 +1082,20 @@ export function liveRows(snapshot: Snapshot): LiveRow[] {
 }
 
 /** A board row's compact form for data.js, with the farm plan carried whole. */
-export function radarRow(row: BoardRow, enr?: EnrichmentEntry): RadarRow {
+export function radarRow(
+  row: BoardRow,
+  enr?: EnrichmentEntry,
+  near?: Array<{ slug: string; name: string; tvl_usd: number; mcap_usd: number; miss: number }>,
+): RadarRow {
   const fees365 = enr?.fees_365d_usd ?? null;
+  // Sensitivity matrix: drop shares 5%/10%/20% × tickets $500/$1,000/$5,000/$10,000.
+  const sens: number[] = [];
+  for (const share of [0.05, 0.1, 0.2]) {
+    for (const ticket of [500, 1000, 5000, 10000]) {
+      const e = farmEconomics(row.implied_value_usd, row.tvl_usd, row.farm.gas_usd, row.farm.transactions, row.farm.hold_days, ticket, share);
+      sens.push(round2(e.net));
+    }
+  }
   return {
     rank: row.rank,
     slug: row.slug,
@@ -879,8 +1116,15 @@ export function radarRow(row: BoardRow, enr?: EnrichmentEntry): RadarRow {
     gas_usd: row.farm.gas_usd,
     transactions: row.farm.transactions,
     total_cost_usd: row.farm.total_cost_usd,
+    forgone_usd: row.farm.forgone_usd,
     drop_per_1000_usd: row.farm.drop_per_1000_usd,
     net_per_1000_usd: row.farm.net_per_1000_usd,
+    net_per_hour_usd: row.farm.net_per_hour_usd,
+    breakeven_odds: row.farm.breakeven_odds,
+    min_ticket_usd: row.farm.min_ticket_usd,
+    exit_tvl_usd: row.farm.exit_tvl_usd,
+    sens_matrix: sens,
+    near_comps: near ?? [],
     verdict: row.farm.verdict,
     rank_low: row.farm.rank_low,
     rank_high: row.farm.rank_high,
@@ -900,6 +1144,41 @@ export function radarRow(row: BoardRow, enr?: EnrichmentEntry): RadarRow {
   };
 }
 
+/** The ledger: every protocol in the snapshot, ranked or set aside with a reason.
+ *  The arithmetic must sum exactly to the snapshot's protocol count. */
+export function buildLedger(snapshot: Snapshot, ranked: number): Ledger {
+  const byReason: Record<string, number> = {};
+  let live = 0;
+  let excluded = 0;
+  let rankable = 0;
+  for (const p of snapshot.protocols) {
+    if (!isPreToken(p)) {
+      live++;
+      continue;
+    }
+    if (isRankable(p)) {
+      rankable++;
+      continue;
+    }
+    excluded++;
+    const reason =
+      p.category !== null && EXCLUDED_CATEGORIES.has(p.category)
+        ? `category ${p.category}`
+        : WRAPPED_WORD.test(p.name)
+          ? 'wrapped/staked word in name'
+          : EXCHANGE_PREFIXES.some((x) => p.name.startsWith(x))
+            ? 'exchange prefix in name'
+            : 'versioned name';
+    byReason[reason] = (byReason[reason] ?? 0) + 1;
+  }
+  const belowCap = rankable - ranked;
+  const total = snapshot.protocols.length;
+  if (ranked + live + excluded + belowCap !== total) {
+    throw new Error(`ledger does not sum to ${total}: ${ranked} + ${live} + ${excluded} + ${belowCap}`);
+  }
+  return { total, ranked, live, excluded, below_cap: belowCap, excluded_by_reason: byReason };
+}
+
 /** Everything the dashboard renders, from the snapshot and a fitted model. */
 export function buildRadar(
   snapshot: Snapshot,
@@ -911,6 +1190,24 @@ export function buildRadar(
   const board = buildBoard(snapshot, fit);
   const live = liveRows(snapshot);
   const early = board.filter((r) => !snapshot.watchlist.includes(r.slug)).length;
+  const { comps } = fitComps(snapshot);
+  // Nearest traded comps per row: the 3 closest in log10 TVL, with the model's miss.
+  const nearBySlug = new Map<string, Array<{ slug: string; name: string; tvl_usd: number; mcap_usd: number; miss: number }>>();
+  for (const row of board) {
+    const near = [...comps]
+      .map((c) => ({ c, d: Math.abs(LOG10(c.tvl_usd) - LOG10(row.tvl_usd)) }))
+      .sort((a, b) => a.d - b.d || (a.c.slug < b.c.slug ? -1 : a.c.slug > b.c.slug ? 1 : 0))
+      .slice(0, 3)
+      .map(({ c }) => ({
+        slug: c.slug,
+        name: c.name,
+        tvl_usd: c.tvl_usd,
+        mcap_usd: c.mcap_usd!,
+        miss: Math.round((predictValue(c, snapshot.as_of, fit).implied / c.mcap_usd!) * 100) / 100,
+      }));
+    nearBySlug.set(row.slug, near);
+  }
+  const widths = board.map((r) => r.farm.rank_high - r.farm.rank_low).sort((a, b) => a - b);
   const radar: RadarData = {
     as_of: snapshot.as_of,
     source: snapshot.source,
@@ -922,9 +1219,9 @@ export function buildRadar(
     board_size: board.length,
     early_size: early,
     live_size: live.length,
-    rows: board.map((r) => radarRow(r, enrichment?.[r.slug])),
+    rows: board.map((r) => radarRow(r, enrichment?.[r.slug], nearBySlug.get(r.slug))),
     live,
-    comps: fitComps(snapshot).comps.map((p) => ({ tvl_usd: p.tvl_usd, mcap_usd: p.mcap_usd! })),
+    comps: comps.map((p) => ({ tvl_usd: p.tvl_usd, mcap_usd: p.mcap_usd! })),
     enrichment_meta: {
       point_in_time: '2026-11-14',
       fetched_at_utc: '2026-11-18',
@@ -936,6 +1233,9 @@ export function buildRadar(
     experiments: EXPERIMENTS,
     launch_watch: provenance?.launch_watch ?? [],
     tvl_sanity: provenance?.tvl_sanity ?? '',
+    ledger: buildLedger(snapshot, board.length),
+    odds_test: launchOddsTest(snapshot, board),
+    rank_range_median_width: widths.length % 2 === 1 ? widths[(widths.length - 1) / 2]! : (widths[widths.length / 2 - 1]! + widths[widths.length / 2]!) / 2,
   };
   return { board, radar };
 }

@@ -11,8 +11,8 @@
   <div class="mast-text">
     <p class="kicker">DefiLlama snapshot &middot; 14 November 2026 &middot; 758 protocols &middot; $50M floor</p>
     <h1>Token Launch <span class="hl">Radar</span></h1>
-    <p class="sub">Which protocols without a token are worth farming, and what a launch might be worth. A ledger, not a tip sheet: every number below is fitted from the snapshot itself.</p>
-    <button id="calloutBtn" class="callout-btn"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#fl"/></svg>Callouts</button>
+    <p class="sub">Which pre-token protocols are worth farming, and what a launch might be worth — every number fitted from the snapshot itself.</p>
+    <button id="shareBtn" class="share-btn" data-share="board" type="button">Share board</button>
   </div>
   <div class="mascot" role="img" aria-label="PIP, a small pixel flower">
     <svg viewBox="0 0 64 64" shape-rendering="crispEdges" aria-hidden="true">
@@ -48,7 +48,6 @@
     <p class="mascot-name">PIP &middot; the radar-flower</p>
   </div>
   <dl class="ledger-line" id="ledgerLine"></dl>
-  <p class="proof-line" id="proofLine"></p>
   <div class="flower-field" aria-hidden="true">
   <svg viewBox="0 0 1120 56" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges">
   <defs>
@@ -137,6 +136,19 @@
 </nav>
 
 <section id="view-board" class="view">
+  <section class="proof-panel" id="modelProof" aria-label="Model proof">
+    <div>
+      <h2>Model proof</h2>
+      <p class="formula" id="proofFormula"></p>
+      <p id="proofValid"></p>
+      <p id="proofCalib"></p>
+    </div>
+    <div>
+      <table class="proof" id="proofAblation"><thead><tr><th>Signal tested</th><th class="num">LOO</th><th class="num">WF</th><th>Decision</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div><div id="proofChart"></div><p class="caption">Traded tokens vs the fitted curve, log scales. Purple rings: top-10 pre-token rows at implied value.</p></div>
+  </section>
+  <p class="ledger-full" id="ledgerFull"></p>
   <div class="toolbar">
     <label class="search">Search <input id="q" type="search" placeholder="protocol, category, chain&hellip;" autocomplete="off"></label>
     <div class="chips" id="verdictChips" role="group" aria-label="Verdict filter">
@@ -160,15 +172,25 @@
         <option value="tvl">TVL</option>
         <option value="drop">Drop per $1,000</option>
         <option value="net">Net per $1,000</option>
+        <option value="nethour">Net / hour</option>
         <option value="change">7-day change</option>
         <option value="fees">Fees 30d</option>
         <option value="ps">P/S implied</option>
         <option value="growth30">TVL growth 30d</option>
       </select>
     </label>
+    <label class="select">Ticket
+      <select id="ticket"><option value="500">$500</option><option value="1000" selected>$1,000</option><option value="5000">$5,000</option><option value="10000">$10,000</option></select>
+    </label>
+    <label class="select">Drop share
+      <select id="share"><option value="0.05">5%</option><option value="0.1" selected>10%</option><option value="0.2">20%</option></select>
+    </label>
+    <label class="select">T-bill
+      <select id="tbill"><option value="0">0%</option><option value="0.04" selected>4%</option><option value="0.06">6%</option></select>
+    </label>
   </div>
   <p class="count" id="count"></p>
-  <p class="footnote">Fees, P/S and growth are enrichment fetched 18 Nov 2026: fees are sums of daily fees to 14 Nov 2026 (point-in-time), P/S is implied value / annualized fees. “—” means the protocol has no fees adapter or no value was found.</p>
+  <p class="bestfarms" id="bestFarms"></p>
   <div class="table-wrap">
     <table id="board">
       <thead>
@@ -186,6 +208,7 @@
           <th>TVL 90d</th>
           <th class="num">Drop / $1k</th>
           <th class="num">Net / $1k</th>
+          <th class="num">$/hour</th>
           <th>Verdict</th>
           <th class="num">Range</th>
         </tr>
@@ -193,6 +216,8 @@
       <tbody id="rows"></tbody>
     </table>
   </div>
+  <p class="footnote">Fees, P/S and growth are enrichment fetched 18 Nov 2026: fees are sums of daily fees to 14 Nov 2026 (point-in-time), P/S is implied value / annualized fees. “—” means the protocol has no fees adapter or no value was found.</p>
+  <p class="footnote">Board verdicts are priced at $1,000 &middot; 10% drop &middot; 4% T-bill. The ticket, drop-share and T-bill selectors are what-if analysis: they change the displayed net, verdict and $/hour, not board.json.</p>
   <p class="footnote">Rank range: where the row lands across 200 refits of the model, each dropping a rotating tenth of the traded tokens, and its rank in the full fit. A narrow range means the rank is stable, not a rounding accident.</p>
 </section>
 
@@ -245,7 +270,7 @@
       <h3>The filter</h3>
       <p id="filterText"></p>
       <h3>The farm verdict</h3>
-      <p>The airdrop pool is taken as 10% of the implied value, shared pro-rata across TVL, so a $1,000 ticket earns implied &times; 0.10 &times; 1,000 / TVL. Gas is priced per transaction by the protocol's main chain (Ethereum $12, Base/Arbitrum/Optimism/Blast $1, Solana/Polygon/Sui/Aptos $0.10, BNB/Avalanche/Fantom/Tron $0.50, anything else $2), named with the chain's gas token where it is a settled fact (ETH, SOL, POL, SUI, APT, BNB, AVAX, FTM, TRX, HYPE, MON), and multiplied by the plan's transaction count: setup, one a week through the hold, and the claim. <strong>FARM</strong> if the net is $25 or more, <strong>THIN</strong> if it is $0 or more, <strong>SKIP</strong> if the drop does not cover the gas.</p>
+      <p>The airdrop pool is taken as 10% of the implied value, shared pro-rata across TVL, so a $1,000 ticket earns implied &times; 0.10 &times; 1,000 / TVL. Gas is priced per transaction by the protocol's main chain (Ethereum $12, Base/Arbitrum/Optimism/Blast $1, Solana/Polygon/Sui/Aptos $0.10, BNB/Avalanche/Fantom/Tron $0.50, anything else $2), named with the chain's gas token where it is a settled fact (ETH, SOL, POL, SUI, APT, BNB, AVAX, FTM, TRX, HYPE, MON), and multiplied by the plan's transaction count: setup, one a week through the hold, and the claim. The net also charges the forgone yield of parking the ticket in a farm instead of a 4% T-bill for the hold (ticket &times; 0.04 &times; hold / 365). <strong>FARM</strong> if the net is $25 or more, <strong>THIN</strong> if it is $0 or more, <strong>SKIP</strong> if the drop does not cover the gas and the forgone yield. Each plan has 12 steps: the setup, the weekly action, the hold, an exit rule (withdraw if TVL halves), a review date 90 days after the snapshot (12 Feb 2027), a sensitivity summary, the net per hands-on hour, the break-even launch odds, the minimum viable ticket, the claim, and the verdict.</p>
     </div>
     <div class="panel">
       <h3>Out-of-sample proof</h3>
@@ -275,12 +300,12 @@
         <tbody></tbody>
       </table>
       <p>Why fees fail: the fitted slope on log annualized fees is &minus;0.0050 — essentially zero once TVL is in the model — and the fees slope flips sign across categories (DEX &minus;0.37, Lending &minus;0.15, Liquid Staking +0.06, RWA &minus;0.05, Yield +0.25). Fees track TVL, so they add no new information about market cap. The P/S ratio (market cap / annualized fees) across the 74 comps with fees has a median of 5.7&times; but spans 0.09&times; to 430,762&times; — far too wide to price with. Growth 90d comes closest (leave-one-out &times;2.90, walk-forward &times;2.13) but misses the &times;2.75 bar, so it stays out too. Dev activity was not fitted at all: only 6 of 104 comps map to an exact repository in the Electric Capital taxonomy, too thin to test honestly.</p>
+      <h3>Launch odds, tested and not priced (v4)</h3>
+      <p id="oddsTest"></p>
       <h3>Where the extra numbers come from</h3>
       <p id="provenance"></p>
       <h3>Token-born check (watchlist, 18 Nov 2026)</h3>
       <p id="tokenBorn"></p>
-      <h3>Callouts (local only)</h3>
-      <p id="calloutNote">The Callouts button opens a visitor note board (text, image/GIF, voice note). Notes live only in the visitor's browser (localStorage) — nothing is shared. GIF search uses Giphy (beta key built in, or your own; GIFs load from media.giphy.com); Imgur links paste in as images. Both are called only when used, never on load, so the page works offline. Voice notes record in the browser (max 60 s). One sample callout, labelled “Contoh”, seeds an empty board.</p>
       <h3>What the board covers</h3>
       <p id="coverage"></p>
       <h3>The fit, drawn</h3>
@@ -295,26 +320,6 @@
   <div id="detailBody"></div>
 </dialog>
 
-<dialog id="callout">
-  <button class="close" id="closeCallout">&times;</button>
-  <div id="calloutBody">
-    <h2><small>Local only</small>Callouts</h2>
-    <p class="co-note">Notes stay in this browser only (localStorage).</p>
-    <label class="co-label">Write a callout<textarea id="coText" rows="3" maxlength="500" placeholder="Say something about the board…"></textarea></label>
-    <label class="co-label">Attach image / GIF <span class="co-hint">(max 2 MB)</span><input id="coFile" type="file" accept="image/*"></label>
-    <div id="coPrev"></div>
-    <label class="co-label">GIF search (Giphy)<input id="coGifQ" type="search" placeholder="e.g. moon"></label>
-    <div class="co-row"><button id="coGifGo" class="co-btn">Search GIFs</button><input id="coGifKey" type="text" placeholder="Giphy API key (optional)"></div>
-    <div id="coGifRes" class="co-gifres"></div>
-    <label class="co-label">Imgur link (optional)<input id="coImgLink" type="text" placeholder="Imgur link: i.imgur.com/… or imgur.com/…"></label>
-    <div class="co-row"><button id="coRec" class="co-btn">Record voice note</button><button id="coStop" class="co-btn" disabled>Stop</button><audio id="coAudio" controls hidden></audio></div>
-    <p id="coVoiceMsg" class="co-hint"></p>
-    <p id="coMsg" class="co-msg"></p>
-    <button id="coPost" class="co-btn co-post">Post callout</button>
-    <h3>Posted callouts</h3>
-    <div id="coList"></div>
-  </div>
-</dialog>
 
 <footer>
   <p>Built from the sealed DefiLlama snapshot of 14 November 2026. Model version <span id="modelVersion"></span>. Enrichment fetched 18 Nov 2026; no live data. PIP is an original pixel drawing; no characters appear on this page.</p>

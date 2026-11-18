@@ -25,16 +25,23 @@
     ['Skip', counts.SKIP + ' rows'],
     ['Snapshot', D.as_of],
   ].map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
+  const L = D.ledger;
+  const shortReason = { 'category Bridge': 'Bridge', 'category Canonical Bridge': 'C. Bridge', 'category CEX': 'CEX', 'category Liquid Staking': 'Liq Staking', 'category Restaked BTC': 'Restaked BTC', 'category Liquid Restaking': 'Liq Restaking', 'wrapped/staked word in name': 'wrapped', 'versioned name': 'versioned' };
+  $('ledgerFull').textContent = '758 = ' + L.ranked + ' ranked + ' + L.live + ' live + ' + L.excluded + ' set aside + ' + L.below_cap + ' below cap · ' + Object.entries(L.excluded_by_reason).map(([k, v]) => (shortReason[k] || k) + ' ' + v).join(' · ') + '. The board ranks every rankable protocol: the early cap never binds.';
   $('modelVersion').textContent = D.model_version;
 
-  /* Proof + formula. */
+  /* Proof + formula (v4: the proof panel carries the validation line; the old
+   * masthead proof line duplicated it and is removed). */
   const v = D.validation;
   const fmt = (x) => '×' + x.toFixed(2);
   const pct0 = (x) => (x * 100).toFixed(0) + '%';
-  $('proofLine').innerHTML = 'Out of sample: leave-one-out miss <b>' + fmt(v.loo_median_miss) + '</b> (' + pct0(v.loo_within_3x) + ' within 3×)'
-    + ' &middot; walk-forward <b>' + fmt(v.walkforward_median_miss) + '</b> (' + pct0(v.walkforward_within_3x) + ' within 3×)'
-    + ' &middot; flat multiple <b>' + fmt(v.flat_median_miss) + '</b> (' + pct0(v.flat_within_3x) + ' within 3×)';
+  /* Model proof panel on the board (v4): formula, validation, ablation, calibration. */
   const m = D.model;
+  $('proofFormula').textContent = 'log10(implied value) = ' + m.intercept.toFixed(4) + ' + ' + m.slope.toFixed(4) + ' · log10(TVL) + category offset ±0.25 + growth ±0.15';
+  $('proofValid').innerHTML = 'Leave-one-out miss <b>' + fmt(v.loo_median_miss) + '</b> (' + pct0(v.loo_within_3x) + ' within 3×) · walk-forward <b>' + fmt(v.walkforward_median_miss) + '</b> (' + pct0(v.walkforward_within_3x) + ' within 3×, n=' + v.walkforward_test_n + ') · flat multiple <b>' + fmt(v.flat_median_miss) + '</b> — the curve beats the flat rule on both checks. Tenure was tested in five forms and rejected; launch odds were tested and rejected — see Method & Proof.';
+  $('proofCalib').textContent = 'Calibration (leave-one-out errors): ' + pct0(v.loo_within_2x) + ' within 2×, ' + pct0(v.loo_within_3x) + ' within 3×, ' + pct0(v.loo_within_5x) + ' within 5×, ' + pct0(v.loo_within_10x) + ' within 10×. Rank ranges across 200 refits: median width ' + D.rank_range_median_width + ' places.';
+  const abl = D.experiments.filter((x) => /No new term|Fees, log10\(annualized 365d\)|TVL growth 90d|Max TVL drawdown|Dev activity/.test(x.signal));
+  $('proofAblation').querySelector('tbody').innerHTML = abl.map((x) => '<tr><td>' + esc(x.signal) + '</td><td class="num">' + esc(x.loo) + '</td><td class="num">' + esc(x.wf) + '</td><td>' + esc(x.decision) + '</td></tr>').join('');
   const sa = m.comps_set_aside;
   const tradedTotal = m.comps_used + sa.zero_or_negative_mcap + sa.ratio_outside_band + sa.cex;
   $('formula').textContent = 'log10(implied value) = ' + m.intercept.toFixed(4) + ' + ' + m.slope.toFixed(4)
@@ -53,13 +60,21 @@
   cats.forEach((c) => { const o = document.createElement('option'); o.value = c; o.textContent = c; $('cat').appendChild(o); });
 
   /* Board. */
-  const state = { q: '', verdict: '', cat: '', sort: 'rank', fees: false, raise: false, token: false };
+  const state = { q: '', verdict: '', cat: '', sort: 'rank', fees: false, raise: false, token: false, ticket: 1000, share: 0.1, tbill: 0.04 };
+  /* Farm math in the browser (v4 what-if selectors): net = drop − gas − forgone T-bill
+   * yield at the selected ticket, drop share and T-bill rate. Board.json verdicts are
+   * priced at $1,000 / 10% / 4%; the selectors only change the displayed figures. */
+  function farmDrop(r) { return r.implied_value_usd * state.share * state.ticket / r.tvl_usd; }
+  function farmNet(r) { return farmDrop(r) - r.gas_usd * r.transactions - state.ticket * state.tbill * r.hold_days / 365; }
+  function farmVerdict(n) { return n >= 25 ? 'FARM' : n >= 0 ? 'THIN' : 'SKIP'; }
+  function farmHours(r) { return (15 + 10 * Math.max(1, Math.ceil(r.hold_days / 7)) + 10) / 60; }
   const SORTS = {
     rank: (a, b) => a.rank - b.rank,
     implied: (a, b) => b.implied_value_usd - a.implied_value_usd,
     tvl: (a, b) => b.tvl_usd - a.tvl_usd,
     drop: (a, b) => b.drop_per_1000_usd - a.drop_per_1000_usd,
-    net: (a, b) => b.net_per_1000_usd - a.net_per_1000_usd,
+    net: (a, b) => farmNet(b) - farmNet(a),
+    nethour: (a, b) => farmNet(b) / farmHours(b) - farmNet(a) / farmHours(a),
     change: (a, b) => (b.change_7d ?? -1e9) - (a.change_7d ?? -1e9),
     fees: (a, b) => (b.fees_30d_usd ?? -1) - (a.fees_30d_usd ?? -1),
     ps: (a, b) => (a.ps_implied ?? 1e18) - (b.ps_implied ?? 1e18),
@@ -75,7 +90,7 @@
   function visible() {
     const q = state.q.trim().toLowerCase();
     return D.rows.filter((r) => {
-      if (state.verdict && r.verdict !== state.verdict) return false;
+      if (state.verdict && farmVerdict(farmNet(r)) !== state.verdict) return false;
       if (state.cat && r.category !== state.cat) return false;
       if (state.fees && !(r.fees_30d_usd > 0)) return false;
       if (state.raise && !(r.raises && r.raises.length > 0)) return false;
@@ -94,6 +109,7 @@
       const ch = r.change_7d === null ? '—' : '<span class="' + (r.change_7d >= 0 ? 'up' : 'down') + '">' + pct(r.change_7d) + '</span>';
       const g30 = r.tvl_growth_30d_pct === null || r.tvl_growth_30d_pct === undefined ? '—' : '<span class="' + (r.tvl_growth_30d_pct >= 0 ? 'up' : 'down') + '">' + pct(r.tvl_growth_30d_pct) + '</span>';
       const ps = r.ps_implied === null || r.ps_implied === undefined ? '—' : r.ps_implied.toFixed(2) + '×';
+      const net = farmNet(r), verdict = farmVerdict(net);
       return '<tr data-slug="' + esc(r.slug) + '">'
         + '<td class="rank num">' + r.rank + '</td>'
         + '<td><span class="pname">' + esc(r.name) + '</span><small>' + esc(r.slug) + '</small></td>'
@@ -105,13 +121,24 @@
         + '<td class="num">' + (r.fees_30d_usd === null || r.fees_30d_usd === undefined ? '—' : money(r.fees_30d_usd)) + '</td>'
         + '<td class="num">' + ps + '</td>'
         + '<td class="num">' + g30 + '</td>'
-        + '<td>' + sparkline(r.tvl_spark_90d, 58, 22) + '</td>'
+        + '<td>' + sparkline(r.tvl_spark_90d, 48, 22) + '</td>'
         + '<td class="num">' + money2(r.drop_per_1000_usd) + '</td>'
-        + '<td class="num">' + money2(r.net_per_1000_usd) + '</td>'
-        + '<td><span class="verdict ' + r.verdict + '">' + r.verdict + '</span></td>'
+        + '<td class="num">' + money2(net) + '</td>'
+        + '<td class="num">' + money2(net / farmHours(r)) + '</td>'
+        + '<td><span class="verdict ' + verdict + '">' + verdict + '</span></td>'
         + '<td class="num">' + r.rank_low + '&ndash;' + r.rank_high + '</td></tr>';
     }).join('');
+    renderBest();
   }
+  function renderBest() {
+    const scored = D.rows.map((r) => ({ r, n: farmNet(r), h: farmNet(r) / farmHours(r) }));
+    const byNet = [...scored].sort((a, b) => b.n - a.n)[0];
+    const byHour = [...scored].sort((a, b) => b.h - a.h)[0];
+    $('bestFarms').innerHTML = 'Best farms now (on $' + state.ticket.toLocaleString('en-US') + ', ' + (state.share * 100) + '% drop, ' + (state.tbill * 100) + '% T-bill): <b>' + esc(byNet.r.name) + ' ' + money2(byNet.n) + '</b> by net &middot; <b>' + esc(byHour.r.name) + ' ' + money2(byHour.h) + '/h</b> by net per hands-on hour.';
+  }
+  $('ticket').addEventListener('change', (e) => { state.ticket = Number(e.target.value); renderBoard(); });
+  $('share').addEventListener('change', (e) => { state.share = Number(e.target.value); renderBoard(); });
+  $('tbill').addEventListener('change', (e) => { state.tbill = Number(e.target.value); renderBoard(); });
   $('q').addEventListener('input', (e) => { state.q = e.target.value; renderBoard(); });
   $('cat').addEventListener('change', (e) => { state.cat = e.target.value; renderBoard(); });
   $('sort').addEventListener('change', (e) => { state.sort = e.target.value; renderBoard(); });
@@ -154,7 +181,11 @@
   ].map((r) => '<tr><td>' + r[0] + '</td><td class="num">' + r[1] + '</td><td class="num">' + r[2] + '</td></tr>').join('');
   $('coverage').textContent = 'The board ranks ' + D.board_size + ' protocols: all ' + D.watchlist_size
     + ' on the watchlist, plus ' + D.early_size + ' more pre-token protocols the list leaves out,'
-    + ' chosen by TVL on the same rule. ' + D.live_size + ' traded protocols are shown on the Live Tokens tab.';
+    + ' chosen by TVL on the same rule. ' + D.live_size + ' traded protocols are shown on the Live Tokens tab.'
+    + ' Ledger: ' + D.ledger.total + ' protocols read = ' + D.ledger.ranked + ' ranked + ' + D.ledger.live + ' live-token + ' + D.ledger.excluded + ' set aside + ' + D.ledger.below_cap + ' rankable below the early cap.';
+  const ot = D.odds_test;
+  $('oddsTest').textContent = 'Launch odds were estimated from the snapshot alone: ' + ot.method
+    + ' Overall rate ' + (ot.overall_rate * 100).toFixed(0) + '% (' + ot.overall_launched + ' of ' + ot.overall_n + ' protocols record a market cap). ' + ot.reason;
 
   /* Method: experiments. */
   $('experimentTable').querySelector('tbody').innerHTML = D.experiments.map((x) => '<tr><td>' + esc(x.signal) + '</td><td class="num">' + esc(x.slope) + '</td><td class="num">' + esc(x.loo) + '</td><td class="num">' + esc(x.wf) + '</td><td>' + esc(x.decision) + '</td></tr>').join('');
@@ -169,9 +200,9 @@
     + (tb.possible_weak || 0) + ' are weak name-only matches, and '
     + (tb.no_pool || 0) + ' have no matching pool. A name match is labelled "likely", never certain: two different AXIS tokens trade, for example. See each protocol’s detail view for its evidence.';
 
-  /* Method: log-log chart. */
-  (function chart() {
-    const W = 560, H = 360, L = 56, R = 12, T = 14, B = 40;
+  /* Method: log-log chart (also drawn small on the board proof panel). */
+  function drawScatter(el, W, H, labels) {
+    const L = 56, R = 12, T = 14, B = 40;
     const lg = Math.log10;
     const xs = D.comps.map((c) => lg(c.tvl_usd));
     const ys = D.comps.map((c) => lg(c.mcap_usd));
@@ -180,9 +211,12 @@
     const X = (x) => L + ((x - x0) / (x1 - x0)) * (W - L - R);
     const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
     let s = '';
+    const midX = Math.round((x0 + x1) / 2);
     for (let gx = x0; gx <= x1; gx++) {
       s += '<line x1="' + X(gx) + '" y1="' + T + '" x2="' + X(gx) + '" y2="' + (H - B) + '" stroke="#2b2144" stroke-width="1"/>';
-      s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#a79ec7" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
+      if (labels || gx === x0 || gx === x1 || gx === midX) {
+        s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#a79ec7" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
+      }
     }
     for (let gy = y0; gy <= y1; gy++) {
       s += '<line x1="' + L + '" y1="' + Y(gy) + '" x2="' + (W - R) + '" y2="' + Y(gy) + '" stroke="#2b2144" stroke-width="1"/>';
@@ -200,11 +234,15 @@
     });
     D.rows.slice(0, 10).forEach((r, i) => {
       s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#a855f7" stroke-width="1.8"/>';
-      const dy = i % 2 === 0 ? -9 : 11;
-      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#f5f2ff" font-size="10">#' + r.rank + '</text>';
+      if (labels) {
+        const dy = i % 2 === 0 ? -9 : 11;
+        s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#f5f2ff" font-size="10">#' + r.rank + '</text>';
+      }
     });
-    $('chart').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
-  })();
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
+  }
+  drawScatter($('chart'), 560, 360, true);
+  drawScatter($('proofChart'), 340, 170, false);
 
   const dlg = $('detail');
   const TOKEN_LABEL = { likely_token: 'Likely has a token', parent_token_trades: 'Parent token trades', token_is_product: 'Token is the product', possible_weak: 'Possible token (weak)', no_pool: 'No pool found' };
@@ -246,7 +284,9 @@
       + '<div><dt>Category offset</dt><dd>' + (r.category_offset >= 0 ? '+' : '') + r.category_offset.toFixed(4) + '</dd></div>'
       + '<div><dt>Growth, log10</dt><dd>' + (r.growth_log10 >= 0 ? '+' : '') + r.growth_log10.toFixed(4) + '</dd></div>'
       + '<div><dt>Drop per $1,000</dt><dd>' + money2(r.drop_per_1000_usd) + '</dd></div>'
-      + '<div><dt>Net per $1,000</dt><dd>' + money2(r.net_per_1000_usd) + ' (' + r.transactions + ' tx, ' + money2(r.total_cost_usd) + ' gas)</dd></div>'
+      + '<div><dt>Net per $1,000</dt><dd>' + money2(r.net_per_1000_usd) + ' (' + r.transactions + ' tx, ' + money2(r.total_cost_usd) + ' gas + ' + money2(r.forgone_usd) + ' forgone 4% T-bill)</dd></div>'
+      + '<div><dt>Net per hands-on hour</dt><dd>' + money2(r.net_per_hour_usd) + '</dd></div>'
+      + '<div><dt>Exit rule</dt><dd>Withdraw if TVL falls under ' + money(r.exit_tvl_usd) + '</dd></div>'
       + '</dl>'
       + '<h3>Cash flow (fees, as of 14 Nov 2026)</h3><p>' + feesLine + '</p>'
       + '<h3>Funding (raises to 14 Nov 2026)</h3><p>' + raisesLine + '</p>'
@@ -259,8 +299,29 @@
         const text = mm ? mm[1] : st;
         const meta = mm ? esc(mm[2]) + ' &middot; ' + esc(mm[3]) : '';
         return '<li>' + esc(text) + (meta ? '<div class="meta">' + meta + '</div>' : '') + '</li>';
-      }).join('') + '</ol>';
+      }).join('') + '</ol>'
+      + '<h3>Sensitivity: net by drop share &times; ticket</h3>' + sensTable(r)
+      + '<h3>Value waterfall (dollars)</h3><p>' + waterfallText(r) + '</p>'
+      + '<h3>Nearest traded comps</h3>' + nearTable(r);
     dlg.showModal();
+  }
+  function sensTable(r) {
+    const tickets = [500, 1000, 5000, 10000], shares = ['5%', '10%', '20%'];
+    let h = '<table class="proof"><thead><tr><th>Drop share</th>' + tickets.map((t) => '<th class="num">$' + t.toLocaleString('en-US') + '</th>').join('') + '</tr></thead><tbody>';
+    shares.forEach((s, i) => {
+      h += '<tr><td>' + s + '</td>' + tickets.map((t, j) => '<td class="num">' + money2(r.sens_matrix[i * 4 + j]) + '</td>').join('') + '</tr>';
+    });
+    return h + '</tbody></table><p class="caption">Net = drop &minus; gas &minus; forgone 4% T-bill yield at that ticket and share. The 10% &times; $1,000 cell is the board net.</p>';
+  }
+  function waterfallText(r) {
+    const curve = Math.pow(10, r.curve_log10), afterCat = Math.pow(10, r.curve_log10 + r.category_offset);
+    return 'TVL ' + money(r.tvl_usd) + ' &rarr; curve ' + money(curve) + ' &rarr; after category offset ' + money(afterCat) + ' &rarr; after growth ' + money(r.implied_value_usd) + ' = implied value. That is the value if the token launches: no launch odds are applied (odds were tested and rejected — see Method).';
+  }
+  function nearTable(r) {
+    if (!r.near_comps || !r.near_comps.length) return '<p>No traded comps near this TVL.</p>';
+    return '<table class="proof"><thead><tr><th>Comp</th><th class="num">TVL</th><th class="num">Market cap</th><th class="num">Model miss</th></tr></thead><tbody>'
+      + r.near_comps.map((c) => '<tr><td>' + esc(c.name) + '</td><td class="num">' + money(c.tvl_usd) + '</td><td class="num">' + money(c.mcap_usd) + '</td><td class="num">&times;' + c.miss.toFixed(2) + '</td></tr>').join('') + '</tbody></table>'
+      + '<p class="caption">Closest traded protocols by TVL. Miss is the model implied value divided by the actual market cap: above 1&times; the model overvalues, below 1&times; it undervalues.</p>';
   }
   $('rows').addEventListener('click', (e) => {
     const tr = e.target.closest('tr[data-slug]'); if (tr) openDetail(tr.dataset.slug);
@@ -277,127 +338,12 @@
   }
   document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
-  /* Callouts: local-only notes. */
-  const CO_KEY = 'radar-callouts-v1', CO_GK = 'radar-giphy-key', CO_BETA = 'dc6zaTOxFJmzC';
-  let coList = null, coAttach = null, coVoice = null, coRec = null;
-  try { coList = JSON.parse(localStorage.getItem(CO_KEY) || 'null'); } catch (e) { coList = null; }
-  if (!Array.isArray(coList)) {
-    coList = [{ id: 'seed-example', example: true, text: 'Contoh: Sentora leads the board on implied value — study it first. (Sample callout, not a real visitor note.)' }];
-    try { localStorage.setItem(CO_KEY, JSON.stringify(coList)); } catch (e) {}
-  }
-  const coSave = () => { try { localStorage.setItem(CO_KEY, JSON.stringify(coList)); return true; } catch (e) { return false; } };
-  function coImgTag(url, hint) {
-    if (url.indexOf('data:') === 0) return '<img src="' + esc(url) + '" alt="">';
-    return '<img src="' + esc(url) + '" alt="" onerror="var n=this.nextElementSibling;if(n){this.style.display=\'none\';n.hidden=false}">'
-      + '<p class="co-imgfail" hidden>Image failed to load — check the link or connection.</p>'
-      + (hint ? '<p class="co-imghint">From an imgur.com page link.</p>' : '');
-  }
-  function coRender() {
-    $('coList').innerHTML = coList.length ? coList.map((c) => '<article class="co-card">'
-      + (c.example ? '<span class="co-badge">Contoh</span>' : '')
-      + '<p>' + esc(c.text || '') + '</p>'
-      + (c.img ? coImgTag(c.img, c.imgHint) : '')
-      + (c.voice ? '<audio controls src="' + esc(c.voice) + '"></audio>' : '')
-      + '<button type="button" class="co-del" data-del="' + esc(c.id) + '">Delete</button>'
-      + '<button type="button" class="co-del" data-share="' + esc(c.id) + '">Share</button></article>').join('')
-      : '<p class="co-empty">No callouts yet.</p>';
-  }
-  $('coList').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-del],[data-share]'); if (!b) return;
-    if (b.dataset.share) { const c = coList.find((x) => x.id === b.dataset.share); if (c) coShare(c); return; }
-    coList = coList.filter((c) => c.id !== b.dataset.del);
-    if (coSave()) coRender(); else $('coMsg').textContent = 'Could not save — storage may be full.';
-  });
-  function coOpen() { try { $('coGifKey').value = localStorage.getItem(CO_GK) || ''; } catch (e) {} coRender(); $('callout').showModal(); }
-  $('calloutBtn').addEventListener('click', coOpen);
-  $('closeCallout').addEventListener('click', () => $('callout').close());
-  $('callout').addEventListener('click', (e) => { if (e.target === $('callout')) $('callout').close(); });
-  $('coGifKey').addEventListener('change', (e) => { try { localStorage.setItem(CO_GK, e.target.value.trim()); } catch (err) {} });
-  $('coFile').addEventListener('change', (e) => {
-    const f = e.target.files[0]; if (!f) return;
-    if (f.size > 2 * 1024 * 1024) { $('coMsg').textContent = 'Image too big: max 2 MB.'; e.target.value = ''; return; }
-    const r = new FileReader();
-    r.onload = () => { coAttach = { kind: 'data', data: r.result }; $('coPrev').innerHTML = '<img src="' + esc(r.result) + '" alt="">'; $('coMsg').textContent = ''; };
-    r.readAsDataURL(f);
-  });
-  /* Imgur link -> direct image. */
-  function coImgur(raw) {
-    let s = (raw || '').trim(); if (!s) return null;
-    if (/^(www\.|i\.)?imgur\.com\//i.test(s)) s = 'https://' + s.replace(/^www\./i, '');
-    let u; try { u = new URL(s); } catch (e) { return { msg: 'Bad link — paste an i.imgur.com or imgur.com link.' }; }
-    const h = u.hostname.toLowerCase(), p = u.pathname.split('/').filter(Boolean);
-    const m = p.length === 1 && p[0].match(/^([A-Za-z0-9]+)\.(jpg|jpeg|png|gif|webp|gifv)$/i);
-    if (m && (h === 'imgur.com' || h.endsWith('.imgur.com'))) return { url: 'https://i.imgur.com/' + m[1] + '.' + (m[2].toLowerCase() === 'gifv' ? 'gif' : m[2].toLowerCase()) };
-    if ((h === 'imgur.com' || h === 'www.imgur.com') && p.length === 1 && /^[A-Za-z0-9]+$/.test(p[0])) return { url: 'https://i.imgur.com/' + p[0] + '.jpg', hint: true };
-    if (h === 'i.imgur.com' || h === 'imgur.com' || h === 'www.imgur.com') return { msg: 'Cannot embed that Imgur link — paste a direct i.imgur.com link.' };
-    return { msg: 'Not an Imgur link.' };
-  }
-  $('coImgLink').addEventListener('change', (e) => {
-    const raw = e.target.value;
-    if (!raw.trim()) { if (coAttach && coAttach.kind === 'url') { coAttach = null; $('coPrev').innerHTML = ''; } return; }
-    const r = coImgur(raw);
-    if (!r || r.msg) { $('coMsg').textContent = r ? r.msg : ''; return; }
-    coAttach = { kind: 'url', url: r.url, hint: !!r.hint };
-    $('coPrev').innerHTML = coImgTag(r.url, !!r.hint);
-    $('coMsg').textContent = r.hint ? 'Converted — for GIFs, paste the direct i.imgur.com link.' : '';
-  });
-  async function coGifSearch() {
-    const q = $('coGifQ').value.trim(), box = $('coGifRes');
-    if (!q) { box.textContent = 'Type a word to search GIFs.'; return; }
-    if (typeof navigator !== 'undefined' && navigator.onLine === false) { box.textContent = 'Giphy needs an internet connection — try again when online.'; return; }
-    box.textContent = 'Searching Giphy…';
-    const key = $('coGifKey').value.trim() || CO_BETA;
-    try {
-      const res = await fetch('https://api.giphy.com/v1/gifs/search?api_key=' + encodeURIComponent(key) + '&q=' + encodeURIComponent(q) + '&limit=6&rating=pg');
-      if (!res.ok) throw new Error('http ' + res.status);
-      const j = await res.json(), items = (j.data || []).filter((g) => g.images && g.images.fixed_height_small && g.images.fixed_height_small.url);
-      if (!items.length) { box.textContent = 'No GIFs found for “' + q + '”.'; return; }
-      box.innerHTML = '';
-      items.forEach((g) => {
-        const u = g.images.fixed_height_small.url, im = document.createElement('img');
-        im.src = u; im.alt = g.title || 'GIF';
-        im.addEventListener('click', () => { coAttach = { kind: 'url', url: u }; $('coPrev').innerHTML = coImgTag(u, false); $('coMsg').textContent = 'GIF picked — post to add it.'; });
-        box.appendChild(im);
-      });
-    } catch (err) { box.textContent = 'Giphy needs an internet connection — try again when online.'; }
-  }
-  $('coGifGo').addEventListener('click', coGifSearch);
-  let coChunks = [], coTimer = 0;
-  $('coRec').addEventListener('click', async () => {
-    const m = $('coVoiceMsg');
-    m.textContent = 'Requesting microphone…';
-    try {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined') { m.textContent = 'Voice recording is not available in this browser.'; return; }
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      coChunks = []; coRec = new MediaRecorder(stream);
-      coRec.ondataavailable = (e) => { if (e.data && e.data.size) coChunks.push(e.data); };
-      coRec.onstop = () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const b = new Blob(coChunks, { type: (coRec && coRec.mimeType) || 'audio/webm' }), r = new FileReader();
-        r.onload = () => { coVoice = r.result; const a = $('coAudio'); a.src = coVoice; a.hidden = false; m.textContent = 'Voice note ready — post to save it.'; };
-        r.readAsDataURL(b);
-      };
-      coRec.start(); $('coRec').disabled = true; $('coStop').disabled = false; m.textContent = 'Recording… (max 60 s)';
-      coTimer = setTimeout(() => { if (coRec && coRec.state === 'recording') coRec.stop(); }, 60000);
-    } catch (err) { m.textContent = 'Microphone unavailable — voice note skipped.'; }
-  });
-  $('coStop').addEventListener('click', () => { if (coRec && coRec.state === 'recording') { clearTimeout(coTimer); coRec.stop(); } $('coRec').disabled = false; $('coStop').disabled = true; });
-  $('coPost').addEventListener('click', () => {
-    const text = $('coText').value.trim();
-    if (!text && !coAttach && !coVoice) { $('coMsg').textContent = 'Write something, attach an image, or record a voice note.'; return; }
-    const item = { id: 'c' + Date.now().toString(36) + (Math.random() * 1e6 | 0).toString(36), text, img: coAttach ? (coAttach.kind === 'url' ? coAttach.url : coAttach.data) : null, imgHint: !!(coAttach && coAttach.hint), voice: coVoice };
-    coList.unshift(item);
-    if (!coSave()) { coList.shift(); $('coMsg').textContent = 'Browser storage is full — callout not saved.'; return; }
-    $('coText').value = ''; $('coFile').value = ''; $('coImgLink').value = ''; $('coPrev').innerHTML = ''; $('coGifRes').innerHTML = '';
-    coAttach = null; coVoice = null; const a = $('coAudio'); a.hidden = true; a.removeAttribute('src');
-    $('coMsg').textContent = 'Callout posted.';
-    coRender();
-  });
 
   /* Share card: 1200x800 canvas; bloom colours random, seeded. */
-  function coCard(c, sd) { let s = (sd || Math.random() * 1e9) | 0; const R = () => (s = (s * 9301 + 49297) % 233280) / 233280,v = document.createElement('canvas'),x = v.getContext('2d'),g = x.createLinearGradient(0,0,1200,800); v.width = 1200; v.height = 800; g.addColorStop(0,'#b6b6f4'); g.addColorStop(1,'#586dbe'); x.fillStyle = g; x.fillRect(0,0,1200,800); [[300,400,270,45],[1010,650,210,30]].forEach(([a,b,r,o]) => { x.fillStyle = 'rgba(255,255,255,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.fill(); }); x.fillStyle = 'rgba(45,58,126,.07)'; x.font = '700 26px sans-serif'; for (let i = 0; i < 7; i++) x.fillText('TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR',20,90 + i * 110); [[300,400,215,55,6],[300,400,238,30,3],[1060,140,80,40,4]].forEach(([a,b,r,o,w]) => { x.lineWidth = w; x.strokeStyle = 'rgba(45,58,126,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.stroke(); }); x.lineWidth = 4; x.strokeStyle = 'rgba(45,58,126,.5)'; x.beginPath(); x.moveTo(80,190); x.quadraticCurveTo(170,120,250,175); x.stroke(); x.strokeStyle = '#2d3a7e'; x.lineWidth = 10; x.beginPath(); x.roundRect(14,14,1172,772,36); x.stroke(); x.fillStyle = '#fff'; x.beginPath(); x.roundRect(60,56,168,46,23); x.fill(); x.fillStyle = '#2d3a7e'; x.fillText(c.example ? 'CONTOH' : 'CALLOUT',82,86); x.fillStyle = 'rgba(45,58,126,.85)'; x.fillText('TOKEN LAUNCH RADAR',60,740); const P = ['#2d3a7e','#586dbe','#7c8fd6','#4a5aa8','#8b9ae0','#3d4a9e','#b1bdf1','#6b7fd0'],F = [5,0,6,5,5,11,6,5,0,5,5,6,11,5,5,6,1,1,4,4,11,1,4,4,1,11,4,4,11,11,4,4],fl = (a,b,u) => { for (let i = 0; i < 32; i += 4) { x.fillStyle = P[R() * 8 | 0]; x.fillRect(a + F[i] * u,b + F[i + 1] * u,F[i + 2] * u,F[i + 3] * u); } x.fillStyle = '#fff'; x.fillRect(a + 6 * u,b + 6 * u,4 * u,4 * u); }; fl(140,240,20); fl(950,620,8); fl(90,560,8); x.fillStyle = '#2d3a7e'; x.font = '700 64px sans-serif'; let L = '',y = 240; (c.text || '').slice(0,120).split(' ').forEach((w) => { const t = L ? L + ' ' + w : w; if (x.measureText(t).width > 620 && L) { x.fillText(L,520,y); L = w; y += 74; } else L = t; }); x.fillText(L,520,y); x.strokeStyle = 'rgba(45,58,126,.6)'; x.lineWidth = 4; x.beginPath(); x.moveTo(520,y + 28); x.quadraticCurveTo(720,y + 48,940,y + 28); x.stroke(); return v; }
-  function coShare(c) { const a = document.createElement('a'); a.href = coCard(c).toDataURL('image/png'); a.download = 'callout.png'; a.click(); }
+  function coCard(c, sd) { let s = (sd || Math.random() * 1e9) | 0; const R = () => (s = (s * 9301 + 49297) % 233280) / 233280,v = document.createElement('canvas'),x = v.getContext('2d'),g = x.createLinearGradient(0,0,1200,800); v.width = 1200; v.height = 800; g.addColorStop(0,'#b6b6f4'); g.addColorStop(1,'#586dbe'); x.fillStyle = g; x.fillRect(0,0,1200,800); [[300,400,270,45],[1010,650,210,30]].forEach(([a,b,r,o]) => { x.fillStyle = 'rgba(255,255,255,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.fill(); }); x.fillStyle = 'rgba(45,58,126,.07)'; x.font = '700 26px sans-serif'; for (let i = 0; i < 7; i++) x.fillText('TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR',20,90 + i * 110); [[300,400,215,55,6],[300,400,238,30,3],[1060,140,80,40,4]].forEach(([a,b,r,o,w]) => { x.lineWidth = w; x.strokeStyle = 'rgba(45,58,126,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.stroke(); }); x.lineWidth = 4; x.strokeStyle = 'rgba(45,58,126,.5)'; x.beginPath(); x.moveTo(80,190); x.quadraticCurveTo(170,120,250,175); x.stroke(); x.strokeStyle = '#2d3a7e'; x.lineWidth = 10; x.beginPath(); x.roundRect(14,14,1172,772,36); x.stroke(); x.fillStyle = '#fff'; x.beginPath(); x.roundRect(60,56,168,46,23); x.fill(); x.fillStyle = '#2d3a7e'; x.fillText(c.badge || (c.example ? 'CONTOH' : 'CALLOUT'),82,86); x.fillStyle = 'rgba(45,58,126,.85)'; x.fillText('TOKEN LAUNCH RADAR',60,740); const P = ['#2d3a7e','#586dbe','#7c8fd6','#4a5aa8','#8b9ae0','#3d4a9e','#b1bdf1','#6b7fd0'],F = [5,0,6,5,5,11,6,5,0,5,5,6,11,5,5,6,1,1,4,4,11,1,4,4,1,11,4,4,11,11,4,4],fl = (a,b,u) => { for (let i = 0; i < 32; i += 4) { x.fillStyle = P[R() * 8 | 0]; x.fillRect(a + F[i] * u,b + F[i + 1] * u,F[i + 2] * u,F[i + 3] * u); } x.fillStyle = '#fff'; x.fillRect(a + 6 * u,b + 6 * u,4 * u,4 * u); }; fl(140,240,20); fl(950,620,8); fl(90,560,8); x.fillStyle = '#2d3a7e'; x.font = '700 64px sans-serif'; let L = '',y = 240; (c.text || '').slice(0,120).split(' ').forEach((w) => { const t = L ? L + ' ' + w : w; if (x.measureText(t).width > 620 && L) { x.fillText(L,520,y); L = w; y += 74; } else L = t; }); x.fillText(L,520,y); x.strokeStyle = 'rgba(45,58,126,.6)'; x.lineWidth = 4; x.beginPath(); x.moveTo(520,y + 28); x.quadraticCurveTo(720,y + 48,940,y + 28); x.stroke(); return v; }
+  function coShare(c) { const a = document.createElement('a'); a.href = coCard(c).toDataURL('image/png'); a.download = 'token-radar-share.png'; a.click(); }
   window.coCard = coCard;
+  $('shareBtn').addEventListener('click', () => coShare({ text: D.rows[0].name + ' leads the board — ' + money(D.rows[0].implied_value_usd) + ' implied value', badge: 'SHARE' }));
 
   /* Deep links for screenshots. */
   const q = new URLSearchParams(location.search);
@@ -412,8 +358,8 @@
     }
   });
   if (q.get('q')) { state.q = q.get('q'); $('q').value = state.q; }
+  if (q.get('sort')) { state.sort = q.get('sort'); $('sort').value = state.sort; }
   if (q.get('view')) show(q.get('view'));
   renderBoard();
   if (q.get('detail')) openDetail(q.get('detail'));
-  if (q.get('callout')) coOpen();
 })();
