@@ -16,10 +16,11 @@
 // Tenure (days since listing) was tried and dropped, twice. The first pass found its fitted
 // slope near zero and leaving it out better on both out-of-sample checks. The second pass
 // (radar-3, same snapshot) re-tested five forms, each fitted on the residual after curve +
-// category + growth, contribution clamped to +/-0.15 like growth, undated comps at zero:
+// category + growth, contribution clamped to +/-0.15 like growth; comps with no listed date
+// are left out of the tenure fit (they take zero contribution when priced):
 // log10(age) slope -0.0304 (LOO x3.14, 48.1% within 3x; walk-forward x2.94, 51.3%),
-// log10(min(age,365)) slope +0.2197 (LOO x3.22, 47.1%; walk-forward x2.28, 61.5%),
-// log10(min(age,730)) slope -0.1735 (LOO x3.22, 46.2%; walk-forward x2.33, 61.5%),
+// log10(min(age,365)) slope +0.2197 (LOO x3.22, 47.1%; walk-forward x2.26, 61.5%),
+// log10(min(age,730)) slope -0.1735 (LOO x3.22, 46.2%; walk-forward x2.26, 61.5%),
 // sqrt(age in years) slope -0.0155 (LOO x3.14, 49.0%; walk-forward x2.35, 61.5%), and
 // age buckets (<365d +0.068, 365-1095d -0.018, >1095d +0.047; LOO x3.04, 49.0%;
 // walk-forward x2.18, 59.0%), against the no-tenure baseline (LOO x2.96, 51.0%;
