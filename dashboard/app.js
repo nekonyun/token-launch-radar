@@ -1,4 +1,4 @@
-/* Token Launch Radar — dashboard logic. Reads window.RADAR from data.js; no network. */
+/* Dashboard logic. Reads window.RADAR; no network. */
 (function () {
   'use strict';
   const D = window.RADAR;
@@ -13,7 +13,7 @@
   const pct = (n) => n === null || n === undefined ? '—' : (n > 0 ? '+' : '') + n.toFixed(2) + '%';
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-  /* Ledger line: the board at a glance. */
+  /* Ledger line. */
   const counts = { FARM: 0, THIN: 0, SKIP: 0 };
   D.rows.forEach((r) => { counts[r.verdict]++; });
   const top = D.rows[0];
@@ -27,8 +27,7 @@
   ].map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
   $('modelVersion').textContent = D.model_version;
 
-  /* Proof line + formula + filter: filled from the fitted model itself, so the page
-     can never disagree with the code that scored it. */
+  /* Proof + formula, filled from the fitted model. */
   const v = D.validation;
   const fmt = (x) => '×' + x.toFixed(2);
   const pct0 = (x) => (x * 100).toFixed(0) + '%';
@@ -49,11 +48,11 @@
     + ' for a market-cap-to-TVL ratio outside 0.01–10, and ' + sa.cex
     + ' for being exchanges. A token at 400× its TVL is not priced on TVL at all; a token at 0.001× is effectively dead. The filter is stated here so the reader can disagree with it.';
 
-  /* Category filter options. */
+  /* Categories. */
   const cats = [...new Set(D.rows.map((r) => r.category).filter(Boolean))].sort();
   cats.forEach((c) => { const o = document.createElement('option'); o.value = c; o.textContent = c; $('cat').appendChild(o); });
 
-  /* Board: filter + sort + render. */
+  /* Board. */
   const state = { q: '', verdict: '', cat: '', sort: 'rank', fees: false, raise: false, token: false };
   const SORTS = {
     rank: (a, b) => a.rank - b.rank,
@@ -127,7 +126,6 @@
     state[b.dataset.enrich] = b.classList.contains('active'); renderBoard();
   });
 
-  /* Launch watch. */
   $('launchRows').innerHTML = D.launch_watch.map((p) => '<tr><td><span class="pname">' + esc(p.name) + '</span><small>' + esc(p.address.slice(0, 10)) + '…' + esc(p.address.slice(-4)) + '</small></td>'
     + '<td class="cat">' + esc(p.network) + '</td>'
     + '<td class="cat">' + esc(p.pool_created_at.replace('T', ' ').replace('Z', '')) + '</td>'
@@ -135,7 +133,6 @@
     + '<td class="num">' + (p.reserve_in_usd === null || p.reserve_in_usd === undefined ? '—' : money(Number(p.reserve_in_usd))) + '</td></tr>').join('');
   $('launchNote').textContent = D.launch_watch.length + ' pools pass the filter (born within 48h, FDV $100K+). A new pool is not a board row and not a recommendation: most are meme launches that go nowhere.';
 
-  /* Live tokens. */
   $('liveRows').innerHTML = D.live.map((p) => {
     const ratio = p.mcap_usd ? (p.mcap_usd / p.tvl_usd).toFixed(3) : '—';
     const ch = p.change_7d === null ? '—' : '<span class="' + (p.change_7d >= 0 ? 'up' : 'down') + '">' + pct(p.change_7d) + '</span>';
@@ -148,7 +145,7 @@
       + '<td class="num">' + ch + '</td></tr>';
   }).join('');
 
-  /* Method: proof table + coverage. */
+  /* Method: proof. */
   $('proofTable').querySelector('tbody').innerHTML = [
     ['Leave-one-out median miss', fmt(v.loo_median_miss), fmt(v.flat_median_miss)],
     ['Within 3× (leave-one-out)', pct0(v.loo_within_3x), pct0(v.flat_within_3x)],
@@ -159,7 +156,7 @@
     + ' on the watchlist, plus ' + D.early_size + ' more pre-token protocols the list leaves out,'
     + ' chosen by TVL on the same rule. ' + D.live_size + ' traded protocols are shown on the Live Tokens tab.';
 
-  /* Method: v3 experiments table + provenance + token-born coverage. */
+  /* Method: experiments + provenance. */
   $('experimentTable').querySelector('tbody').innerHTML = D.experiments.map((x) => '<tr><td>' + esc(x.signal) + '</td><td class="num">' + esc(x.slope) + '</td><td class="num">' + esc(x.loo) + '</td><td class="num">' + esc(x.wf) + '</td><td>' + esc(x.decision) + '</td></tr>').join('');
   const em = D.enrichment_meta;
   const tb = em.watchlist_token_born;
@@ -172,7 +169,7 @@
     + (tb.possible_weak || 0) + ' are weak name-only matches, and '
     + (tb.no_pool || 0) + ' have no matching pool. A name match is labelled "likely", never certain: two different AXIS tokens trade, for example. See each protocol’s detail view for its evidence.';
 
-  /* Method: log-log scatter, comps against the fitted curve, top ten ringed. */
+  /* Method: log-log chart. */
   (function chart() {
     const W = 560, H = 360, L = 56, R = 12, T = 14, B = 40;
     const lg = Math.log10;
@@ -209,7 +206,6 @@
     $('chart').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
   })();
 
-  /* Detail dialog. */
   const dlg = $('detail');
   const TOKEN_LABEL = { likely_token: 'Likely has a token', parent_token_trades: 'Parent token trades', token_is_product: 'Token is the product', possible_weak: 'Possible token (weak)', no_pool: 'No pool found' };
   function fmtDate(ms) {
@@ -272,7 +268,6 @@
   $('closeDetail').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 
-  /* Tabs. */
   function show(view) {
     document.querySelectorAll('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === view));
     $('view-board').hidden = view !== 'board';
@@ -282,7 +277,7 @@
   }
   document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
-  /* Callouts: local-only visitor notes. No fetch on load. */
+  /* Callouts: local-only notes. */
   const CO_KEY = 'radar-callouts-v1', CO_GK = 'radar-giphy-key', CO_BETA = 'dc6zaTOxFJmzC';
   let coList = null, coAttach = null, coVoice = null, coRec = null;
   try { coList = JSON.parse(localStorage.getItem(CO_KEY) || 'null'); } catch (e) { coList = null; }
@@ -295,7 +290,7 @@
     if (url.indexOf('data:') === 0) return '<img src="' + esc(url) + '" alt="">';
     return '<img src="' + esc(url) + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.hidden=false">'
       + '<p class="co-imgfail" hidden>Image failed to load — check the link or connection.</p>'
-      + (hint ? '<p class="co-imghint">From an imgur.com page link — for GIFs, paste the direct i.imgur.com link.</p>' : '');
+      + (hint ? '<p class="co-imghint">From an imgur.com page link.</p>' : '');
   }
   function coRender() {
     $('coList').innerHTML = coList.length ? coList.map((c) => '<article class="co-card">'
@@ -303,13 +298,15 @@
       + '<p>' + esc(c.text || '') + '</p>'
       + (c.img ? coImgTag(c.img, c.imgHint) : '')
       + (c.voice ? '<audio controls src="' + esc(c.voice) + '"></audio>' : '')
-      + '<button type="button" class="co-del" data-del="' + esc(c.id) + '">Delete</button></article>').join('')
+      + '<button type="button" class="co-del" data-del="' + esc(c.id) + '">Delete</button>'
+      + '<button type="button" class="co-del" data-share="' + esc(c.id) + '">Share</button></article>').join('')
       : '<p class="co-empty">No callouts yet.</p>';
   }
   $('coList').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-del]'); if (!b) return;
+    const b = e.target.closest('[data-del],[data-share]'); if (!b) return;
+    if (b.dataset.share) { const c = coList.find((x) => x.id === b.dataset.share); if (c) coShare(c); return; }
     coList = coList.filter((c) => c.id !== b.dataset.del);
-    if (coSave()) coRender(); else $('coMsg').textContent = 'Could not update saved callouts — storage may be full.';
+    if (coSave()) coRender(); else $('coMsg').textContent = 'Could not save — storage may be full.';
   });
   function coOpen() { try { $('coGifKey').value = localStorage.getItem(CO_GK) || ''; } catch (e) {} coRender(); $('callout').showModal(); }
   $('calloutBtn').addEventListener('click', coOpen);
@@ -323,15 +320,14 @@
     r.onload = () => { coAttach = { kind: 'data', data: r.result }; $('coPrev').innerHTML = '<img src="' + esc(r.result) + '" alt="">'; $('coMsg').textContent = ''; };
     r.readAsDataURL(f);
   });
-  /* Imgur link -> direct image. i.imgur.com/<id>.<ext> renders as-is (incl. .gif);
-     imgur.com/<id> converts to i.imgur.com/<id>.jpg with a hint (extension unknown). */
+  /* Imgur link -> direct image. */
   function coImgur(raw) {
     let s = (raw || '').trim(); if (!s) return null;
     if (/^(www\.|i\.)?imgur\.com\//i.test(s)) s = 'https://' + s.replace(/^www\./i, '');
     let u; try { u = new URL(s); } catch (e) { return { msg: 'Bad link — paste an i.imgur.com or imgur.com link.' }; }
     const h = u.hostname.toLowerCase(), p = u.pathname.split('/').filter(Boolean);
     const m = p.length === 1 && p[0].match(/^([A-Za-z0-9]+)\.(jpg|jpeg|png|gif|webp|gifv)$/i);
-    if (m) return { url: 'https://i.imgur.com/' + m[1] + '.' + (m[2].toLowerCase() === 'gifv' ? 'gif' : m[2].toLowerCase()) };
+    if (m && (h === 'imgur.com' || h.endsWith('.imgur.com'))) return { url: 'https://i.imgur.com/' + m[1] + '.' + (m[2].toLowerCase() === 'gifv' ? 'gif' : m[2].toLowerCase()) };
     if ((h === 'imgur.com' || h === 'www.imgur.com') && p.length === 1 && /^[A-Za-z0-9]+$/.test(p[0])) return { url: 'https://i.imgur.com/' + p[0] + '.jpg', hint: true };
     if (h === 'i.imgur.com' || h === 'imgur.com' || h === 'www.imgur.com') return { msg: 'Cannot embed that Imgur link — paste a direct i.imgur.com link.' };
     return { msg: 'Not an Imgur link.' };
@@ -348,7 +344,7 @@
   async function coGifSearch() {
     const q = $('coGifQ').value.trim(), box = $('coGifRes');
     if (!q) { box.textContent = 'Type a word to search GIFs.'; return; }
-    if (typeof navigator !== 'undefined' && navigator.onLine === false) { box.textContent = 'Giphy needs an internet connection — try again when online. Image upload still works offline.'; return; }
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) { box.textContent = 'Giphy needs an internet connection — try again when online.'; return; }
     box.textContent = 'Searching Giphy…';
     const key = $('coGifKey').value.trim() || CO_BETA;
     try {
@@ -363,7 +359,7 @@
         im.addEventListener('click', () => { coAttach = { kind: 'url', url: u }; $('coPrev').innerHTML = coImgTag(u, false); $('coMsg').textContent = 'GIF picked — post to add it.'; });
         box.appendChild(im);
       });
-    } catch (err) { box.textContent = 'Giphy needs an internet connection — try again when online. Image upload still works offline.'; }
+    } catch (err) { box.textContent = 'Giphy needs an internet connection — try again when online.'; }
   }
   $('coGifGo').addEventListener('click', coGifSearch);
   let coChunks = [], coTimer = 0;
@@ -383,22 +379,27 @@
       };
       coRec.start(); $('coRec').disabled = true; $('coStop').disabled = false; m.textContent = 'Recording… (max 60 s)';
       coTimer = setTimeout(() => { if (coRec && coRec.state === 'recording') coRec.stop(); }, 60000);
-    } catch (err) { m.textContent = 'Microphone unavailable or denied — voice note skipped.'; }
+    } catch (err) { m.textContent = 'Microphone unavailable — voice note skipped.'; }
   });
   $('coStop').addEventListener('click', () => { if (coRec && coRec.state === 'recording') { clearTimeout(coTimer); coRec.stop(); } $('coRec').disabled = false; $('coStop').disabled = true; });
   $('coPost').addEventListener('click', () => {
     const text = $('coText').value.trim();
-    if (!text && !coAttach && !coVoice) { $('coMsg').textContent = 'Write something, attach an image, or record a voice note first.'; return; }
+    if (!text && !coAttach && !coVoice) { $('coMsg').textContent = 'Write something, attach an image, or record a voice note.'; return; }
     const item = { id: 'c' + Date.now().toString(36) + (Math.random() * 1e6 | 0).toString(36), text, img: coAttach ? (coAttach.kind === 'url' ? coAttach.url : coAttach.data) : null, imgHint: !!(coAttach && coAttach.hint), voice: coVoice };
     coList.unshift(item);
-    if (!coSave()) { coList.shift(); $('coMsg').textContent = 'Browser storage is full — callout not saved. Try a shorter voice note or smaller image.'; return; }
+    if (!coSave()) { coList.shift(); $('coMsg').textContent = 'Browser storage is full — callout not saved.'; return; }
     $('coText').value = ''; $('coFile').value = ''; $('coImgLink').value = ''; $('coPrev').innerHTML = ''; $('coGifRes').innerHTML = '';
     coAttach = null; coVoice = null; const a = $('coAudio'); a.hidden = true; a.removeAttribute('src');
-    $('coMsg').textContent = 'Callout posted — saved in this browser only.';
+    $('coMsg').textContent = 'Callout posted.';
     coRender();
   });
 
-  /* Deep links for screenshots: ?view=method, ?verdict=FARM, ?q=..., ?detail=slug, ?fees=1&raise=1&token=1. */
+  /* Share card: 1200x800 social card, local canvas; PIP bloom colours random per petal (seeded when given). */
+  function coCard(c, sd) { let s = (sd || Math.random() * 1e9) | 0; const R = () => (s = (s * 9301 + 49297) % 233280) / 233280, v = document.createElement('canvas'), x = v.getContext('2d'), g = x.createLinearGradient(0, 0, 1200, 800); v.width = 1200; v.height = 800; g.addColorStop(0, '#7c3aed'); g.addColorStop(1, '#2563eb'); x.fillStyle = g; x.fillRect(0, 0, 1200, 800); x.fillStyle = 'rgba(255,255,255,.07)'; x.font = '700 26px sans-serif'; for (let i = 0; i < 7; i++) x.fillText('TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR', 20, 90 + i * 110); x.strokeStyle = 'rgba(255,255,255,.4)'; x.lineWidth = 3; x.beginPath(); x.arc(1060, 120, 130, 0, 7); x.stroke(); x.strokeStyle = '#fff'; x.lineWidth = 10; x.beginPath(); x.roundRect(14, 14, 1172, 772, 36); x.stroke(); x.fillStyle = 'rgba(255,255,255,.25)'; x.beginPath(); x.roundRect(60, 56, 168, 46, 23); x.fill(); x.fillStyle = '#fff'; x.fillText(c.example ? 'CONTOH' : 'CALLOUT', 82, 86); x.fillStyle = 'rgba(255,255,255,.85)'; x.fillText('TOKEN LAUNCH RADAR', 60, 740); const P = ['#a855f7', '#7c3aed', '#c084fc', '#9333ea', '#6d28d9', '#e879f9'], F = [5, 0, 6, 5, 5, 11, 6, 5, 0, 5, 5, 6, 11, 5, 5, 6, 1, 1, 4, 4, 11, 1, 4, 4, 1, 11, 4, 4, 11, 11, 4, 4]; for (let i = 0; i < 32; i += 4) { x.fillStyle = P[R() * 6 | 0]; x.fillRect(1020 + F[i] * 9, 560 + F[i + 1] * 9, F[i + 2] * 9, F[i + 3] * 9); } x.fillStyle = '#e9d5ff'; x.fillRect(1074, 614, 36, 36); x.fillStyle = '#fff'; x.font = '700 52px sans-serif'; let L = '', y = 240; (c.text || '').slice(0, 200).split(' ').forEach((w) => { const t = L ? L + ' ' + w : w; if (x.measureText(t).width > 880 && L) { x.fillText(L, 60, y); L = w; y += 64; } else L = t; }); x.fillText(L, 60, y); return v; }
+  function coShare(c) { const a = document.createElement('a'); a.href = coCard(c).toDataURL('image/png'); a.download = 'callout.png'; a.click(); }
+  window.coCard = coCard;
+
+  /* Deep links for screenshots. */
   const q = new URLSearchParams(location.search);
   if (q.get('verdict')) {
     state.verdict = q.get('verdict');
