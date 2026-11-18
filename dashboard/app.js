@@ -282,6 +282,122 @@
   }
   document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
+  /* Callouts: local-only visitor notes. No fetch on load. */
+  const CO_KEY = 'radar-callouts-v1', CO_GK = 'radar-giphy-key', CO_BETA = 'dc6zaTOxFJmzC';
+  let coList = null, coAttach = null, coVoice = null, coRec = null;
+  try { coList = JSON.parse(localStorage.getItem(CO_KEY) || 'null'); } catch (e) { coList = null; }
+  if (!Array.isArray(coList)) {
+    coList = [{ id: 'seed-example', example: true, text: 'Contoh: Sentora leads the board on implied value — study it first. (Sample callout, not a real visitor note.)' }];
+    try { localStorage.setItem(CO_KEY, JSON.stringify(coList)); } catch (e) {}
+  }
+  const coSave = () => { try { localStorage.setItem(CO_KEY, JSON.stringify(coList)); return true; } catch (e) { return false; } };
+  function coImgTag(url, hint) {
+    if (url.indexOf('data:') === 0) return '<img src="' + esc(url) + '" alt="">';
+    return '<img src="' + esc(url) + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.hidden=false">'
+      + '<p class="co-imgfail" hidden>Image failed to load — check the link or connection.</p>'
+      + (hint ? '<p class="co-imghint">From an imgur.com page link — for GIFs, paste the direct i.imgur.com link.</p>' : '');
+  }
+  function coRender() {
+    $('coList').innerHTML = coList.length ? coList.map((c) => '<article class="co-card">'
+      + (c.example ? '<span class="co-badge">Contoh</span>' : '')
+      + '<p>' + esc(c.text || '') + '</p>'
+      + (c.img ? coImgTag(c.img, c.imgHint) : '')
+      + (c.voice ? '<audio controls src="' + esc(c.voice) + '"></audio>' : '')
+      + '<button type="button" class="co-del" data-del="' + esc(c.id) + '">Delete</button></article>').join('')
+      : '<p class="co-empty">No callouts yet.</p>';
+  }
+  $('coList').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-del]'); if (!b) return;
+    coList = coList.filter((c) => c.id !== b.dataset.del);
+    if (coSave()) coRender(); else $('coMsg').textContent = 'Could not update saved callouts — storage may be full.';
+  });
+  function coOpen() { try { $('coGifKey').value = localStorage.getItem(CO_GK) || ''; } catch (e) {} coRender(); $('callout').showModal(); }
+  $('calloutBtn').addEventListener('click', coOpen);
+  $('closeCallout').addEventListener('click', () => $('callout').close());
+  $('callout').addEventListener('click', (e) => { if (e.target === $('callout')) $('callout').close(); });
+  $('coGifKey').addEventListener('change', (e) => { try { localStorage.setItem(CO_GK, e.target.value.trim()); } catch (err) {} });
+  $('coFile').addEventListener('change', (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    if (f.size > 2 * 1024 * 1024) { $('coMsg').textContent = 'Image too big: max 2 MB.'; e.target.value = ''; return; }
+    const r = new FileReader();
+    r.onload = () => { coAttach = { kind: 'data', data: r.result }; $('coPrev').innerHTML = '<img src="' + esc(r.result) + '" alt="">'; $('coMsg').textContent = ''; };
+    r.readAsDataURL(f);
+  });
+  /* Imgur link -> direct image. i.imgur.com/<id>.<ext> renders as-is (incl. .gif);
+     imgur.com/<id> converts to i.imgur.com/<id>.jpg with a hint (extension unknown). */
+  function coImgur(raw) {
+    let s = (raw || '').trim(); if (!s) return null;
+    if (/^(www\.|i\.)?imgur\.com\//i.test(s)) s = 'https://' + s.replace(/^www\./i, '');
+    let u; try { u = new URL(s); } catch (e) { return { msg: 'Bad link — paste an i.imgur.com or imgur.com link.' }; }
+    const h = u.hostname.toLowerCase(), p = u.pathname.split('/').filter(Boolean);
+    const m = p.length === 1 && p[0].match(/^([A-Za-z0-9]+)\.(jpg|jpeg|png|gif|webp|gifv)$/i);
+    if (m) return { url: 'https://i.imgur.com/' + m[1] + '.' + (m[2].toLowerCase() === 'gifv' ? 'gif' : m[2].toLowerCase()) };
+    if ((h === 'imgur.com' || h === 'www.imgur.com') && p.length === 1 && /^[A-Za-z0-9]+$/.test(p[0])) return { url: 'https://i.imgur.com/' + p[0] + '.jpg', hint: true };
+    if (h === 'i.imgur.com' || h === 'imgur.com' || h === 'www.imgur.com') return { msg: 'Cannot embed that Imgur link — paste a direct i.imgur.com link.' };
+    return { msg: 'Not an Imgur link.' };
+  }
+  $('coImgLink').addEventListener('change', (e) => {
+    const raw = e.target.value;
+    if (!raw.trim()) { if (coAttach && coAttach.kind === 'url') { coAttach = null; $('coPrev').innerHTML = ''; } return; }
+    const r = coImgur(raw);
+    if (!r || r.msg) { $('coMsg').textContent = r ? r.msg : ''; return; }
+    coAttach = { kind: 'url', url: r.url, hint: !!r.hint };
+    $('coPrev').innerHTML = coImgTag(r.url, !!r.hint);
+    $('coMsg').textContent = r.hint ? 'Converted — for GIFs, paste the direct i.imgur.com link.' : '';
+  });
+  async function coGifSearch() {
+    const q = $('coGifQ').value.trim(), box = $('coGifRes');
+    if (!q) { box.textContent = 'Type a word to search GIFs.'; return; }
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) { box.textContent = 'Giphy needs an internet connection — try again when online. Image upload still works offline.'; return; }
+    box.textContent = 'Searching Giphy…';
+    const key = $('coGifKey').value.trim() || CO_BETA;
+    try {
+      const res = await fetch('https://api.giphy.com/v1/gifs/search?api_key=' + encodeURIComponent(key) + '&q=' + encodeURIComponent(q) + '&limit=6&rating=pg');
+      if (!res.ok) throw new Error('http ' + res.status);
+      const j = await res.json(), items = (j.data || []).filter((g) => g.images && g.images.fixed_height_small && g.images.fixed_height_small.url);
+      if (!items.length) { box.textContent = 'No GIFs found for “' + q + '”.'; return; }
+      box.innerHTML = '';
+      items.forEach((g) => {
+        const u = g.images.fixed_height_small.url, im = document.createElement('img');
+        im.src = u; im.alt = g.title || 'GIF';
+        im.addEventListener('click', () => { coAttach = { kind: 'url', url: u }; $('coPrev').innerHTML = coImgTag(u, false); $('coMsg').textContent = 'GIF picked — post to add it.'; });
+        box.appendChild(im);
+      });
+    } catch (err) { box.textContent = 'Giphy needs an internet connection — try again when online. Image upload still works offline.'; }
+  }
+  $('coGifGo').addEventListener('click', coGifSearch);
+  let coChunks = [], coTimer = 0;
+  $('coRec').addEventListener('click', async () => {
+    const m = $('coVoiceMsg');
+    m.textContent = 'Requesting microphone…';
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined') { m.textContent = 'Voice recording is not available in this browser.'; return; }
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      coChunks = []; coRec = new MediaRecorder(stream);
+      coRec.ondataavailable = (e) => { if (e.data && e.data.size) coChunks.push(e.data); };
+      coRec.onstop = () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const b = new Blob(coChunks, { type: (coRec && coRec.mimeType) || 'audio/webm' }), r = new FileReader();
+        r.onload = () => { coVoice = r.result; const a = $('coAudio'); a.src = coVoice; a.hidden = false; m.textContent = 'Voice note ready — post to save it.'; };
+        r.readAsDataURL(b);
+      };
+      coRec.start(); $('coRec').disabled = true; $('coStop').disabled = false; m.textContent = 'Recording… (max 60 s)';
+      coTimer = setTimeout(() => { if (coRec && coRec.state === 'recording') coRec.stop(); }, 60000);
+    } catch (err) { m.textContent = 'Microphone unavailable or denied — voice note skipped.'; }
+  });
+  $('coStop').addEventListener('click', () => { if (coRec && coRec.state === 'recording') { clearTimeout(coTimer); coRec.stop(); } $('coRec').disabled = false; $('coStop').disabled = true; });
+  $('coPost').addEventListener('click', () => {
+    const text = $('coText').value.trim();
+    if (!text && !coAttach && !coVoice) { $('coMsg').textContent = 'Write something, attach an image, or record a voice note first.'; return; }
+    const item = { id: 'c' + Date.now().toString(36) + (Math.random() * 1e6 | 0).toString(36), text, img: coAttach ? (coAttach.kind === 'url' ? coAttach.url : coAttach.data) : null, imgHint: !!(coAttach && coAttach.hint), voice: coVoice };
+    coList.unshift(item);
+    if (!coSave()) { coList.shift(); $('coMsg').textContent = 'Browser storage is full — callout not saved. Try a shorter voice note or smaller image.'; return; }
+    $('coText').value = ''; $('coFile').value = ''; $('coImgLink').value = ''; $('coPrev').innerHTML = ''; $('coGifRes').innerHTML = '';
+    coAttach = null; coVoice = null; const a = $('coAudio'); a.hidden = true; a.removeAttribute('src');
+    $('coMsg').textContent = 'Callout posted — saved in this browser only.';
+    coRender();
+  });
+
   /* Deep links for screenshots: ?view=method, ?verdict=FARM, ?q=..., ?detail=slug, ?fees=1&raise=1&token=1. */
   const q = new URLSearchParams(location.search);
   if (q.get('verdict')) {
@@ -298,4 +414,5 @@
   if (q.get('view')) show(q.get('view'));
   renderBoard();
   if (q.get('detail')) openDetail(q.get('detail'));
+  if (q.get('callout')) coOpen();
 })();

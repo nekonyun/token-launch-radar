@@ -12,6 +12,7 @@
     <p class="kicker">DefiLlama snapshot &middot; 14 November 2026 &middot; 758 protocols &middot; $50M floor</p>
     <h1>Token Launch <span class="hl">Radar</span></h1>
     <p class="sub">Which protocols without a token are worth farming, and what a launch might be worth. A ledger, not a tip sheet: every number below is fitted from the snapshot itself.</p>
+    <button id="calloutBtn" class="callout-btn"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#fl"/></svg>Callouts</button>
   </div>
   <div class="mascot" role="img" aria-label="PIP, a small pixel flower">
     <svg viewBox="0 0 64 64" shape-rendering="crispEdges" aria-hidden="true">
@@ -278,6 +279,8 @@
       <p id="provenance"></p>
       <h3>Token-born check (watchlist, 18 Nov 2026)</h3>
       <p id="tokenBorn"></p>
+      <h3>Callouts (local only)</h3>
+      <p id="calloutNote">The Callouts button opens a visitor note board (text, image/GIF, voice note). Notes live only in the visitor's browser (localStorage) — nothing is shared. GIF search uses Giphy (beta key built in, or your own); Imgur links paste in as images. Both are called only when used, never on load, so the page works offline. Voice notes record in the browser (max 60 s). One sample callout, labelled “Contoh”, seeds an empty board.</p>
       <h3>What the board covers</h3>
       <p id="coverage"></p>
       <h3>The fit, drawn</h3>
@@ -290,6 +293,27 @@
 <dialog id="detail">
   <button class="close" id="closeDetail" type="button" aria-label="Close">&times;</button>
   <div id="detailBody"></div>
+</dialog>
+
+<dialog id="callout">
+  <button class="close" id="closeCallout">&times;</button>
+  <div id="calloutBody">
+    <h2><small>Local only</small>Callouts</h2>
+    <p class="co-note">Notes stay in this browser only (localStorage).</p>
+    <label class="co-label">Write a callout<textarea id="coText" rows="3" maxlength="500" placeholder="Say something about the board…"></textarea></label>
+    <label class="co-label">Attach image / GIF <span class="co-hint">(max 2 MB)</span><input id="coFile" type="file" accept="image/*"></label>
+    <div id="coPrev"></div>
+    <label class="co-label">GIF search (Giphy)<input id="coGifQ" type="search" placeholder="e.g. moon"></label>
+    <div class="co-row"><button id="coGifGo" class="co-btn">Search GIFs</button><input id="coGifKey" type="text" placeholder="Giphy API key (optional)"></div>
+    <div id="coGifRes" class="co-gifres"></div>
+    <label class="co-label">Imgur link (optional)<input id="coImgLink" type="text" placeholder="Imgur link: i.imgur.com/… or imgur.com/…"></label>
+    <div class="co-row"><button id="coRec" class="co-btn">Record voice note</button><button id="coStop" class="co-btn" disabled>Stop</button><audio id="coAudio" controls hidden></audio></div>
+    <p id="coVoiceMsg" class="co-hint"></p>
+    <p id="coMsg" class="co-msg"></p>
+    <button id="coPost" class="co-btn co-post">Post callout</button>
+    <h3>Posted callouts</h3>
+    <div id="coList"></div>
+  </div>
 </dialog>
 
 <footer>

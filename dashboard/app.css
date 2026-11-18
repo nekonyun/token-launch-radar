@@ -260,7 +260,7 @@ dialog .close {
   cursor: pointer;
 }
 dialog .close:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-#detailBody { padding: 22px 24px; max-height: calc(92vh - 4px); overflow-y: auto; }
+#detailBody, #calloutBody { padding: 22px 24px; max-height: calc(92vh - 4px); overflow-y: auto; }
 #detailBody::after {
   content: "\25BC";
   display: block;
@@ -269,16 +269,16 @@ dialog .close:hover { background: var(--accent); border-color: var(--accent); co
   margin-top: 16px;
   font-size: 12px;
 }
-#detailBody h2 { margin: 0 0 8px; font-size: 22px; }
+#detailBody h2, #calloutBody h2 { margin: 0 0 8px; font-size: 22px; }
 #detailBody h2::before { content: "\2665  *  "; color: #ef4444; }
-#detailBody h2 small {
+#detailBody h2 small, #calloutBody h2 small {
   display: block;
   font-size: 10px;
   letter-spacing: 0.16em;
   color: var(--mut);
   margin-bottom: 6px;
 }
-#detailBody h3 { font-size: 13px; margin: 18px 0 8px; color: var(--accent2); }
+#detailBody h3, #calloutBody h3 { font-size: 13px; margin: 18px 0 8px; color: var(--accent2); }
 .kv {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -314,3 +314,24 @@ dialog .close:hover { background: var(--accent); border-color: var(--accent); co
 footer { margin-top: 26px; border-top: 2px solid var(--accent-deep); padding-top: 12px; }
 footer p { font-size: 11px; color: var(--mut); margin: 0; }
 .view[hidden] { display: none; }
+
+/* Callouts. */
+.callout-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;padding:9px 16px;background:var(--panel);color:var(--ink);border:2px solid var(--accent-deep);box-shadow:3px 3px 0 var(--shadow);cursor:pointer}
+.callout-btn svg{width:16px;height:16px;color:#a855f7;image-rendering:pixelated}
+.co-note,.co-hint,.co-imgfail,.co-imghint,.co-empty{font-size:12px;color:var(--mut)}
+.co-label{display:block;font-size:11px;text-transform:uppercase;color:var(--mut);margin:12px 0 0}
+.co-label textarea,.co-label input,.co-row input{width:100%;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--panel);border:2px solid var(--accent-deep);padding:7px 9px;margin-top:6px}
+.co-row{display:flex;gap:8px;margin-top:10px;align-items:center}
+.co-btn{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;padding:7px 12px;background:var(--panel);color:var(--ink);border:2px solid var(--accent-deep);cursor:pointer}
+.co-btn:disabled{opacity:.45;cursor:default}
+.co-post{background:var(--accent);border-color:var(--accent);color:#fff;margin-top:12px}
+#coPrev img{max-width:100%;max-height:180px;display:block;margin-top:8px;border:2px solid var(--accent-deep)}
+.co-gifres{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.co-gifres img{width:120px;height:68px;object-fit:cover;border:2px solid var(--accent-deep);cursor:pointer}
+.co-msg{font-size:12px;color:var(--accent2)}
+.co-card{border:2px solid var(--accent-deep);background:var(--panel);padding:12px;margin:0 0 10px}
+.co-card p{margin:0 0 8px;overflow-wrap:anywhere}
+.co-card img{max-width:100%;max-height:220px;display:block;margin:0 0 8px;border:2px solid var(--accent-deep)}
+.co-card audio{width:100%;margin:0 0 8px}
+.co-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:#fff;padding:3px 8px;margin-bottom:8px}
+.co-del{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;background:transparent;color:var(--mut);border:2px dashed var(--mut);cursor:pointer}
