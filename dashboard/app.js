@@ -136,9 +136,10 @@
     D.comps.forEach((c) => {
       s += '<circle cx="' + X(lg(c.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(c.mcap_usd)).toFixed(1) + '" r="2.6" fill="#e8c07a" opacity="0.55"/>';
     });
-    D.rows.slice(0, 10).forEach((r) => {
+    D.rows.slice(0, 10).forEach((r, i) => {
       s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#e8c07a" stroke-width="1.6"/>';
-      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + 3) + '" fill="#f2ede6" font-size="10">#' + r.rank + '</text>';
+      const dy = i % 2 === 0 ? -9 : 11;
+      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#f2ede6" font-size="10">#' + r.rank + '</text>';
     });
     $('chart').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
   })();
@@ -153,11 +154,10 @@
       + '<p class="lede">' + esc(r.chains.join(', ')) + ' &middot; TVL ' + money(r.tvl_usd) + ' &middot; ' + ch + ' &middot; ' + age + '</p>'
       + '<dl class="kv">'
       + '<div><dt>Implied value</dt><dd>' + money(r.implied_value_usd) + '</dd></div>'
-      + '<div><dt>Rank range (200 refits)</dt><dd>#' + r.rank_low + '&ndash;#' + r.rank_high + '</dd></div>'
+      + '<div><dt>Rank range (200 refits + full fit)</dt><dd>#' + r.rank_low + '&ndash;#' + r.rank_high + '</dd></div>'
       + '<div><dt>Curve, log10</dt><dd>' + r.curve_log10.toFixed(4) + '</dd></div>'
       + '<div><dt>Category offset</dt><dd>' + (r.category_offset >= 0 ? '+' : '') + r.category_offset.toFixed(4) + '</dd></div>'
       + '<div><dt>Growth, log10</dt><dd>' + (r.growth_log10 >= 0 ? '+' : '') + r.growth_log10.toFixed(4) + '</dd></div>'
-      + '<div><dt>Tenure, log10</dt><dd>' + (r.age_log10 >= 0 ? '+' : '') + r.age_log10.toFixed(4) + '</dd></div>'
       + '<div><dt>Drop per $1,000</dt><dd>' + money2(r.drop_per_1000_usd) + '</dd></div>'
       + '<div><dt>Net per $1,000</dt><dd>' + money2(r.net_per_1000_usd) + ' (' + r.transactions + ' tx, ' + money2(r.total_cost_usd) + ' gas)</dd></div>'
       + '</dl>'

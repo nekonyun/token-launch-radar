@@ -12,6 +12,7 @@
   <h1>Token Launch Radar</h1>
   <p class="sub">Which protocols without a token are worth farming, and what a launch might be worth. A ledger, not a tip sheet: every number below is fitted from the snapshot itself.</p>
   <dl class="ledger-line" id="ledgerLine"></dl>
+  <p class="proof-line">Out of sample: leave-one-out miss <b>&times;2.96</b> (51% within 3&times;) &middot; walk-forward <b>&times;2.26</b> (62% within 3&times;) &middot; flat multiple <b>&times;3.93</b> (38% within 3&times;)</p>
 </header>
 
 <nav class="tabs" aria-label="Views">
@@ -64,7 +65,7 @@
       <tbody id="rows"></tbody>
     </table>
   </div>
-  <p class="footnote">Rank range: where the row lands across 200 refits of the model, each dropping a rotating tenth of the traded tokens. A narrow range means the rank is stable, not a rounding accident.</p>
+  <p class="footnote">Rank range: where the row lands across 200 refits of the model, each dropping a rotating tenth of the traded tokens, and its rank in the full fit. A narrow range means the rank is stable, not a rounding accident.</p>
 </section>
 
 <section id="view-live" class="view" hidden>
@@ -92,10 +93,10 @@
   <div class="method-grid">
     <div class="panel">
       <h3>The formula</h3>
-      <p class="formula">log&#8321;&#8320;(implied value) = 2.0371 + 0.6541 &middot; log&#8321;&#8320;(TVL)<br>+ category offset &plusmn;0.25 &middot; growth &plusmn;0.15 &middot; tenure &plusmn;0.10</p>
-      <p>The curve is a Theil&ndash;Sen fit of log market cap against log TVL over the 112 traded protocols that survive the filter below. Category offsets are the mean residual per category, shrunk toward zero and capped at &plusmn;0.25 in log10. Growth is the fitted slope on the 7-day TVL change, clamped to &plusmn;0.15. Tenure is the fitted slope on days listed, capped at 1,095 days and clamped to &plusmn;0.10. Nothing is hard-coded by name: the fit is recomputed from the snapshot on every run.</p>
+      <p class="formula">log&#8321;&#8320;(implied value) = 2.2438 + 0.6258 &middot; log&#8321;&#8320;(TVL)<br>+ category offset &plusmn;0.25 &middot; growth &plusmn;0.15</p>
+      <p>The curve is a Theil&ndash;Sen fit of log market cap against log TVL over the 104 traded protocols that survive the filter below. Category offsets are the mean residual per category, shrunk toward zero and capped at &plusmn;0.25 in log10. Growth is the fitted slope on the 7-day TVL change, clamped to &plusmn;0.15. Tenure (days listed) was tried and dropped: its fitted slope is near zero, and leaving it out improves both out-of-sample checks below, so the model does not price age. Nothing is hard-coded by name: the fit is recomputed from the snapshot on every run.</p>
       <h3>The filter</h3>
-      <p>Of 144 traded protocols, 16 are set aside for a zero or negative market cap, 7 for a market-cap-to-TVL ratio outside 0.005&ndash;20, and 9 for being exchanges. A token at 400&times; its TVL is not priced on TVL at all; a token at 0.001&times; is effectively dead. The filter is stated here so the reader can disagree with it.</p>
+      <p>Of 144 traded protocols, 16 are set aside for a zero or negative market cap, 15 for a market-cap-to-TVL ratio outside 0.01&ndash;10, and 9 for being exchanges. A token at 400&times; its TVL is not priced on TVL at all; a token at 0.001&times; is effectively dead. The filter is stated here so the reader can disagree with it.</p>
       <h3>The farm verdict</h3>
       <p>The airdrop pool is taken as 10% of the implied value, shared pro-rata across TVL, so a $1,000 ticket earns implied &times; 0.10 &times; 1,000 / TVL. Gas is priced per transaction by the protocol's main chain (Ethereum $12, Base/Arbitrum/Optimism/Blast $1, Solana/Polygon/Sui/Aptos $0.10, BNB/Avalanche/Fantom/Tron $0.50, anything else $2) and multiplied by the plan's transaction count: setup, one a week through the hold, and the claim. <strong>FARM</strong> if the net is $25 or more, <strong>THIN</strong> if it is $0 or more, <strong>SKIP</strong> if the drop does not cover the gas.</p>
     </div>
@@ -105,7 +106,7 @@
         <thead><tr><th>Check</th><th class="num">This board</th><th class="num">Flat multiple</th></tr></thead>
         <tbody></tbody>
       </table>
-      <p>Leave-one-out refits the model 112 times, holding one traded token out each time. Walk-forward fits only the older half of the dated traded tokens and tests the newer half. The flat multiple is the starter's rule, 0.25&times; TVL, fitted the same way. The curve beats it on both checks, and on the share of tokens predicted within 3&times;.</p>
+      <p>Leave-one-out refits the model 104 times, holding one traded token out each time. Walk-forward fits only the older half of the dated traded tokens and tests the newer half. The flat multiple is the median market-cap-to-TVL ratio of the traded tokens (0.26&times;), the simplest rule that prices on TVL alone. The curve beats it on both checks, and on the share of tokens predicted within 3&times;.</p>
       <h3>What the board covers</h3>
       <p id="coverage"></p>
       <h3>The fit, drawn</h3>

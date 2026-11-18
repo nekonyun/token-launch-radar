@@ -19,6 +19,8 @@ p{margin:0 0 12px}
 .masthead{border-bottom:3px double var(--rule2);padding-bottom:18px;margin-bottom:0}
 .kicker{color:var(--copper);text-transform:uppercase;letter-spacing:.22em;font-size:11px;margin-bottom:14px}
 .sub{font-family:var(--serif);font-size:18px;color:var(--muted);max-width:760px;margin-top:12px;line-height:1.5}
+.proof-line{font-size:13px;color:var(--muted);margin:12px 0 0}
+.proof-line b{color:var(--gold);font-weight:700}
 .ledger-line{display:flex;flex-wrap:wrap;gap:0;margin:18px 0 0;padding:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .ledger-line div{padding:10px 22px 10px 0;margin-right:22px;border-right:1px solid var(--rule)}
 .ledger-line div:last-child{border-right:0}

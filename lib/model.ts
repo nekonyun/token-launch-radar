@@ -11,8 +11,11 @@
 //   curve      log10(mcap) = a + b * log10(tvl), fitted by Theil-Sen on the traded tokens
 //   category   a shrunk offset per category, from the same fit's residuals
 //   growth     a fitted slope on the seven-day TVL change, contribution clamped to +/-0.15
-//   tenure     a fitted slope on the days since first listing, contribution clamped to +/-0.10
-//   implied    10 ^ (curve + category + growth + tenure), rounded to whole dollars
+//   implied    10 ^ (curve + category + growth), rounded to whole dollars
+//
+// Tenure (days since listing) was tried and dropped: its fitted slope is ~0, and leaving it out
+// improves both out-of-sample checks (leave-one-out and walk-forward), so the model does not
+// price age. The farm plan still uses the age for its hold length, which is a different question.
 //
 // Theil-Sen (median pairwise slope) is used because the traded tokens' market-cap-to-TVL ratios
 // span four orders of magnitude: a least-squares fit would be dragged by the extremes. The fit is
@@ -52,8 +55,6 @@ export interface FittedModel {
   category_offsets: Record<string, number>;
   /** Fitted slope of the residual on the clamped seven-day change, per one percent. */
   growth_slope: number;
-  /** Fitted slope of the residual on the capped age in days, per one day. */
-  age_slope: number;
   /** How many traded tokens the fit used. */
   comps_used: number;
   /** How many traded tokens the fit set aside, and why. */
@@ -61,7 +62,7 @@ export interface FittedModel {
 }
 
 /** The model's version label: the dashboard names it and the rules quote it. */
-export const MODEL_VERSION = 'radar-2';
+export const MODEL_VERSION = 'radar-3';
 
 /** How many pre-token protocols the watchlist leaves out the early radar carries, by TVL. The
  *  snapshot holds 158 of them, so the board comes to 198 rows: the 40 on the watchlist and every
@@ -104,7 +105,6 @@ export interface BoardRow {
     curve_log10: number;
     category_offset: number;
     growth_log10: number;
-    age_log10: number;
     age_days: number | null;
   };
   farm: {
@@ -138,7 +138,6 @@ export interface RadarRow {
   curve_log10: number;
   category_offset: number;
   growth_log10: number;
-  age_log10: number;
   capital_usd: number;
   hold_days: number;
   gas_usd: number;
@@ -268,7 +267,7 @@ export function isFitComp(p: SnapshotProtocol): boolean {
   if (p.mcap_usd === null || p.mcap_usd <= 0 || p.tvl_usd <= 0) return false;
   if (p.category === 'CEX') return false;
   const ratio = p.mcap_usd / p.tvl_usd;
-  return ratio >= 0.005 && ratio <= 20;
+  return ratio >= 0.01 && ratio <= 10;
 }
 
 /** The snapshot's protocol by slug. */
@@ -306,7 +305,7 @@ function slopeOf(xs: number[], ys: number[]): number {
   return den > 0 ? num / den : 0;
 }
 
-/** Fit the model on the traded tokens: curve, category offsets, growth and tenure slopes. */
+/** Fit the model on the traded tokens: curve, category offsets and the growth slope. */
 export function fitModel(comps: SnapshotProtocol[], asOf: string): FittedModel {
   const points = comps.map((p) => ({ x: LOG10(p.tvl_usd), y: LOG10(p.mcap_usd!) }));
   const { intercept, slope } = theilSen(points);
@@ -333,14 +332,8 @@ export function fitModel(comps: SnapshotProtocol[], asOf: string): FittedModel {
     gRows.map((p) => Math.max(-60, Math.min(120, p.change_7d!))),
     gRows.map((p) => residual(p)),
   );
-  // Tenure: the residual's slope on the capped age in days.
-  const aRows = comps.filter((p) => ageDays(asOf, p.listed_at) !== null);
-  const age_slope = slopeOf(
-    aRows.map((p) => Math.min(ageDays(asOf, p.listed_at)!, 1095)),
-    aRows.map((p) => residual(p)),
-  );
   const setAside = { zero_or_negative_mcap: 0, ratio_outside_band: 0, cex: 0 };
-  return { intercept, slope, category_offsets, growth_slope, age_slope, comps_used: comps.length, comps_set_aside: setAside };
+  return { intercept, slope, category_offsets, growth_slope, comps_used: comps.length, comps_set_aside: setAside };
 }
 
 /** The four log10 terms and the implied value one protocol gets under a fitted model. */
@@ -348,18 +341,14 @@ export function predictValue(
   p: SnapshotProtocol,
   asOf: string,
   fit: FittedModel,
-): { implied: number; curve: number; cat: number; growth: number; age: number; ageDaysValue: number | null } {
+): { implied: number; curve: number; cat: number; growth: number; ageDaysValue: number | null } {
   const curve = fit.intercept + fit.slope * LOG10(p.tvl_usd);
   const cat = fit.category_offsets[p.category ?? 'None'] ?? 0;
   const growthRaw = finite(p.change_7d, 0);
   const growth = Math.max(-0.15, Math.min(0.15, fit.growth_slope * Math.max(-60, Math.min(120, growthRaw))));
   const ageDaysValue = ageDays(asOf, p.listed_at);
-  const age =
-    ageDaysValue === null
-      ? 0
-      : Math.max(-0.1, Math.min(0.1, fit.age_slope * Math.min(ageDaysValue, 1095)));
-  const implied = Math.max(1, Math.round(10 ** (curve + cat + growth + age)));
-  return { implied, curve, cat, growth, age, ageDaysValue };
+  const implied = Math.max(1, Math.round(10 ** (curve + cat + growth)));
+  return { implied, curve, cat, growth, ageDaysValue };
 }
 
 /** The traded tokens the curve learns from, and a count of the ones it sets aside. */
@@ -377,7 +366,7 @@ export function fitComps(snapshot: Snapshot): { comps: SnapshotProtocol[]; setAs
       continue;
     }
     const ratio = p.mcap_usd / p.tvl_usd;
-    if (ratio < 0.005 || ratio > 20) {
+    if (ratio < 0.01 || ratio > 10) {
       setAside.ratio_outside_band++;
       continue;
     }
@@ -565,12 +554,12 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
   return [
     {
       text: `Use a fresh wallet that holds only the funds you plan to farm, and keep its seed phrase offline.`,
-      cost: 'under $3 of gas for the first transaction',
+      cost: 'free to create a fresh wallet',
       time: '5 minutes',
     },
     {
       text: actionFor(p, capital, chain),
-      cost: `$${capital} of capital and about $${capital >= 150 ? 8 : 4} of gas`,
+      cost: `$${capital} of capital and about ${money2(gas)} of gas`,
       time: '15 minutes to set up',
     },
     {
@@ -637,6 +626,10 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
   scored.sort((a, b) => b.pred.implied - a.pred.implied || (a.p.slug < b.p.slug ? -1 : a.p.slug > b.p.slug ? 1 : 0));
   return scored.map((s, i) => {
     const range = ranges.get(s.p.slug) ?? { low: i + 1, high: i + 1 };
+    // The range covers the 200 refits; the row's own rank in the full fit belongs in it too
+    // (a refit can shift a tightly clustered row by one place in every round).
+    const rank_low = Math.min(range.low, i + 1);
+    const rank_high = Math.max(range.high, i + 1);
     return {
       rank: i + 1,
       slug: s.p.slug,
@@ -656,7 +649,6 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
         curve_log10: round4(s.pred.curve),
         category_offset: round4(s.pred.cat),
         growth_log10: round4(s.pred.growth),
-        age_log10: round4(s.pred.age),
         age_days: s.pred.ageDaysValue,
       },
       farm: {
@@ -668,8 +660,8 @@ export function buildBoard(snapshot: Snapshot, fit: FittedModel): BoardRow[] {
         drop_per_1000_usd: round2(s.drop),
         net_per_1000_usd: round2(s.drop - s.gas * transactionsFor(holdDaysFor(s.pred.ageDaysValue))),
         verdict: verdictFor(s.drop, s.gas * transactionsFor(holdDaysFor(s.pred.ageDaysValue))),
-        rank_low: range.low,
-        rank_high: range.high,
+        rank_low,
+        rank_high,
       },
       farm_steps: farmSteps(s.p, s.pred.ageDaysValue, s.pred.implied).map(stepText),
     };
@@ -713,7 +705,6 @@ export function radarRow(row: BoardRow): RadarRow {
     curve_log10: row.model.curve_log10,
     category_offset: row.model.category_offset,
     growth_log10: row.model.growth_log10,
-    age_log10: row.model.age_log10,
     capital_usd: row.farm.capital_usd,
     hold_days: row.farm.hold_days,
     gas_usd: row.farm.gas_usd,

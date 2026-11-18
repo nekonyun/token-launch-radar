@@ -8,7 +8,7 @@
 //
 // The dashboard is a static page, no framework and no network: dashboard/index.html, dashboard/app.css
 // and dashboard/app.js read /output/data.js, which this program writes from the same board. The model
-// is fitted, not assumed: the curve, the category offsets and the growth and tenure slopes all come
+// is fitted, not assumed: the curve, the category offsets and the growth slope all come
 // from the snapshot's own traded tokens, and the program prints the out-of-sample checks it ran.
 //
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
