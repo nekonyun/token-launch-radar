@@ -139,12 +139,12 @@
     const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
     let s = '';
     for (let gx = x0; gx <= x1; gx++) {
-      s += '<line x1="' + X(gx) + '" y1="' + T + '" x2="' + X(gx) + '" y2="' + (H - B) + '" stroke="#d8d7d0" stroke-width="1"/>';
-      s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#5c5c58" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
+      s += '<line x1="' + X(gx) + '" y1="' + T + '" x2="' + X(gx) + '" y2="' + (H - B) + '" stroke="#2b2144" stroke-width="1"/>';
+      s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#a79ec7" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
     }
     for (let gy = y0; gy <= y1; gy++) {
-      s += '<line x1="' + L + '" y1="' + Y(gy) + '" x2="' + (W - R) + '" y2="' + Y(gy) + '" stroke="#d8d7d0" stroke-width="1"/>';
-      s += '<text x="' + (L - 6) + '" y="' + (Y(gy) + 3) + '" fill="#5c5c58" font-size="10" text-anchor="end">' + money(Math.pow(10, gy)) + '</text>';
+      s += '<line x1="' + L + '" y1="' + Y(gy) + '" x2="' + (W - R) + '" y2="' + Y(gy) + '" stroke="#2b2144" stroke-width="1"/>';
+      s += '<text x="' + (L - 6) + '" y="' + (Y(gy) + 3) + '" fill="#a79ec7" font-size="10" text-anchor="end">' + money(Math.pow(10, gy)) + '</text>';
     }
     let path = '';
     for (let i = 0; i <= 40; i++) {
@@ -152,14 +152,14 @@
       const y = D.model.intercept + D.model.slope * x;
       path += (i === 0 ? 'M' : 'L') + X(x).toFixed(1) + ' ' + Y(y).toFixed(1) + ' ';
     }
-    s += '<path d="' + path + '" fill="none" stroke="#141414" stroke-width="2.5"/>';
+    s += '<path d="' + path + '" fill="none" stroke="#f5f2ff" stroke-width="2.5"/>';
     D.comps.forEach((c) => {
-      s += '<circle cx="' + X(lg(c.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(c.mcap_usd)).toFixed(1) + '" r="2.6" fill="#8a8a84" opacity="0.8"/>';
+      s += '<circle cx="' + X(lg(c.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(c.mcap_usd)).toFixed(1) + '" r="2.6" fill="#8b7fc0" opacity="0.8"/>';
     });
     D.rows.slice(0, 10).forEach((r, i) => {
-      s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#2b4eff" stroke-width="1.8"/>';
+      s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#a855f7" stroke-width="1.8"/>';
       const dy = i % 2 === 0 ? -9 : 11;
-      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#141414" font-size="10">#' + r.rank + '</text>';
+      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#f5f2ff" font-size="10">#' + r.rank + '</text>';
     });
     $('chart').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
   })();

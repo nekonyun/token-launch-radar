@@ -20,7 +20,7 @@ Node 22 or later, standard library only, no network. The run is deterministic: t
 - `main.ts` — reads the snapshot, fits the model, validates it, builds the board and writes the outputs.
 - `lib/model.ts` — the model: snapshot parsing, Theil-Sen fit, category and growth adjustments, leave-one-out and walk-forward validation, 200-refit rank ranges, farm plans and verdicts.
 - `vendor/makefun-board.ts` — the kit's dossier builder, vendored verbatim.
-- `dashboard/` — the static offline dashboard (`index.html`, `app.css`, `app.js`, 31,007 bytes total): sortable and filterable board, detail view per protocol, live-token view, method and validation panel with a log-log scatter of the fit. Clean pixel style, black and white with one blue accent, system monospace only, and PIP — an original pixel radar-bot drawn as inline SVG — in the masthead.
+- `dashboard/` — the static offline dashboard (`index.html`, `app.css`, `app.js`, 39,058 bytes total): sortable and filterable board, detail view per protocol, live-token view, method and validation panel with a log-log scatter of the fit. Near-black pixel style after the reference pin (vivid purple on near-black, chunky pixel type, Undertale-style dialog boxes, a field of purple pixel blooms), system monospace only, and PIP — an original pixel flower drawn as inline SVG — in the masthead. No characters.
 - `screenshots/` — board, detail and filtered views (board and filtered 1400×900, detail 1400×1150 so the whole farm plan fits).
 - `board.json` — the 198-row board the run produces. `data.js` — the same data as a script the dashboard reads. `dossier.json` — the kit's dossier, byte-identical to `buildDossier` output.
 - `.makefun/owner.json` — the make.fun wallet that owns this entry.
