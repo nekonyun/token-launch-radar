@@ -86,5 +86,5 @@
   "launch_watch": "GeckoTerminal keyless /networks/{eth,base,solana}/new_pools (2026-11-18T08:30Z), filtered to pools created within 48h with FDV >= $100K.",
   "token_born": "DexScreener official API /latest/dex/search (2026-11-18) for all 40 watchlist names; GeckoTerminal keyless /search/pools (2026-11-18) for the 11 name-match candidates."
  },
- "tvl_sanity": "Reconstructed TVL at 2026-11-14 vs snapshot tvl_usd for 104 comps: median abs diff 0.31%, mean 1.22%; worst stusdt 80.0% (pit $9,491,269 vs snapshot $47,373,718). Median <= 2% passes the design gate."
+ "tvl_sanity": "Reconstructed TVL at 2026-11-14 vs snapshot tvl_usd for 103 comps (uranium.io has no reconstructed TVL): median abs diff 0.31%, mean 1.22%; worst stusdt 80.0% (pit $9,491,269 vs snapshot $47,373,718). Median <= 2% passes the design gate."
 }

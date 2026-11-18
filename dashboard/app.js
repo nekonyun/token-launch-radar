@@ -163,7 +163,7 @@
   $('experimentTable').querySelector('tbody').innerHTML = D.experiments.map((x) => '<tr><td>' + esc(x.signal) + '</td><td class="num">' + esc(x.slope) + '</td><td class="num">' + esc(x.loo) + '</td><td class="num">' + esc(x.wf) + '</td><td>' + esc(x.decision) + '</td></tr>').join('');
   const em = D.enrichment_meta;
   const tb = em.watchlist_token_born;
-  $('provenance').textContent = 'Fees, TVL history and raises come from the DefiLlama free API, fetched 18 Nov 2026 and reconstructed point-in-time to 14 Nov 2026 (fees are sums of daily fees; DefiLlama exposes no daily revenue series, so these are fees, not revenue). TVL reconstructed to 14 Nov 2026 matches the snapshot within 0.31% at the median across the 104 comps. '
+  $('provenance').textContent = 'Fees, TVL history and raises come from the DefiLlama free API, fetched 18 Nov 2026 and reconstructed point-in-time to 14 Nov 2026 (fees are sums of daily fees; DefiLlama exposes no daily revenue series, so these are fees, not revenue). TVL reconstructed to 14 Nov 2026 matches the snapshot within 0.31% at the median across the 103 comps with a reconstructed TVL. '
     + D.tvl_sanity + ' ' + em.comps_fees_365d_gt0 + ' of 104 comps and 115 of 198 board rows have positive annualized fees; 75 of 104 comps have a fees adapter at all.';
   $('tokenBorn').textContent = 'Every watchlist protocol was checked on DexScreener (18 Nov 2026), with GeckoTerminal as a second source for the 11 name matches: '
     + (tb.likely_token || 0) + ' likely already have a token trading, '
@@ -233,7 +233,7 @@
       + ' · 90d: ' + (r.tvl_growth_90d_pct === null || r.tvl_growth_90d_pct === undefined ? '—' : pct(r.tvl_growth_90d_pct)) + '.' + jump + dd;
     const raisesLine = (!r.raises || r.raises.length === 0)
       ? 'No raises recorded before 14 Nov 2026.'
-      : r.raises.map((x) => esc(x.date) + ' · ' + esc(x.round || 'round') + ' · $' + (x.amount_usd_m === null ? '?' : x.amount_usd_m) + 'M' + (x.lead && x.lead.length ? ' · led by ' + esc(x.lead.join(', ')) : '')).join('<br>') + '<br>Total raised: $' + (r.raises_total_usd_m === null || r.raises_total_usd_m === undefined ? '?' : r.raises_total_usd_m) + 'M.';
+      : [...r.raises].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0)).map((x) => esc(x.date) + ' · ' + esc(x.round || 'round') + ' · $' + (x.amount_usd_m === null ? '?' : x.amount_usd_m) + 'M' + (x.lead && x.lead.length ? ' · led by ' + esc(x.lead.join(', ')) : '')).join('<br>') + '<br>Total raised: $' + (r.raises_total_usd_m === null || r.raises_total_usd_m === undefined ? '?' : r.raises_total_usd_m) + 'M.';
     const tb = r.token_born;
     const tokenLine = !tb ? 'Token check runs on watchlist protocols only.'
       : '<strong>' + esc(TOKEN_LABEL[tb.verdict] || tb.verdict) + '</strong> (checked ' + esc(tb.checked) + ', sources: ' + esc(tb.sources.join(' + ')) + '). ' + esc(tb.note)

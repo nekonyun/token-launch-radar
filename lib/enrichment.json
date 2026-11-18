@@ -1944,7 +1944,17 @@
   "slug": "doppler-finance",
   "token_born": {
    "checked": "2026-11-18",
-   "note": "XDP (Doppler Finance) trades on Ethereum, FDV about $171M on GeckoTerminal; both sources agree.",
+   "evidence": {
+    "chain": "base",
+    "dex": "uniswap",
+    "liquidity_usd": 780894.25,
+    "pair_address": "0x2df380544b88adb3ad0a94100dcc45fd705aae2d",
+    "pair_created_at_ms": 1790599925000,
+    "token_address": "0x07b3D902783c3C12b077508c3B5c00113d1291D0",
+    "token_name": "Doppler",
+    "token_symbol": "XDP"
+   },
+   "note": "XDP (Doppler Finance) trades on Base, FDV about $169M on GeckoTerminal; both sources agree.",
    "sources": [
     "dexscreener",
     "geckoterminal"
