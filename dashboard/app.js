@@ -288,7 +288,7 @@
   const coSave = () => { try { localStorage.setItem(CO_KEY, JSON.stringify(coList)); return true; } catch (e) { return false; } };
   function coImgTag(url, hint) {
     if (url.indexOf('data:') === 0) return '<img src="' + esc(url) + '" alt="">';
-    return '<img src="' + esc(url) + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.hidden=false">'
+    return '<img src="' + esc(url) + '" alt="" onerror="var n=this.nextElementSibling;if(n){this.style.display=\'none\';n.hidden=false}">'
       + '<p class="co-imgfail" hidden>Image failed to load — check the link or connection.</p>'
       + (hint ? '<p class="co-imghint">From an imgur.com page link.</p>' : '');
   }
