@@ -13,9 +13,22 @@
 //   growth     a fitted slope on the seven-day TVL change, contribution clamped to +/-0.15
 //   implied    10 ^ (curve + category + growth), rounded to whole dollars
 //
-// Tenure (days since listing) was tried and dropped: its fitted slope is ~0, and leaving it out
-// improves both out-of-sample checks (leave-one-out and walk-forward), so the model does not
-// price age. The farm plan still uses the age for its hold length, which is a different question.
+// Tenure (days since listing) was tried and dropped, twice. The first pass found its fitted
+// slope near zero and leaving it out better on both out-of-sample checks. The second pass
+// (radar-3, same snapshot) re-tested five forms, each fitted on the residual after curve +
+// category + growth, contribution clamped to +/-0.15 like growth, undated comps at zero:
+// log10(age) slope -0.0304 (LOO x3.14, 48.1% within 3x; walk-forward x2.94, 51.3%),
+// log10(min(age,365)) slope +0.2197 (LOO x3.22, 47.1%; walk-forward x2.28, 61.5%),
+// log10(min(age,730)) slope -0.1735 (LOO x3.22, 46.2%; walk-forward x2.33, 61.5%),
+// sqrt(age in years) slope -0.0155 (LOO x3.14, 49.0%; walk-forward x2.35, 61.5%), and
+// age buckets (<365d +0.068, 365-1095d -0.018, >1095d +0.047; LOO x3.04, 49.0%;
+// walk-forward x2.18, 59.0%), against the no-tenure baseline (LOO x2.96, 51.0%;
+// walk-forward x2.26, 61.5%). Every form worsens leave-one-out; the one form whose
+// walk-forward median is a touch better (buckets) has near-zero, non-monotonic offsets and a
+// worse within-3x share. The slope's sign flips across forms (-0.03 uncapped, +0.22 capped
+// at 365, -0.17 capped at 730) and the capped-365 slope is carried by 8 young comps: noise,
+// not signal. So the model does not price age. Age still prices the farm plan: the hold
+// length comes from it, which is a different question.
 //
 // Theil-Sen (median pairwise slope) is used because the traded tokens' market-cap-to-TVL ratios
 // span four orders of magnitude: a least-squares fit would be dragged by the extremes. The fit is
@@ -503,7 +516,53 @@ export function transactionsFor(holdDays: number): number {
   return 2 + Math.ceil(holdDays / 7);
 }
 
-/** The category's one action, in the words a farmer can follow. */
+/** The gas token a chain settles fees in, or null when the chain's token is not stated here:
+ *  only chains whose gas token is a settled fact are named, the rest stay generic. */
+export function gasTokenFor(p: SnapshotProtocol): string | null {
+  const chain = chainOf(p).toLowerCase();
+  if (
+    chain.includes('ethereum') ||
+    chain.includes('base') ||
+    chain.includes('arbitrum') ||
+    chain.includes('optimism') ||
+    chain.includes('blast') ||
+    chain.includes('ink') ||
+    chain.includes('unichain')
+  )
+    return 'ETH';
+  if (chain.includes('solana')) return 'SOL';
+  if (chain.includes('polygon')) return 'POL';
+  if (chain.includes('sui')) return 'SUI';
+  if (chain.includes('aptos')) return 'APT';
+  if (chain.includes('bnb')) return 'BNB';
+  if (chain.includes('avalanche')) return 'AVAX';
+  if (chain.includes('fantom')) return 'FTM';
+  if (chain.includes('tron')) return 'TRX';
+  if (chain.includes('hyperliquid')) return 'HYPE';
+  if (chain.includes('monad')) return 'MON';
+  return null;
+}
+
+/** A gas amount in words: the dollars and, where the chain's token is known, the token. */
+function gasWords(gas: number, token: string | null): string {
+  return token === null ? `${money2(gas)} of gas` : `${money2(gas)} of gas (${token})`;
+}
+
+/** The weekly repeat, in the category's own action, so the plan names the work instead of a slogan. */
+function weeklyActionFor(p: SnapshotProtocol): string {
+  const c = (p.category ?? '').toLowerCase();
+  if (c.includes('lend') || c.includes('cdp') || c.includes('collateral')) return 'supply a little more or borrow a small amount';
+  if (c.includes('dex') || c.includes('yield') || c.includes('leveraged farm')) return 'add a little liquidity or swap a small amount in the pool';
+  if (c.includes('bridge')) return 'bridge a small amount across again';
+  if (c.includes('staking') || c.includes('restak')) return 'restake the rewards or add a small stake';
+  if (c.includes('perpetual') || c.includes('derivative')) return 'open and close one small hedge';
+  if (c.includes('prediction')) return 'place one small market position';
+  if (c.includes('curator') || c.includes('allocator')) return 'top up the vault a little';
+  if (c.includes('stable')) return 'mint or deposit a small amount of the stable asset';
+  if (c.includes('rwa')) return 'mint a small amount of the yield asset';
+  if (c.includes('insurance')) return 'top up the cover a little';
+  return 'make one small qualifying action';
+}
 function actionFor(p: SnapshotProtocol, capital: number, chain: string): string {
   const c = (p.category ?? '').toLowerCase();
   const name = p.name;
@@ -540,7 +599,10 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
   const capital = capitalFor(p);
   const hold = holdDaysFor(age);
   const gas = gasFor(p);
+  const token = gasTokenFor(p);
+  const gasW = gasWords(gas, token);
   const tx = transactionsFor(hold);
+  const weeks = Math.max(1, Math.ceil(hold / 7));
   const totalCost = gas * tx;
   const drop = dropPer1000(implied, p.tvl_usd);
   const net = drop - totalCost;
@@ -553,18 +615,18 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
         : `Verdict SKIP: a $${TICKET_USD} position earns about ${money2(drop)} of airdrop against ${money2(totalCost)} of gas over ${tx} transactions, net ${money2(net)}: the drop does not cover the gas, so farm a smaller ticket or wait for a cheaper chain.`;
   return [
     {
-      text: `Use a fresh wallet that holds only the funds you plan to farm, and keep its seed phrase offline.`,
-      cost: 'free to create a fresh wallet',
+      text: `Use a fresh wallet that holds only the funds you plan to farm, and fund it with about ${money2(gas * 2)} of gas${token === null ? '' : ` (${token})`} on ${chain} before you start; keep its seed phrase offline.`,
+      cost: `about ${money2(gas * 2)} of gas${token === null ? '' : ` (${token})`}, free to create the wallet`,
       time: '5 minutes',
     },
     {
       text: actionFor(p, capital, chain),
-      cost: `$${capital} of capital and about ${money2(gas)} of gas`,
+      cost: `$${capital} of capital and about ${gasW}`,
       time: '15 minutes to set up',
     },
     {
-      text: `Make one qualifying action each week, such as a deposit, a borrow, a swap or a vote.`,
-      cost: `about ${money2(gas)} of gas a week`,
+      text: `Make one qualifying action each week: ${weeklyActionFor(p)}. Do it ${weeks} times across the ${hold}-day hold.`,
+      cost: `about ${gasW} a week, ${money2(gas * weeks)} across the hold`,
       time: '10 minutes a week',
     },
     {
@@ -573,8 +635,8 @@ export function farmSteps(p: SnapshotProtocol, age: number | null, implied: numb
       time: `${hold} days`,
     },
     {
-      text: `Before you withdraw, open the protocol's own points or rewards page and claim only from the link it publishes.`,
-      cost: 'no fee to check, and never pay to claim',
+      text: `Before you withdraw, open the protocol's own points or rewards page and claim only from the link it publishes; the claim itself costs about ${gasW}.`,
+      cost: `about ${gasW} to claim, and never pay to claim`,
       time: '10 minutes',
     },
     {

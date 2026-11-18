@@ -27,6 +27,28 @@
   ].map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
   $('modelVersion').textContent = D.model_version;
 
+  /* Proof line + formula + filter: filled from the fitted model itself, so the page
+     can never disagree with the code that scored it. */
+  const v = D.validation;
+  const fmt = (x) => '×' + x.toFixed(2);
+  const pct0 = (x) => (x * 100).toFixed(0) + '%';
+  $('proofLine').innerHTML = 'Out of sample: leave-one-out miss <b>' + fmt(v.loo_median_miss) + '</b> (' + pct0(v.loo_within_3x) + ' within 3×)'
+    + ' &middot; walk-forward <b>' + fmt(v.walkforward_median_miss) + '</b> (' + pct0(v.walkforward_within_3x) + ' within 3×)'
+    + ' &middot; flat multiple <b>' + fmt(v.flat_median_miss) + '</b> (' + pct0(v.flat_within_3x) + ' within 3×)';
+  const m = D.model;
+  const sa = m.comps_set_aside;
+  const tradedTotal = m.comps_used + sa.zero_or_negative_mcap + sa.ratio_outside_band + sa.cex;
+  $('formula').textContent = 'log10(implied value) = ' + m.intercept.toFixed(4) + ' + ' + m.slope.toFixed(4)
+    + ' · log10(TVL) + category offset ±0.25 + growth ±0.15 + tenure 0 (tested, not priced)';
+  $('formulaText').textContent = 'The curve is a Theil–Sen fit of log market cap against log TVL over the '
+    + m.comps_used + ' traded protocols that survive the filter below. Category offsets are the mean residual per category, shrunk toward zero and capped at ±0.25 in log10. Growth is the fitted slope on the 7-day TVL change ('
+    + m.growth_slope.toFixed(4) + ' per 1%), clamped to ±0.15. Tenure (days listed) was tested in five forms and left out: every form worsens leave-one-out, so the model does not price age. Nothing is hard-coded by name: the fit is recomputed from the snapshot on every run. The flat multiple is '
+    + v.flat_multiple.toFixed(2) + '×.';
+  $('filterText').textContent = 'Of ' + tradedTotal + ' traded protocols, ' + sa.zero_or_negative_mcap
+    + ' are set aside for a zero or negative market cap, ' + sa.ratio_outside_band
+    + ' for a market-cap-to-TVL ratio outside 0.01–10, and ' + sa.cex
+    + ' for being exchanges. A token at 400× its TVL is not priced on TVL at all; a token at 0.001× is effectively dead. The filter is stated here so the reader can disagree with it.';
+
   /* Category filter options. */
   const cats = [...new Set(D.rows.map((r) => r.category).filter(Boolean))].sort();
   cats.forEach((c) => { const o = document.createElement('option'); o.value = c; o.textContent = c; $('cat').appendChild(o); });
@@ -95,13 +117,11 @@
   }).join('');
 
   /* Method: proof table + coverage. */
-  const v = D.validation;
-  const fmt = (x) => '×' + x.toFixed(2);
   $('proofTable').querySelector('tbody').innerHTML = [
     ['Leave-one-out median miss', fmt(v.loo_median_miss), fmt(v.flat_median_miss)],
-    ['Within 3× (leave-one-out)', (v.loo_within_3x * 100).toFixed(0) + '%', (v.flat_within_3x * 100).toFixed(0) + '%'],
+    ['Within 3× (leave-one-out)', pct0(v.loo_within_3x), pct0(v.flat_within_3x)],
     ['Walk-forward median miss', fmt(v.walkforward_median_miss), '—'],
-    ['Within 3× (walk-forward)', (v.walkforward_within_3x * 100).toFixed(0) + '%', '—'],
+    ['Within 3× (walk-forward)', pct0(v.walkforward_within_3x), '—'],
   ].map((r) => '<tr><td>' + r[0] + '</td><td class="num">' + r[1] + '</td><td class="num">' + r[2] + '</td></tr>').join('');
   $('coverage').textContent = 'The board ranks ' + D.board_size + ' protocols: all ' + D.watchlist_size
     + ' on the watchlist, plus ' + D.early_size + ' more pre-token protocols the list leaves out,'
@@ -119,12 +139,12 @@
     const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
     let s = '';
     for (let gx = x0; gx <= x1; gx++) {
-      s += '<line x1="' + X(gx) + '" y1="' + T + '" x2="' + X(gx) + '" y2="' + (H - B) + '" stroke="#221f1a" stroke-width="1"/>';
-      s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#6b655c" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
+      s += '<line x1="' + X(gx) + '" y1="' + T + '" x2="' + X(gx) + '" y2="' + (H - B) + '" stroke="#d8d7d0" stroke-width="1"/>';
+      s += '<text x="' + X(gx) + '" y="' + (H - B + 18) + '" fill="#5c5c58" font-size="10" text-anchor="' + (gx === x1 ? 'end' : gx === x0 ? 'start' : 'middle') + '">' + money(Math.pow(10, gx)) + '</text>';
     }
     for (let gy = y0; gy <= y1; gy++) {
-      s += '<line x1="' + L + '" y1="' + Y(gy) + '" x2="' + (W - R) + '" y2="' + Y(gy) + '" stroke="#221f1a" stroke-width="1"/>';
-      s += '<text x="' + (L - 6) + '" y="' + (Y(gy) + 3) + '" fill="#6b655c" font-size="10" text-anchor="end">' + money(Math.pow(10, gy)) + '</text>';
+      s += '<line x1="' + L + '" y1="' + Y(gy) + '" x2="' + (W - R) + '" y2="' + Y(gy) + '" stroke="#d8d7d0" stroke-width="1"/>';
+      s += '<text x="' + (L - 6) + '" y="' + (Y(gy) + 3) + '" fill="#5c5c58" font-size="10" text-anchor="end">' + money(Math.pow(10, gy)) + '</text>';
     }
     let path = '';
     for (let i = 0; i <= 40; i++) {
@@ -132,14 +152,14 @@
       const y = D.model.intercept + D.model.slope * x;
       path += (i === 0 ? 'M' : 'L') + X(x).toFixed(1) + ' ' + Y(y).toFixed(1) + ' ';
     }
-    s += '<path d="' + path + '" fill="none" stroke="#d29a5b" stroke-width="2"/>';
+    s += '<path d="' + path + '" fill="none" stroke="#141414" stroke-width="2.5"/>';
     D.comps.forEach((c) => {
-      s += '<circle cx="' + X(lg(c.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(c.mcap_usd)).toFixed(1) + '" r="2.6" fill="#e8c07a" opacity="0.55"/>';
+      s += '<circle cx="' + X(lg(c.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(c.mcap_usd)).toFixed(1) + '" r="2.6" fill="#8a8a84" opacity="0.8"/>';
     });
     D.rows.slice(0, 10).forEach((r, i) => {
-      s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#e8c07a" stroke-width="1.6"/>';
+      s += '<circle cx="' + X(lg(r.tvl_usd)).toFixed(1) + '" cy="' + Y(lg(r.implied_value_usd)).toFixed(1) + '" r="6" fill="none" stroke="#2b4eff" stroke-width="1.8"/>';
       const dy = i % 2 === 0 ? -9 : 11;
-      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#f2ede6" font-size="10">#' + r.rank + '</text>';
+      s += '<text x="' + (X(lg(r.tvl_usd)) + 8) + '" y="' + (Y(lg(r.implied_value_usd)) + dy) + '" fill="#141414" font-size="10">#' + r.rank + '</text>';
     });
     $('chart').innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Market cap against TVL, log scales, with the fitted curve">' + s + '</svg>';
   })();
