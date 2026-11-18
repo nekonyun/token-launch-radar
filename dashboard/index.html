@@ -133,7 +133,7 @@
       </table>
       <p>Leave-one-out refits the model once per traded token, holding one out each time. Walk-forward fits only the older half of the dated traded tokens and tests the newer half. The flat multiple is the median market-cap-to-TVL ratio of the traded tokens, the simplest rule that prices on TVL alone. The curve beats it on both checks, and on the share of tokens predicted within 3&times;.</p>
       <h3>Tenure, tested and not priced</h3>
-      <p>How long a protocol has run with no token was tested as a term in the value model in five forms, each fitted on the residual after curve, category and growth, its contribution clamped to &plusmn;0.15 like growth, undated protocols at zero. None of them earns its place:</p>
+      <p>How long a protocol has run with no token was tested as a term in the value model in five forms, each fitted on the residual after curve, category and growth, its contribution clamped to &plusmn;0.15 like growth; protocols with no listed date are left out of the fit (they take zero when priced). None of them earns its place:</p>
       <table class="proof" id="tenureTable">
         <thead><tr><th>Tenure form</th><th class="num">Fitted slope</th><th class="num">Leave-one-out</th><th class="num">Walk-forward</th></tr></thead>
         <tbody>
