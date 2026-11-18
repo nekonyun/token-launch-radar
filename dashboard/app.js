@@ -1,4 +1,4 @@
-/* Dashboard logic. Reads window.RADAR; no network. */
+/* Dashboard logic; no network. */
 (function () {
   'use strict';
   const D = window.RADAR;
@@ -27,7 +27,7 @@
   ].map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
   $('modelVersion').textContent = D.model_version;
 
-  /* Proof + formula, filled from the fitted model. */
+  /* Proof + formula. */
   const v = D.validation;
   const fmt = (x) => '×' + x.toFixed(2);
   const pct0 = (x) => (x * 100).toFixed(0) + '%';
@@ -156,7 +156,7 @@
     + ' on the watchlist, plus ' + D.early_size + ' more pre-token protocols the list leaves out,'
     + ' chosen by TVL on the same rule. ' + D.live_size + ' traded protocols are shown on the Live Tokens tab.';
 
-  /* Method: experiments + provenance. */
+  /* Method: experiments. */
   $('experimentTable').querySelector('tbody').innerHTML = D.experiments.map((x) => '<tr><td>' + esc(x.signal) + '</td><td class="num">' + esc(x.slope) + '</td><td class="num">' + esc(x.loo) + '</td><td class="num">' + esc(x.wf) + '</td><td>' + esc(x.decision) + '</td></tr>').join('');
   const em = D.enrichment_meta;
   const tb = em.watchlist_token_born;
@@ -394,8 +394,8 @@
     coRender();
   });
 
-  /* Share card: 1200x800 social card, local canvas; PIP bloom colours random per petal (seeded when given). */
-  function coCard(c, sd) { let s = (sd || Math.random() * 1e9) | 0; const R = () => (s = (s * 9301 + 49297) % 233280) / 233280, v = document.createElement('canvas'), x = v.getContext('2d'), g = x.createLinearGradient(0, 0, 1200, 800); v.width = 1200; v.height = 800; g.addColorStop(0, '#7c3aed'); g.addColorStop(1, '#2563eb'); x.fillStyle = g; x.fillRect(0, 0, 1200, 800); x.fillStyle = 'rgba(255,255,255,.07)'; x.font = '700 26px sans-serif'; for (let i = 0; i < 7; i++) x.fillText('TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR', 20, 90 + i * 110); x.strokeStyle = 'rgba(255,255,255,.4)'; x.lineWidth = 3; x.beginPath(); x.arc(1060, 120, 130, 0, 7); x.stroke(); x.strokeStyle = '#fff'; x.lineWidth = 10; x.beginPath(); x.roundRect(14, 14, 1172, 772, 36); x.stroke(); x.fillStyle = 'rgba(255,255,255,.25)'; x.beginPath(); x.roundRect(60, 56, 168, 46, 23); x.fill(); x.fillStyle = '#fff'; x.fillText(c.example ? 'CONTOH' : 'CALLOUT', 82, 86); x.fillStyle = 'rgba(255,255,255,.85)'; x.fillText('TOKEN LAUNCH RADAR', 60, 740); const P = ['#a855f7', '#7c3aed', '#c084fc', '#9333ea', '#6d28d9', '#e879f9'], F = [5, 0, 6, 5, 5, 11, 6, 5, 0, 5, 5, 6, 11, 5, 5, 6, 1, 1, 4, 4, 11, 1, 4, 4, 1, 11, 4, 4, 11, 11, 4, 4]; for (let i = 0; i < 32; i += 4) { x.fillStyle = P[R() * 6 | 0]; x.fillRect(1020 + F[i] * 9, 560 + F[i + 1] * 9, F[i + 2] * 9, F[i + 3] * 9); } x.fillStyle = '#e9d5ff'; x.fillRect(1074, 614, 36, 36); x.fillStyle = '#fff'; x.font = '700 52px sans-serif'; let L = '', y = 240; (c.text || '').slice(0, 200).split(' ').forEach((w) => { const t = L ? L + ' ' + w : w; if (x.measureText(t).width > 880 && L) { x.fillText(L, 60, y); L = w; y += 64; } else L = t; }); x.fillText(L, 60, y); return v; }
+  /* Share card: 1200x800 canvas; bloom colours random, seeded. */
+  function coCard(c, sd) { let s = (sd || Math.random() * 1e9) | 0; const R = () => (s = (s * 9301 + 49297) % 233280) / 233280,v = document.createElement('canvas'),x = v.getContext('2d'),g = x.createLinearGradient(0,0,1200,800); v.width = 1200; v.height = 800; g.addColorStop(0,'#7c3aed'); g.addColorStop(1,'#2563eb'); x.fillStyle = g; x.fillRect(0,0,1200,800); [[300,400,270,10],[1010,650,210,7]].forEach(([a,b,r,o]) => { x.fillStyle = 'rgba(255,255,255,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.fill(); }); x.fillStyle = 'rgba(255,255,255,.07)'; x.font = '700 26px sans-serif'; for (let i = 0; i < 7; i++) x.fillText('TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR  TOKEN LAUNCH RADAR',20,90 + i * 110); [[300,400,215,55,6],[300,400,238,30,3],[1060,140,80,40,4]].forEach(([a,b,r,o,w]) => { x.lineWidth = w; x.strokeStyle = 'rgba(255,255,255,.' + o + ')'; x.beginPath(); x.arc(a,b,r,0,7); x.stroke(); }); x.lineWidth = 4; x.strokeStyle = 'rgba(255,255,255,.5)'; x.beginPath(); x.moveTo(80,190); x.quadraticCurveTo(170,120,250,175); x.stroke(); x.strokeStyle = '#fff'; x.lineWidth = 10; x.beginPath(); x.roundRect(14,14,1172,772,36); x.stroke(); x.fillStyle = 'rgba(255,255,255,.25)'; x.beginPath(); x.roundRect(60,56,168,46,23); x.fill(); x.fillStyle = '#fff'; x.fillText(c.example ? 'CONTOH' : 'CALLOUT',82,86); x.fillStyle = 'rgba(255,255,255,.85)'; x.fillText('TOKEN LAUNCH RADAR',60,740); const P = ['#a855f7','#7c3aed','#c084fc','#9333ea','#6d28d9','#e879f9','#f472b6','#60a5fa'],F = [5,0,6,5,5,11,6,5,0,5,5,6,11,5,5,6,1,1,4,4,11,1,4,4,1,11,4,4,11,11,4,4],fl = (a,b,u) => { for (let i = 0; i < 32; i += 4) { x.fillStyle = P[R() * 8 | 0]; x.fillRect(a + F[i] * u,b + F[i + 1] * u,F[i + 2] * u,F[i + 3] * u); } x.fillStyle = '#e9d5ff'; x.fillRect(a + 6 * u,b + 6 * u,4 * u,4 * u); }; fl(140,240,20); fl(950,620,8); fl(90,560,8); x.fillStyle = '#fff'; x.font = '700 64px sans-serif'; let L = '',y = 240; (c.text || '').slice(0,120).split(' ').forEach((w) => { const t = L ? L + ' ' + w : w; if (x.measureText(t).width > 620 && L) { x.fillText(L,520,y); L = w; y += 74; } else L = t; }); x.fillText(L,520,y); x.strokeStyle = 'rgba(255,255,255,.6)'; x.lineWidth = 4; x.beginPath(); x.moveTo(520,y + 28); x.quadraticCurveTo(720,y + 48,940,y + 28); x.stroke(); return v; }
   function coShare(c) { const a = document.createElement('a'); a.href = coCard(c).toDataURL('image/png'); a.download = 'callout.png'; a.click(); }
   window.coCard = coCard;
 
